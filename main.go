@@ -42,8 +42,28 @@ func Multiple3And5(number int) int {
 	return acc
 }
 
+func IsPrime(n int) bool {
+	/*
+		Define a function that takes an integer argument and returns a logical value true or false
+		depending on if the integer is a prime. Per Wikipedia, a prime number ( or a prime )
+		is a natural number greater than 1 that has no positive divisors other than 1 and itself.
+	*/
+
+	if n <= 0 || n == 1 {
+		return false
+	}
+
+	for i := 2; i < n; i++ {
+		if n%i == 0 {
+			return false
+		}
+	}
+	return true
+}
+
 func main() {
 	fmt.Println("Codewars")
 	fmt.Println(ToCamelCase("to_camel-case"))
-	Multiple3And5(10)
+	fmt.Println(Multiple3And5(10))
+	fmt.Println(IsPrime(8))
 }
