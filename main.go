@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"slices"
 	"strings"
 	"unicode"
 )
@@ -70,11 +71,19 @@ func StringEndsWith(str, ending string) bool {
 	return strings.HasSuffix(str, ending)
 }
 
+func MinMax(arr []int) [2]int {
+	/*
+		Write a function that returns both the minimum and maximum number of the given list/array.
+	*/
+	return [2]int{slices.Min(arr), slices.Max(arr)}
+}
+
 func main() {
 	fmt.Println("Codewars")
 	fmt.Println(ToCamelCase("to_camel-case"))
 	fmt.Println(Multiple3And5(10))
 	fmt.Println(IsPrime(8))
 	fmt.Println(StringEndsWith("banana", "ana"))
+	fmt.Println(MinMax([]int{2334454, 5}))
 
 }
