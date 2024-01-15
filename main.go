@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"strings"
 	"unicode"
 )
 
@@ -61,9 +62,22 @@ func IsPrime(n int) bool {
 	return true
 }
 
+func StringEndsWith(str, ending string) bool {
+	/*
+		Complete the solution so that it returns true if the first argument(string)
+		passed in ends with the 2nd argument (also a string).
+	*/
+	if strings.Contains(str, ending) {
+		return true
+	}
+	return false
+}
+
 func main() {
 	fmt.Println("Codewars")
 	fmt.Println(ToCamelCase("to_camel-case"))
 	fmt.Println(Multiple3And5(10))
 	fmt.Println(IsPrime(8))
+	fmt.Println(StringEndsWith("banana", "ana"))
+
 }
