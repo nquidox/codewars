@@ -78,6 +78,10 @@ func MinMax(arr []int) [2]int {
 	return [2]int{slices.Min(arr), slices.Max(arr)}
 }
 
+func IsTriangle(a, b, c int) bool {
+	return a+b > c && a+c > b && b+c > a
+}
+
 func main() {
 	fmt.Println("Codewars")
 	fmt.Println(ToCamelCase("to_camel-case"))
@@ -85,5 +89,6 @@ func main() {
 	fmt.Println(IsPrime(8))
 	fmt.Println(StringEndsWith("banana", "ana"))
 	fmt.Println(MinMax([]int{2334454, 5}))
+	fmt.Println(IsTriangle(1, 2, 2))
 
 }
