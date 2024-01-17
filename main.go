@@ -82,13 +82,36 @@ func IsTriangle(a, b, c int) bool {
 	return a+b > c && a+c > b && b+c > a
 }
 
+func FirstNonRepeating(str string) string {
+	/*
+		Write a function named first_non_repeating_letter that takes a string input
+		and returns the first character that is not repeated anywhere in the string.
+	*/
+	runes := []rune(str)
+	for i := 0; i < len(runes); i++ {
+		letter := runes[i]
+		counter := 0
+		for j := 0; j < len(runes); j++ {
+			if unicode.ToLower(letter) == unicode.ToLower(runes[j]) {
+				counter++
+			}
+		}
+		if counter == 1 {
+			return string(letter)
+		}
+	}
+	return ""
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(ToCamelCase("to_camel-case"))
-	fmt.Println(Multiple3And5(10))
-	fmt.Println(IsPrime(8))
-	fmt.Println(StringEndsWith("banana", "ana"))
-	fmt.Println(MinMax([]int{2334454, 5}))
-	fmt.Println(IsTriangle(1, 2, 2))
-
+	/*
+		fmt.Println(ToCamelCase("to_camel-case"))
+		fmt.Println(Multiple3And5(10))
+		fmt.Println(IsPrime(8))
+		fmt.Println(StringEndsWith("banana", "ana"))
+		fmt.Println(MinMax([]int{2334454, 5}))
+		fmt.Println(IsTriangle(1, 2, 2))
+	*/
+	fmt.Println(FirstNonRepeating("sTreSS"))
 }
