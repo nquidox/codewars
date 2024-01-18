@@ -103,6 +103,27 @@ func FirstNonRepeating(str string) string {
 	return ""
 }
 
+func IsValidWalk(walk []rune) bool {
+	if len(walk) != 10 {
+		return false
+	} else {
+		x, y := 0, 0
+		for _, j := range walk {
+			switch j {
+			case 'n':
+				y++
+			case 's':
+				y--
+			case 'e':
+				x--
+			case 'w':
+				x++
+			}
+		}
+		return x == 0 && y == 0
+	}
+}
+
 func main() {
 	fmt.Println("Codewars")
 	/*
@@ -114,4 +135,5 @@ func main() {
 		fmt.Println(IsTriangle(1, 2, 2))
 	*/
 	fmt.Println(FirstNonRepeating("sTreSS"))
+	fmt.Println(IsValidWalk([]rune{'n', 's', 'n', 's', 'n', 's', 'n', 's', 'n', 's'}))
 }
