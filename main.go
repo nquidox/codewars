@@ -124,6 +124,44 @@ func IsValidWalk(walk []rune) bool {
 	}
 }
 
+func DirReduc(arr []string) []string {
+	var short []string
+	flag := true
+
+	for i := 0; i < len(arr)-1; i++ {
+		if arr[i] == "NORTH" && arr[i+1] == "SOUTH" {
+			arr[i] = "o"
+			arr[i+1] = "o"
+		} else if arr[i] == "SOUTH" && arr[i+1] == "NORTH" {
+			arr[i] = "o"
+			arr[i+1] = "o"
+		} else if arr[i] == "EAST" && arr[i+1] == "WEST" {
+			arr[i] = "o"
+			arr[i+1] = "o"
+		} else if arr[i] == "WEST" && arr[i+1] == "EAST" {
+			arr[i] = "o"
+			arr[i+1] = "o"
+		}
+	}
+
+	for _, j := range arr {
+		if j == "o" {
+			flag = false
+		} else {
+			short = append(short, j)
+		}
+	}
+
+	if flag == false {
+		return DirReduc(short)
+	}
+
+	if len(short) == 0 {
+		short = []string{}
+	}
+	return short
+}
+
 func main() {
 	fmt.Println("Codewars")
 	/*
@@ -133,7 +171,8 @@ func main() {
 		fmt.Println(StringEndsWith("banana", "ana"))
 		fmt.Println(MinMax([]int{2334454, 5}))
 		fmt.Println(IsTriangle(1, 2, 2))
+		fmt.Println(FirstNonRepeating("sTreSS"))
+		fmt.Println(IsValidWalk([]rune{'n', 's', 'n', 's', 'n', 's', 'n', 's', 'n', 's'}))
 	*/
-	fmt.Println(FirstNonRepeating("sTreSS"))
-	fmt.Println(IsValidWalk([]rune{'n', 's', 'n', 's', 'n', 's', 'n', 's', 'n', 's'}))
+	fmt.Println(DirReduc([]string{"NORTH", "SOUTH", "EAST", "WEST"}))
 }
