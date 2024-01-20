@@ -162,6 +162,13 @@ func DirReduc(arr []string) []string {
 	return short
 }
 
+func IsLeapYear(year int) bool {
+	if (year%4 == 0 && year%100 != 0) || year%400 == 0 {
+		return true
+	}
+	return false
+}
+
 func main() {
 	fmt.Println("Codewars")
 	/*
@@ -173,6 +180,7 @@ func main() {
 		fmt.Println(IsTriangle(1, 2, 2))
 		fmt.Println(FirstNonRepeating("sTreSS"))
 		fmt.Println(IsValidWalk([]rune{'n', 's', 'n', 's', 'n', 's', 'n', 's', 'n', 's'}))
+		fmt.Println(DirReduc([]string{"NORTH", "SOUTH", "EAST", "WEST"}))
 	*/
-	fmt.Println(DirReduc([]string{"NORTH", "SOUTH", "EAST", "WEST"}))
+	fmt.Println(IsLeapYear(2100))
 }
