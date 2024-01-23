@@ -169,6 +169,44 @@ func IsLeapYear(year int) bool {
 	return false
 }
 
+func neihbours(m, n int) bool {
+	if m == n+1 || m == n-1 {
+		return true
+	}
+	return false
+}
+
+func RangeExtraction(list []int) string {
+	res := ""
+	start, stop := 0, 0
+	for i := 0; i < len(list); i++ {
+		start = list[i]
+		counter := 0
+		for j := i; j < len(list)-1; j++ {
+			if neihbours(list[j], list[j+1]) {
+				stop = list[j+1]
+				counter++
+			} else {
+				stop = list[j]
+				break
+			}
+		}
+		i = i + counter
+
+		if start != stop && counter >= 2 {
+			res += fmt.Sprint(start) + "-" + fmt.Sprint(stop) + ","
+		} else if start == stop {
+			res += fmt.Sprint(start) + ","
+		} else if start != stop && start < stop {
+			res += fmt.Sprint(start) + "," + fmt.Sprint(stop) + ","
+		} else if start == list[len(list)-1] && start > stop {
+			res += fmt.Sprint(start) + ","
+		}
+
+	}
+	return res[:len(res)-1]
+}
+
 func main() {
 	fmt.Println("Codewars")
 	/*
@@ -181,6 +219,7 @@ func main() {
 		fmt.Println(FirstNonRepeating("sTreSS"))
 		fmt.Println(IsValidWalk([]rune{'n', 's', 'n', 's', 'n', 's', 'n', 's', 'n', 's'}))
 		fmt.Println(DirReduc([]string{"NORTH", "SOUTH", "EAST", "WEST"}))
+		fmt.Println(IsLeapYear(2100))
 	*/
-	fmt.Println(IsLeapYear(2100))
+	fmt.Println(RangeExtraction([]int{40, 44, 48, 51, 52, 54, 55, 58, 67, 73}))
 }
