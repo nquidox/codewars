@@ -207,6 +207,19 @@ func RangeExtraction(list []int) string {
 	return res[:len(res)-1]
 }
 
+func PrinterError(s string) string {
+	counter := 0
+	runes := []rune(s)
+	for _, j := range runes {
+		if j < 97 || j > 109 {
+			fmt.Println("err", j)
+			counter++
+		}
+
+	}
+	return fmt.Sprint(counter) + "/" + fmt.Sprint(len(runes))
+}
+
 func main() {
 	fmt.Println("Codewars")
 	/*
@@ -220,6 +233,7 @@ func main() {
 		fmt.Println(IsValidWalk([]rune{'n', 's', 'n', 's', 'n', 's', 'n', 's', 'n', 's'}))
 		fmt.Println(DirReduc([]string{"NORTH", "SOUTH", "EAST", "WEST"}))
 		fmt.Println(IsLeapYear(2100))
+		fmt.Println(RangeExtraction([]int{40, 44, 48, 51, 52, 54, 55, 58, 67, 73}))
 	*/
-	fmt.Println(RangeExtraction([]int{40, 44, 48, 51, 52, 54, 55, 58, 67, 73}))
+	fmt.Println(PrinterError("aaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbmmmmmmmmmmmmmmmmmmmxyz"))
 }
