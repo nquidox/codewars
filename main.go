@@ -220,6 +220,35 @@ func PrinterError(s string) string {
 	return fmt.Sprint(counter) + "/" + fmt.Sprint(len(runes))
 }
 
+func contains(n int, list []int) bool {
+	for _, m := range list {
+		if m == n {
+			return true
+		}
+	}
+	return false
+}
+
+func SumOfIntervalsBrute(intervals [][2]int) int {
+	// Bruteforce edition for mad mans only
+	// 100% accurate, but consumes tons of memory
+	unsorted := []int{}
+	sorted := []int{}
+	for _, j := range intervals {
+		for i := j[0]; i < j[1]; i++ {
+			unsorted = append(unsorted, i)
+		}
+	}
+
+	for _, j := range unsorted {
+		if !contains(j, sorted) {
+			sorted = append(sorted, j)
+		}
+	}
+
+	return len(sorted)
+}
+
 func main() {
 	fmt.Println("Codewars")
 	/*
@@ -234,6 +263,7 @@ func main() {
 		fmt.Println(DirReduc([]string{"NORTH", "SOUTH", "EAST", "WEST"}))
 		fmt.Println(IsLeapYear(2100))
 		fmt.Println(RangeExtraction([]int{40, 44, 48, 51, 52, 54, 55, 58, 67, 73}))
+		fmt.Println(PrinterError("aaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbmmmmmmmmmmmmmmmmmmmxyz"))
 	*/
-	fmt.Println(PrinterError("aaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbmmmmmmmmmmmmmmmmmmmxyz"))
+	fmt.Println("result: ", SumOfIntervalsBrute([][2]int{{1, 4}, {7, 10}, {3, 5}}))
 }
