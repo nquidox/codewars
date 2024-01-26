@@ -250,13 +250,32 @@ func SumOfIntervalsBrute(intervals [][2]int) int {
 }
 
 func GetCount(str string) (count int) {
-	// Vowel Count a, e, i, o, u
+	// Vowel Count
 	for _, j := range str {
 		if j == 'a' || j == 'e' || j == 'i' || j == 'o' || j == 'u' {
 			count++
 		}
 	}
 	return count
+}
+
+func PartsSums(ls []uint64) []uint64 {
+	// Sums of Parts
+	var sum uint64 = 0
+	new_ls := []uint64{}
+
+	for _, j := range ls {
+		sum += j
+	}
+
+	new_ls = append(new_ls, sum)
+
+	for _, j := range ls {
+		new_ls = append(new_ls, sum-j)
+		sum -= j
+	}
+
+	return new_ls
 }
 
 func main() {
@@ -274,6 +293,7 @@ func main() {
 		fmt.Println(IsLeapYear(2100))
 		fmt.Println(RangeExtraction([]int{40, 44, 48, 51, 52, 54, 55, 58, 67, 73}))
 		fmt.Println(PrinterError("aaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbmmmmmmmmmmmmmmmmmmmxyz"))
+		fmt.Println("result: ", SumOfIntervalsBrute([][2]int{{1, 4}, {7, 10}, {3, 5}}))
 	*/
-	fmt.Println("result: ", SumOfIntervalsBrute([][2]int{{1, 4}, {7, 10}, {3, 5}}))
+	fmt.Println(PartsSums([]uint64{1, 2, 3, 4, 5, 6}))
 }
