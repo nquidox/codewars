@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"slices"
+	"strconv"
 	"strings"
 	"unicode"
 )
@@ -278,6 +279,36 @@ func PartsSums(ls []uint64) []uint64 {
 	return new_ls
 }
 
+func DeleteDigit(n int) int {
+	digits := []string{}
+	ans := []string{}
+
+	for _, j := range fmt.Sprint(n) {
+		digits = append(digits, string(j))
+	}
+
+	for i := range digits {
+		s := ""
+		for j := range digits {
+			if i != j {
+				s += digits[j]
+			}
+		}
+		ans = append(ans, s)
+	}
+
+	max := 0
+	for _, j := range ans {
+		num, _ := strconv.Atoi(j)
+		if num > max {
+			max = num
+		}
+	}
+
+	fmt.Println(max)
+	return 0
+}
+
 func main() {
 	fmt.Println("Codewars")
 	/*
@@ -294,6 +325,7 @@ func main() {
 		fmt.Println(RangeExtraction([]int{40, 44, 48, 51, 52, 54, 55, 58, 67, 73}))
 		fmt.Println(PrinterError("aaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbmmmmmmmmmmmmmmmmmmmxyz"))
 		fmt.Println("result: ", SumOfIntervalsBrute([][2]int{{1, 4}, {7, 10}, {3, 5}}))
+		fmt.Println(PartsSums([]uint64{1, 2, 3, 4, 5, 6}))
 	*/
-	fmt.Println(PartsSums([]uint64{1, 2, 3, 4, 5, 6}))
+	fmt.Println(DeleteDigit(1001))
 }
