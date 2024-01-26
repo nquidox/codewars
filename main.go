@@ -249,6 +249,16 @@ func SumOfIntervalsBrute(intervals [][2]int) int {
 	return len(sorted)
 }
 
+func GetCount(str string) (count int) {
+	// Vowel Count a, e, i, o, u
+	for _, j := range str {
+		if j == 'a' || j == 'e' || j == 'i' || j == 'o' || j == 'u' {
+			count++
+		}
+	}
+	return count
+}
+
 func main() {
 	fmt.Println("Codewars")
 	/*
