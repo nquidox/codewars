@@ -323,6 +323,14 @@ func Fib(n int) int {
 	return fib[len(fib)-2]
 }
 
+func SequenceSum(start, end, step int) int {
+	sum := 0
+	for i := start; i <= end; i += step {
+		sum += i
+	}
+	return sum
+}
+
 func main() {
 	fmt.Println("Codewars")
 	/*
@@ -342,6 +350,6 @@ func main() {
 		fmt.Println(PartsSums([]uint64{1, 2, 3, 4, 5, 6}))
 		fmt.Println(DeleteDigit(1001))
 		fmt.Println(ArrowArea(25, 25), " test: 156.25")
-	*/
-	fmt.Println(Fib(3))
+		fmt.Println(Fib(3))*/
+	fmt.Println(SequenceSum(1, 5, 3))
 }
