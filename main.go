@@ -309,6 +309,10 @@ func DeleteDigit(n int) int {
 	return 0
 }
 
+func ArrowArea(a, b int) float64 {
+	return (float64(a) * float64(b) / 2.0) / 2.0
+}
+
 func main() {
 	fmt.Println("Codewars")
 	/*
@@ -326,6 +330,8 @@ func main() {
 		fmt.Println(PrinterError("aaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbmmmmmmmmmmmmmmmmmmmxyz"))
 		fmt.Println("result: ", SumOfIntervalsBrute([][2]int{{1, 4}, {7, 10}, {3, 5}}))
 		fmt.Println(PartsSums([]uint64{1, 2, 3, 4, 5, 6}))
+		fmt.Println(DeleteDigit(1001))
 	*/
-	fmt.Println(DeleteDigit(1001))
+	fmt.Println(ArrowArea(25, 25), " test: 156.25")
+
 }
