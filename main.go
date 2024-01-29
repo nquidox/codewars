@@ -313,6 +313,16 @@ func ArrowArea(a, b int) float64 {
 	return (float64(a) * float64(b) / 2.0) / 2.0
 }
 
+func Fib(n int) int {
+	fib := []int{0, 1}
+
+	for i := 0; i < n; i++ {
+		fib = append(fib, fib[i]+fib[i+1])
+	}
+
+	return fib[len(fib)-2]
+}
+
 func main() {
 	fmt.Println("Codewars")
 	/*
@@ -331,7 +341,7 @@ func main() {
 		fmt.Println("result: ", SumOfIntervalsBrute([][2]int{{1, 4}, {7, 10}, {3, 5}}))
 		fmt.Println(PartsSums([]uint64{1, 2, 3, 4, 5, 6}))
 		fmt.Println(DeleteDigit(1001))
+		fmt.Println(ArrowArea(25, 25), " test: 156.25")
 	*/
-	fmt.Println(ArrowArea(25, 25), " test: 156.25")
-
+	fmt.Println(Fib(3))
 }
