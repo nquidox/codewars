@@ -331,6 +331,15 @@ func SequenceSum(start, end, step int) int {
 	return sum
 }
 
+func WordsToMarks(s string) int {
+	runes := []rune(s)
+	sum := 0
+	for _, j := range runes {
+		sum += int(j) - 96
+	}
+	return sum
+}
+
 func main() {
 	fmt.Println("Codewars")
 	/*
@@ -350,6 +359,8 @@ func main() {
 		fmt.Println(PartsSums([]uint64{1, 2, 3, 4, 5, 6}))
 		fmt.Println(DeleteDigit(1001))
 		fmt.Println(ArrowArea(25, 25), " test: 156.25")
-		fmt.Println(Fib(3))*/
-	fmt.Println(SequenceSum(1, 5, 3))
+		fmt.Println(Fib(3))
+		fmt.Println(SequenceSum(1, 5, 3))
+	*/
+	fmt.Println(WordsToMarks("attitude"), 100)
 }
