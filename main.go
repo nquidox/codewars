@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"slices"
+	"sort"
 	"strconv"
 	"strings"
 	"unicode"
@@ -340,6 +341,27 @@ func WordsToMarks(s string) int {
 	return sum
 }
 
+func compareSlices(a, b []int) bool {
+	if len(a) != len(b) {
+		return false
+	}
+
+	for i, j := range a {
+		if j != b[i] {
+			return false
+		}
+	}
+	return true
+}
+
+func InAscOrder(numbers []int) bool {
+	s := make([]int, len(numbers))
+	copy(s, numbers)
+	sort.Ints(s)
+	fmt.Println(numbers, s)
+	return compareSlices(numbers, s)
+}
+
 func main() {
 	fmt.Println("Codewars")
 	/*
@@ -361,6 +383,7 @@ func main() {
 		fmt.Println(ArrowArea(25, 25), " test: 156.25")
 		fmt.Println(Fib(3))
 		fmt.Println(SequenceSum(1, 5, 3))
+		fmt.Println(WordsToMarks("attitude"), 100)
 	*/
-	fmt.Println(WordsToMarks("attitude"), 100)
+	fmt.Println(InAscOrder([]int{1, 2, 4, 7, 19}))
 }
