@@ -362,8 +362,22 @@ func InAscOrder(numbers []int) bool {
 	return compareSlices(numbers, s)
 }
 
+func HighAndLow(in string) string {
+	nums := strings.Fields(in)
+	var ints []int
+
+	for _, j := range nums {
+		s, _ := strconv.Atoi(j)
+		ints = append(ints, s)
+	}
+
+	sort.Ints(ints)
+	return strconv.Itoa(ints[len(ints)-1]) + " " + strconv.Itoa(ints[0])
+}
+
 func main() {
 	fmt.Println("Codewars")
+	fmt.Println(HighAndLow("8 3 -5 42 -1 0 0 -9 4 7 4 -4"), "42 -9")
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
@@ -384,6 +398,7 @@ func main() {
 		fmt.Println(Fib(3))
 		fmt.Println(SequenceSum(1, 5, 3))
 		fmt.Println(WordsToMarks("attitude"), 100)
+		fmt.Println(InAscOrder([]int{1, 2, 4, 7, 19}))
 	*/
-	fmt.Println(InAscOrder([]int{1, 2, 4, 7, 19}))
+
 }
