@@ -403,9 +403,20 @@ func Spacify(s string) string {
 	return strings.TrimSuffix(s2, " ")
 }
 
+func HasUniqueChar(str string) bool {
+	for i := range str {
+		for j := i + 1; j < len(str); j++ {
+			if str[i] == str[j] {
+				return false
+			}
+		}
+	}
+	return true
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(Spacify("Hello world!"))
+	fmt.Println(HasUniqueChar("Hello world!"))
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
@@ -430,6 +441,7 @@ func main() {
 		fmt.Println(HighAndLow("8 3 -5 42 -1 0 0 -9 4 7 4 -4"), "42 -9")
 		fmt.Println(Divisors(12), 6)
 		fmt.Println(SumCubes(3), 36)
+		fmt.Println(Spacify("Hello world!"))
 	*/
 
 }
