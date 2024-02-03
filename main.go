@@ -385,9 +385,17 @@ func Divisors(n int) int {
 	return counter
 }
 
+func SumCubes(n int) int {
+	sum := 0
+	for i := 1; i <= n; i++ {
+		sum += i * i * i
+	}
+	return sum
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(Divisors(12), 6)
+	fmt.Println(SumCubes(3), 36)
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
@@ -410,6 +418,7 @@ func main() {
 		fmt.Println(WordsToMarks("attitude"), 100)
 		fmt.Println(InAscOrder([]int{1, 2, 4, 7, 19}))
 		fmt.Println(HighAndLow("8 3 -5 42 -1 0 0 -9 4 7 4 -4"), "42 -9")
+		fmt.Println(Divisors(12), 6)
 	*/
 
 }
