@@ -393,9 +393,19 @@ func SumCubes(n int) int {
 	return sum
 }
 
+func Spacify(s string) string {
+	var s2 string
+
+	for _, j := range s {
+		s2 += fmt.Sprintf("%c ", j)
+	}
+
+	return strings.TrimSuffix(s2, " ")
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(SumCubes(3), 36)
+	fmt.Println(Spacify("Hello world!"))
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
@@ -419,6 +429,7 @@ func main() {
 		fmt.Println(InAscOrder([]int{1, 2, 4, 7, 19}))
 		fmt.Println(HighAndLow("8 3 -5 42 -1 0 0 -9 4 7 4 -4"), "42 -9")
 		fmt.Println(Divisors(12), 6)
+		fmt.Println(SumCubes(3), 36)
 	*/
 
 }
