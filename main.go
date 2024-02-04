@@ -414,9 +414,22 @@ func HasUniqueChar(str string) bool {
 	return true
 }
 
+func FindShort(s string) int {
+	sep := strings.Split(s, " ")
+	shortest := len(sep[0])
+
+	for _, j := range sep {
+		if len(j) < shortest {
+			shortest = len(j)
+		}
+	}
+
+	return shortest
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(HasUniqueChar("Hello world!"))
+	fmt.Println(FindShort("Test Example"))
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
@@ -442,6 +455,7 @@ func main() {
 		fmt.Println(Divisors(12), 6)
 		fmt.Println(SumCubes(3), 36)
 		fmt.Println(Spacify("Hello world!"))
+		fmt.Println(HasUniqueChar("Hello world!"))
 	*/
 
 }
