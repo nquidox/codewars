@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"math"
 	"slices"
 	"sort"
 	"strconv"
@@ -446,9 +447,19 @@ func MoveZeros(arr []int) []int {
 	return arr2
 }
 
+func DivisibleCount(x, y, k uint64) uint64 {
+	//math.Ceil and convertions to float are unecessary, but I'll keep em
+	counter := uint64(math.Ceil(float64(x)/float64(k)) * float64(k))
+	if counter > y {
+		return 0
+	}
+	return ((y - counter) / k) + 1
+}
+
 func main() {
 	fmt.Println("Codewars")
 	fmt.Println(MoveZeros([]int{1, 2, 0, 1, 0, 1, 0, 3, 0, 1}))
+	fmt.Println(DivisibleCount(6, 11, 2))
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
