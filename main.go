@@ -467,9 +467,18 @@ func SquarePi(digits int) int {
 	return int(math.Ceil(math.Sqrt(float64(sum))))
 }
 
+func Gcd(x, y uint32) uint32 {
+	for x != y {
+		if x > y {
+			x, y = y, x
+		}
+		y = y - x
+	}
+	return x
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(SquarePi(3))
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
@@ -499,5 +508,6 @@ func main() {
 		fmt.Println(FindShort("Test Example"))
 		fmt.Println(MoveZeros([]int{1, 2, 0, 1, 0, 1, 0, 3, 0, 1}))
 		fmt.Println(DivisibleCount(6, 11, 2))
+		fmt.Println(SquarePi(3))
 	*/
 }
