@@ -427,9 +427,28 @@ func FindShort(s string) int {
 	return shortest
 }
 
+func MoveZeros(arr []int) []int {
+	counter := 0
+	var arr2 []int
+
+	for _, j := range arr {
+		if j == 0 {
+			counter++
+		} else {
+			arr2 = append(arr2, j)
+		}
+	}
+
+	for i := 0; i < counter; i++ {
+		arr2 = append(arr2, 0)
+	}
+
+	return arr2
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(FindShort("Test Example"))
+	fmt.Println(MoveZeros([]int{1, 2, 0, 1, 0, 1, 0, 3, 0, 1}))
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
@@ -456,6 +475,6 @@ func main() {
 		fmt.Println(SumCubes(3), 36)
 		fmt.Println(Spacify("Hello world!"))
 		fmt.Println(HasUniqueChar("Hello world!"))
+		fmt.Println(FindShort("Test Example"))
 	*/
-
 }
