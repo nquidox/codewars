@@ -456,10 +456,20 @@ func DivisibleCount(x, y, k uint64) uint64 {
 	return ((y - counter) / k) + 1
 }
 
+func SquarePi(digits int) int {
+	pi := "31415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679"
+	var sum int
+
+	for i := 0; i < digits; i++ {
+		sum += int(pi[i]-'0') * int(pi[i]-'0')
+	}
+
+	return int(math.Ceil(math.Sqrt(float64(sum))))
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(MoveZeros([]int{1, 2, 0, 1, 0, 1, 0, 3, 0, 1}))
-	fmt.Println(DivisibleCount(6, 11, 2))
+	fmt.Println(SquarePi(3))
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
@@ -487,5 +497,7 @@ func main() {
 		fmt.Println(Spacify("Hello world!"))
 		fmt.Println(HasUniqueChar("Hello world!"))
 		fmt.Println(FindShort("Test Example"))
+		fmt.Println(MoveZeros([]int{1, 2, 0, 1, 0, 1, 0, 3, 0, 1}))
+		fmt.Println(DivisibleCount(6, 11, 2))
 	*/
 }
