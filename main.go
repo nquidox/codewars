@@ -477,8 +477,18 @@ func Gcd(x, y uint32) uint32 {
 	return x
 }
 
+func FindMissingLetter(chars []rune) rune {
+	for i := 0; i < len(chars)-1; i++ {
+		if chars[i+1] != chars[i]+1 {
+			return chars[i] + 1
+		}
+	}
+	return 'a'
+}
+
 func main() {
 	fmt.Println("Codewars")
+	fmt.Println(FindMissingLetter([]rune{'a', 'b', 'c', 'd', 'f'}))
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
