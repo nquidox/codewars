@@ -486,9 +486,19 @@ func FindMissingLetter(chars []rune) rune {
 	return 'a'
 }
 
+func FindNextSquare(sq int64) int64 {
+	sqr := math.Sqrt(float64(sq))
+
+	if math.Mod(sqr, 1) == 0 {
+		return int64(math.Pow(sqr+1, 2))
+	}
+
+	return -1
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(FindMissingLetter([]rune{'a', 'b', 'c', 'd', 'f'}))
+	fmt.Println(FindNextSquare(121))
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
@@ -519,5 +529,6 @@ func main() {
 		fmt.Println(MoveZeros([]int{1, 2, 0, 1, 0, 1, 0, 3, 0, 1}))
 		fmt.Println(DivisibleCount(6, 11, 2))
 		fmt.Println(SquarePi(3))
+		fmt.Println(FindMissingLetter([]rune{'a', 'b', 'c', 'd', 'f'}))
 	*/
 }
