@@ -496,9 +496,23 @@ func FindNextSquare(sq int64) int64 {
 	return -1
 }
 
+func Solution(str string) []string {
+	// Split Strings
+	var arr []string
+	if len(str)%2 != 0 {
+		str += "_"
+	}
+
+	for i := 0; i < len(str); i = i + 2 {
+		arr = append(arr, string(str[i])+string(str[i+1]))
+	}
+
+	return arr
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(FindNextSquare(121))
+	fmt.Println(Solution("kekwait"))
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
@@ -530,5 +544,6 @@ func main() {
 		fmt.Println(DivisibleCount(6, 11, 2))
 		fmt.Println(SquarePi(3))
 		fmt.Println(FindMissingLetter([]rune{'a', 'b', 'c', 'd', 'f'}))
+		fmt.Println(FindNextSquare(121))
 	*/
 }
