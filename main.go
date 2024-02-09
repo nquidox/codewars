@@ -510,9 +510,20 @@ func Solution(str string) []string {
 	return arr
 }
 
+func ReverseLetters(s string) (s2 string) {
+	fmt.Println(s[0], s[1])
+	for i := len(s) - 1; i >= 0; i-- {
+		if s[i] > 96 && s[i] < 123 || s[i] > 64 && s[i] < 91 {
+			s2 += string(s[i])
+		}
+	}
+	return
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(Solution("kekwait"))
+	fmt.Println(ReverseLetters("AZ"))
+
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
@@ -545,5 +556,6 @@ func main() {
 		fmt.Println(SquarePi(3))
 		fmt.Println(FindMissingLetter([]rune{'a', 'b', 'c', 'd', 'f'}))
 		fmt.Println(FindNextSquare(121))
+		fmt.Println(Solution("kekwait"))
 	*/
 }
