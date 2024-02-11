@@ -520,10 +520,28 @@ func ReverseLetters(s string) (s2 string) {
 	return
 }
 
+func FindEvenIndex(arr []int) int {
+	sum, leftSum := 0, 0
+
+	for _, j := range arr {
+		sum += j
+	}
+
+	for i := range arr {
+		sum -= arr[i]
+
+		if sum == leftSum {
+			return i
+		}
+
+		leftSum += arr[i]
+	}
+	return -1
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(ReverseLetters("AZ"))
-
+	fmt.Println(FindEvenIndex([]int{-1, -2, -3, -4, -3, -2, -1}), 3)
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
@@ -557,5 +575,7 @@ func main() {
 		fmt.Println(FindMissingLetter([]rune{'a', 'b', 'c', 'd', 'f'}))
 		fmt.Println(FindNextSquare(121))
 		fmt.Println(Solution("kekwait"))
+		fmt.Println(ReverseLetters("AZ"))
 	*/
+
 }
