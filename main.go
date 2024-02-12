@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"math"
+	"math/big"
 	"slices"
 	"sort"
 	"strconv"
@@ -539,9 +540,24 @@ func FindEvenIndex(arr []int) int {
 	return -1
 }
 
+func Pell(n int) *big.Int {
+	// works not good on high nubmers cuz of type conversion
+	// array should be big.Int type instead of uint64
+	pell := []uint64{0, 1}
+
+	for i := 2; i <= n; i++ {
+		pell = append(pell, 2*pell[i-1]+pell[i-2])
+	}
+
+	return new(big.Int).SetUint64(pell[n])
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(FindEvenIndex([]int{-1, -2, -3, -4, -3, -2, -1}), 3)
+	a := Pell(89)
+	b := new(big.Int).SetUint64(11476903571679621577)
+	fmt.Println(a, "0 if equal: ", a.Cmp(b))
+	fmt.Println("11476903571679621577")
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
@@ -576,6 +592,7 @@ func main() {
 		fmt.Println(FindNextSquare(121))
 		fmt.Println(Solution("kekwait"))
 		fmt.Println(ReverseLetters("AZ"))
+		fmt.Println(FindEvenIndex([]int{-1, -2, -3, -4, -3, -2, -1}), 3)
 	*/
 
 }
