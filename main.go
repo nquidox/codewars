@@ -552,6 +552,14 @@ func Pell(n int) *big.Int {
 	return new(big.Int).SetUint64(pell[n])
 }
 
+func Invert(arr []int) []int {
+  var res [] int
+  for _, j := range arr{
+    res = append(res, 0-j)
+  }
+  return res
+}
+
 func main() {
 	fmt.Println("Codewars")
 	a := Pell(89)
