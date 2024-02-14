@@ -553,19 +553,31 @@ func Pell(n int) *big.Int {
 }
 
 func Invert(arr []int) []int {
-  var res [] int
-  for _, j := range arr{
-    res = append(res, 0-j)
-  }
-  return res
+	var res []int
+	for _, j := range arr {
+		res = append(res, 0-j)
+	}
+	return res
+}
+
+func AmountOfPages(summary int) int {
+	if summary > 38889 {
+		return 9999 + (summary-38889)/5
+	} else if summary > 2889 {
+		return 999 + (summary-2889)/4
+	} else if summary > 189 {
+		return 99 + (summary-189)/3
+	} else if summary > 9 {
+		return 9 + (summary-9)/2
+	} else if summary <= 9 {
+		return summary
+	}
+	return 0
 }
 
 func main() {
 	fmt.Println("Codewars")
-	a := Pell(89)
-	b := new(big.Int).SetUint64(11476903571679621577)
-	fmt.Println(a, "0 if equal: ", a.Cmp(b))
-	fmt.Println("11476903571679621577")
+	fmt.Println(AmountOfPages(11367), 3118)
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
