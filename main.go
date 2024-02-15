@@ -575,9 +575,13 @@ func AmountOfPages(summary int) int {
 	return 0
 }
 
+func StringToNumber(str string) int {
+	num, _ := strconv.Atoi(str)
+	return num
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(AmountOfPages(11367), 3118)
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
@@ -613,6 +617,7 @@ func main() {
 		fmt.Println(Solution("kekwait"))
 		fmt.Println(ReverseLetters("AZ"))
 		fmt.Println(FindEvenIndex([]int{-1, -2, -3, -4, -3, -2, -1}), 3)
+		fmt.Println(AmountOfPages(11367), 3118)
 	*/
 
 }
