@@ -584,8 +584,26 @@ func NumberToString(n int) string {
 	return strconv.Itoa(n)
 }
 
+func HowMuchILoveYou(i int) string {
+	switch i % 6 {
+	case 1:
+		return "I love you"
+	case 2:
+		return "a little"
+	case 3:
+		return "a lot"
+	case 4:
+		return "passionately"
+	case 5:
+		return "madly"
+	default:
+		return "not at all"
+	}
+}
+
 func main() {
 	fmt.Println("Codewars")
+	fmt.Println(HowMuchILoveYou(7))
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
