@@ -601,9 +601,17 @@ func HowMuchILoveYou(i int) string {
 	}
 }
 
+func monkeyCount(n int) []int {
+	monkeys := []int{}
+	for i := 1; i <= n; i++ {
+		monkeys = append(monkeys, i)
+	}
+	return monkeys
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(HowMuchILoveYou(7))
+	fmt.Println(monkeyCount(10))
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
@@ -640,6 +648,7 @@ func main() {
 		fmt.Println(ReverseLetters("AZ"))
 		fmt.Println(FindEvenIndex([]int{-1, -2, -3, -4, -3, -2, -1}), 3)
 		fmt.Println(AmountOfPages(11367), 3118)
+		fmt.Println(HowMuchILoveYou(7))
 	*/
 
 }
