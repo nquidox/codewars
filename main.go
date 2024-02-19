@@ -580,6 +580,10 @@ func StringToNumber(str string) int {
 	return num
 }
 
+func NumberToString(n int) string {
+	return strconv.Itoa(n)
+}
+
 func main() {
 	fmt.Println("Codewars")
 	/*
