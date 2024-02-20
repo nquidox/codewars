@@ -633,9 +633,27 @@ func PowersOfTwo(n int) []uint64 {
 	return res
 }
 
+func CountPositivesSumNegatives(numbers []int) []int {
+	var res []int
+	sumNeg, countPos := 0, 0
+
+	for _, j := range numbers {
+		if j < 0 {
+			sumNeg += j
+		} else if j > 0 {
+			countPos++
+		}
+	}
+
+	res = append(res, countPos)
+	res = append(res, sumNeg)
+
+	return res
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(PowersOfTwo(4), "1,2,4,8,16")
+	fmt.Println(CountPositivesSumNegatives([]int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15}), "[10, -65]")
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
@@ -676,6 +694,7 @@ func main() {
 		fmt.Println(monkeyCount(10))
 		fmt.Println(Maps([]int{1, 2, 3}))
 		fmt.Println(Grow([]int{1, 2, 3}), 6)
+		fmt.Println(PowersOfTwo(4), "1,2,4,8,16")
 	*/
 
 }
