@@ -625,9 +625,17 @@ func Grow(arr []int) int {
 	return res
 }
 
+func PowersOfTwo(n int) []uint64 {
+	var res []uint64
+	for i := 0; i <= n; i++ {
+		res = append(res, uint64(math.Pow(2, float64(i))))
+	}
+	return res
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(Grow([]int{1, 2, 3}), 6)
+	fmt.Println(PowersOfTwo(4), "1,2,4,8,16")
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
@@ -667,6 +675,7 @@ func main() {
 		fmt.Println(HowMuchILoveYou(7))
 		fmt.Println(monkeyCount(10))
 		fmt.Println(Maps([]int{1, 2, 3}))
+		fmt.Println(Grow([]int{1, 2, 3}), 6)
 	*/
 
 }
