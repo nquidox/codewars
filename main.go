@@ -617,9 +617,17 @@ func Maps(x []int) []int {
 	return res
 }
 
+func Grow(arr []int) int {
+	res := 1
+	for _, j := range arr {
+		res *= j
+	}
+	return res
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(Maps([]int{1, 2, 3}))
+	fmt.Println(Grow([]int{1, 2, 3}), 6)
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
@@ -658,6 +666,7 @@ func main() {
 		fmt.Println(AmountOfPages(11367), 3118)
 		fmt.Println(HowMuchILoveYou(7))
 		fmt.Println(monkeyCount(10))
+		fmt.Println(Maps([]int{1, 2, 3}))
 	*/
 
 }
