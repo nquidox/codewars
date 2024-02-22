@@ -651,9 +651,21 @@ func CountPositivesSumNegatives(numbers []int) []int {
 	return res
 }
 
+type MyString string
+
+func (s MyString) IsUpperCase() bool {
+	for _, j := range s {
+		print(j)
+		if j > 96 && j < 123 {
+			return false
+		}
+	}
+	return true
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(CountPositivesSumNegatives([]int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15}), "[10, -65]")
+	fmt.Println(MyString("a").IsUpperCase(), false)
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
@@ -695,6 +707,7 @@ func main() {
 		fmt.Println(Maps([]int{1, 2, 3}))
 		fmt.Println(Grow([]int{1, 2, 3}), 6)
 		fmt.Println(PowersOfTwo(4), "1,2,4,8,16")
+		fmt.Println(CountPositivesSumNegatives([]int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15}), "[10, -65]")
 	*/
 
 }
