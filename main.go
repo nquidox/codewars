@@ -686,9 +686,18 @@ func PositiveSum(numbers []int) int {
 	return sum
 }
 
+func ReverseString(word string) string {
+	runes := []rune(word)
+	size := len(runes)
+	for i, j := 0, size-1; i < size>>1; i, j = i+1, j-1 {
+		runes[i], runes[j] = runes[j], runes[i]
+	}
+	return string(runes)
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(PositiveSum([]int{1, -2, 3, 4, 5}), 13)
+	fmt.Println(ReverseString("word"), "drow")
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
@@ -734,5 +743,6 @@ func main() {
 		fmt.Println(MyString("a").IsUpperCase(), false)
 		fmt.Println(Feast("great blue heron", "garlic naan"))
 		fmt.Println(MakeNegative(42), -42)
+		fmt.Println(PositiveSum([]int{1, -2, 3, 4, 5}), 13)
 	*/
 }
