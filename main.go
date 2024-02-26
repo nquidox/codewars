@@ -666,9 +666,19 @@ func Feast(beast string, dish string) bool {
 	return beast[0] == dish[0] && beast[len(beast)-1] == dish[len(dish)-1]
 }
 
+func MakeNegative(x int) int {
+	switch {
+	case x < 0:
+		return x
+	case x == 0:
+		return 0
+	}
+	return -x
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(Feast("great blue heron", "garlic naan"))
+	fmt.Println(MakeNegative(42), -42)
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
@@ -712,5 +722,6 @@ func main() {
 		fmt.Println(PowersOfTwo(4), "1,2,4,8,16")
 		fmt.Println(CountPositivesSumNegatives([]int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15}), "[10, -65]")
 		fmt.Println(MyString("a").IsUpperCase(), false)
+		fmt.Println(Feast("great blue heron", "garlic naan"))
 	*/
 }
