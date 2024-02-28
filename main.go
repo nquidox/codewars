@@ -730,9 +730,16 @@ func Rps(p1, p2 string) string {
 	return "Draw!"
 }
 
+func CountBy(x, n int) (res []int) {
+	for i := 1; i <= n; i++ {
+		res = append(res, x*i)
+	}
+	return res
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(Rps("rock", "scissors"), "p1 won")
+	fmt.Println(CountBy(1, 5), 12345)
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
@@ -781,5 +788,6 @@ func main() {
 		fmt.Println(PositiveSum([]int{1, -2, 3, 4, 5}), 13)
 		fmt.Println(ReverseString("word"), "drow")
 		fmt.Println(RepeatStr(3, "hello "))
+		fmt.Println(Rps("rock", "scissors"), "p1 won")
 	*/
 }
