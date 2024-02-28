@@ -699,9 +699,40 @@ func RepeatStr(repetitions int, value string) string {
 	return strings.Repeat(value, repetitions)
 }
 
+func Rps(p1, p2 string) string {
+	r, p, s := "rock", "paper", "scissors"
+	switch {
+	case p1 == r && p2 == p:
+		{
+			return "Player 2 won!"
+		}
+	case p1 == r && p2 == s:
+		{
+			return "Player 1 won!"
+		}
+	case p1 == p && p2 == r:
+		{
+			return "Player 1 won!"
+		}
+	case p1 == p && p2 == s:
+		{
+			return "Player 2 won!"
+		}
+	case p1 == s && p2 == r:
+		{
+			return "Player 2 won!"
+		}
+	case p1 == s && p2 == p:
+		{
+			return "Player 1 won!"
+		}
+	}
+	return "Draw!"
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(RepeatStr(3, "hello "))
+	fmt.Println(Rps("rock", "scissors"), "p1 won")
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
@@ -749,5 +780,6 @@ func main() {
 		fmt.Println(MakeNegative(42), -42)
 		fmt.Println(PositiveSum([]int{1, -2, 3, 4, 5}), 13)
 		fmt.Println(ReverseString("word"), "drow")
+		fmt.Println(RepeatStr(3, "hello "))
 	*/
 }
