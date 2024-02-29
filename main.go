@@ -764,9 +764,13 @@ func Well(x []string) string {
 	return "Fail!"
 }
 
+func GetSize(w, h, d int) [2]int {
+	return [2]int{2 * (w*h + h*d + w*d), w * h * d}
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(Well([]string{"good", "bad", "good", "good", "bad", "good", "bad", "bad", "good", "bad", "bad"}), "I smell a series!")
+	fmt.Println(GetSize(4, 2, 6), 88, 48)
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
@@ -819,5 +823,6 @@ func main() {
 		fmt.Println(CountBy(1, 5), 12345)
 		fmt.Println(CountSheeps([]bool{true, true, true, false, true, true, true, true, true, false, true, false,
 			true, false, false, true, true, true, true, true, false, false, true, true, }), 17)
+		fmt.Println(Well([]string{"good", "bad", "good", "good", "bad", "good", "bad", "bad", "good", "bad", "bad"}), "I smell a series!")
 	*/
 }
