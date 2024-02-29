@@ -747,16 +747,26 @@ func CountSheeps(numbers []bool) int {
 	return counter
 }
 
+func Well(x []string) string {
+	good := 0
+	for _, j := range x {
+		if j == "good" {
+			good++
+		}
+	}
+
+	switch {
+	case good > 0 && good < 3:
+		return "Publish!"
+	case good > 2:
+		return "I smell a series!"
+	}
+	return "Fail!"
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(CountSheeps([]bool{
-		true, true, true, false,
-		true, true, true, true,
-		true, false, true, false,
-		true, false, false, true,
-		true, true, true, true,
-		false, false, true, true,
-	}), 17)
+	fmt.Println(Well([]string{"good", "bad", "good", "good", "bad", "good", "bad", "bad", "good", "bad", "bad"}), "I smell a series!")
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
@@ -807,5 +817,7 @@ func main() {
 		fmt.Println(RepeatStr(3, "hello "))
 		fmt.Println(Rps("rock", "scissors"), "p1 won")
 		fmt.Println(CountBy(1, 5), 12345)
+		fmt.Println(CountSheeps([]bool{true, true, true, false, true, true, true, true, true, false, true, false,
+			true, false, false, true, true, true, true, true, false, false, true, true, }), 17)
 	*/
 }
