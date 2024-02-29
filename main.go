@@ -737,9 +737,26 @@ func CountBy(x, n int) (res []int) {
 	return res
 }
 
+func CountSheeps(numbers []bool) int {
+	counter := len(numbers)
+	for _, j := range numbers {
+		if j != true {
+			counter--
+		}
+	}
+	return counter
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(CountBy(1, 5), 12345)
+	fmt.Println(CountSheeps([]bool{
+		true, true, true, false,
+		true, true, true, true,
+		true, false, true, false,
+		true, false, false, true,
+		true, true, true, true,
+		false, false, true, true,
+	}), 17)
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
@@ -789,5 +806,6 @@ func main() {
 		fmt.Println(ReverseString("word"), "drow")
 		fmt.Println(RepeatStr(3, "hello "))
 		fmt.Println(Rps("rock", "scissors"), "p1 won")
+		fmt.Println(CountBy(1, 5), 12345)
 	*/
 }
