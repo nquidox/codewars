@@ -768,9 +768,18 @@ func GetSize(w, h, d int) [2]int {
 	return [2]int{2 * (w*h + h*d + w*d), w * h * d}
 }
 
+func FindMultiples(integer, limit int) (res []int) {
+	for i := 1; i <= limit; i++ {
+		if i%integer == 0 {
+			res = append(res, i)
+		}
+	}
+	return
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(GetSize(4, 2, 6), 88, 48)
+	fmt.Println(FindMultiples(2, 6), "2, 4, 6")
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
@@ -824,5 +833,6 @@ func main() {
 		fmt.Println(CountSheeps([]bool{true, true, true, false, true, true, true, true, true, false, true, false,
 			true, false, false, true, true, true, true, true, false, false, true, true, }), 17)
 		fmt.Println(Well([]string{"good", "bad", "good", "good", "bad", "good", "bad", "bad", "good", "bad", "bad"}), "I smell a series!")
+		fmt.Println(GetSize(4, 2, 6), 88, 48)
 	*/
 }
