@@ -791,9 +791,13 @@ func EvenOrOdd(number int) string {
 	return "Odd"
 }
 
+func Greet(name string) string {
+	return fmt.Sprintf("Hello, %s how are you doing today?", name)
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(EvenOrOdd(2), "Even")
+	fmt.Println(Greet("kek"))
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
@@ -850,5 +854,6 @@ func main() {
 		fmt.Println(GetSize(4, 2, 6), 88, 48)
 		fmt.Println(FindMultiples(2, 6), "2, 4, 6")
 		fmt.Println(Between(1, 4), "[1 2 3 4]")
+		fmt.Println(EvenOrOdd(2), "Even")
 	*/
 }
