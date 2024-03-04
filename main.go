@@ -777,9 +777,16 @@ func FindMultiples(integer, limit int) (res []int) {
 	return
 }
 
+func Between(a, b int) (res []int) {
+	for i := a; i <= b; i++ {
+		res = append(res, i)
+	}
+	return
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(FindMultiples(2, 6), "2, 4, 6")
+	fmt.Println(Between(1, 4), "[1 2 3 4]")
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
@@ -834,5 +841,6 @@ func main() {
 			true, false, false, true, true, true, true, true, false, false, true, true, }), 17)
 		fmt.Println(Well([]string{"good", "bad", "good", "good", "bad", "good", "bad", "bad", "good", "bad", "bad"}), "I smell a series!")
 		fmt.Println(GetSize(4, 2, 6), 88, 48)
+		fmt.Println(FindMultiples(2, 6), "2, 4, 6")
 	*/
 }
