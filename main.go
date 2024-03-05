@@ -795,9 +795,13 @@ func Greet(name string) string {
 	return fmt.Sprintf("Hello, %s how are you doing today?", name)
 }
 
+func Hero(bullets, dragons int) bool {
+	return bullets >= dragons*2
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(Greet("kek"))
+	fmt.Println(Hero(10, 5), true)
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
@@ -855,5 +859,6 @@ func main() {
 		fmt.Println(FindMultiples(2, 6), "2, 4, 6")
 		fmt.Println(Between(1, 4), "[1 2 3 4]")
 		fmt.Println(EvenOrOdd(2), "Even")
+		fmt.Println(Greet("kek"))
 	*/
 }
