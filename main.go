@@ -812,9 +812,13 @@ func Points(games []string) (res int) {
 	return
 }
 
+func CorrectTail(body string, tail rune) bool {
+	return rune(body[len(body)-1]) == tail
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(Points([]string{"1:1", "2:2", "3:3", "4:4", "2:2", "3:3", "4:4", "3:3", "4:4", "4:4"}), 10)
+	fmt.Println(CorrectTail("Fox", 'x'), true)
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
@@ -874,5 +878,6 @@ func main() {
 		fmt.Println(EvenOrOdd(2), "Even")
 		fmt.Println(Greet("kek"))
 		fmt.Println(Hero(10, 5), true)
+		fmt.Println(Points([]string{"1:1", "2:2", "3:3", "4:4", "2:2", "3:3", "4:4", "3:3", "4:4", "4:4"}), 10)
 	*/
 }
