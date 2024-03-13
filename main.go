@@ -843,9 +843,20 @@ func HowManyDalmatians(number int) string {
 	return ""
 }
 
+func Digitize(n int) (rev []int) {
+	if n > 0 {
+		last := 0
+		for i := 10; i < n*10; i *= 10 {
+			rev = append(rev, ((n%i)-last)/(i/10))
+		}
+		return rev
+	}
+	return []int{0}
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(HowManyDalmatians(80), "Woah that's a lot of dogs!")
+	fmt.Println(Digitize(35231), "[1,3,2,5,3]")
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
@@ -908,5 +919,6 @@ func main() {
 		fmt.Println(Points([]string{"1:1", "2:2", "3:3", "4:4", "2:2", "3:3", "4:4", "3:3", "4:4", "4:4"}), 10)
 		fmt.Println(CorrectTail("Fox", 'x'), true)
 		fmt.Println(SumMix([]any{9, 3, "7", "3"}), 22)
+		fmt.Println(HowManyDalmatians(80), "Woah that's a lot of dogs!")
 	*/
 }
