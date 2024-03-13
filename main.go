@@ -854,9 +854,22 @@ func Digitize(n int) (rev []int) {
 	return []int{0}
 }
 
+func MergeArrays(arr1, arr2 []int) []int {
+	var r []int
+	res := append(arr1, arr2...)
+	sort.Ints(res)
+	for i := 0; i < len(res)-1; i++ {
+		if res[i] != res[i+1] {
+			r = append(r, res[i])
+		}
+	}
+	r = append(r, res[len(res)-1])
+	return r
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(Digitize(35231), "[1,3,2,5,3]")
+	fmt.Println(MergeArrays([]int{1, 3, 3, 3, 3, 5, 7, 9, 11, 12}, []int{8, 6, 1, 2, 3, 4, 5, 10, 12}))
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
@@ -920,5 +933,6 @@ func main() {
 		fmt.Println(CorrectTail("Fox", 'x'), true)
 		fmt.Println(SumMix([]any{9, 3, "7", "3"}), 22)
 		fmt.Println(HowManyDalmatians(80), "Woah that's a lot of dogs!")
+		fmt.Println(Digitize(35231), "[1,3,2,5,3]")
 	*/
 }
