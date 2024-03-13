@@ -816,9 +816,22 @@ func CorrectTail(body string, tail rune) bool {
 	return rune(body[len(body)-1]) == tail
 }
 
+func SumMix(arr []any) (sum int) {
+	for _, j := range arr {
+		num, t := j.(int)
+		if t == true {
+			sum += num
+		} else {
+			n, _ := strconv.Atoi(j.(string))
+			sum += n
+		}
+	}
+	return sum
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(CorrectTail("Fox", 'x'), true)
+	fmt.Println(SumMix([]any{9, 3, "7", "3"}), 22)
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
@@ -879,5 +892,6 @@ func main() {
 		fmt.Println(Greet("kek"))
 		fmt.Println(Hero(10, 5), true)
 		fmt.Println(Points([]string{"1:1", "2:2", "3:3", "4:4", "2:2", "3:3", "4:4", "3:3", "4:4", "4:4"}), 10)
+		fmt.Println(CorrectTail("Fox", 'x'), true)
 	*/
 }
