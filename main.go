@@ -829,9 +829,23 @@ func SumMix(arr []any) (sum int) {
 	return sum
 }
 
+func HowManyDalmatians(number int) string {
+	switch {
+	case number < 10:
+		return "Hardly any"
+	case number >= 10 && number <= 50:
+		return "More than a handful!"
+	case number > 50 && number < 101:
+		return "Woah that's a lot of dogs!"
+	case number == 101:
+		return "101 DALMATIONS!!!"
+	}
+	return ""
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(SumMix([]any{9, 3, "7", "3"}), 22)
+	fmt.Println(HowManyDalmatians(80), "Woah that's a lot of dogs!")
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
@@ -893,5 +907,6 @@ func main() {
 		fmt.Println(Hero(10, 5), true)
 		fmt.Println(Points([]string{"1:1", "2:2", "3:3", "4:4", "2:2", "3:3", "4:4", "3:3", "4:4", "4:4"}), 10)
 		fmt.Println(CorrectTail("Fox", 'x'), true)
+		fmt.Println(SumMix([]any{9, 3, "7", "3"}), 22)
 	*/
 }
