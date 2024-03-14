@@ -867,9 +867,33 @@ func MergeArrays(arr1, arr2 []int) []int {
 	return r
 }
 
+func GetPlanetName(ID int) string {
+	switch ID {
+	case 1:
+		return "Mercury"
+	case 2:
+		return "Venus"
+	case 3:
+		return "Earth"
+	case 4:
+		return "Mars"
+	case 5:
+		return "Jupiter"
+	case 6:
+		return "Saturn"
+	case 7:
+		return "Uranus"
+	case 8:
+		return "Neptune"
+	case 9:
+		return "Pluto"
+	}
+	return ""
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(MergeArrays([]int{1, 3, 3, 3, 3, 5, 7, 9, 11, 12}, []int{8, 6, 1, 2, 3, 4, 5, 10, 12}))
+	fmt.Println(GetPlanetName(3), "Earth")
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
@@ -934,5 +958,6 @@ func main() {
 		fmt.Println(SumMix([]any{9, 3, "7", "3"}), 22)
 		fmt.Println(HowManyDalmatians(80), "Woah that's a lot of dogs!")
 		fmt.Println(Digitize(35231), "[1,3,2,5,3]")
+		fmt.Println(MergeArrays([]int{1, 3, 3, 3, 3, 5, 7, 9, 11, 12}, []int{8, 6, 1, 2, 3, 4, 5, 10, 12}))
 	*/
 }
