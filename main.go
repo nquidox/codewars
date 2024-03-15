@@ -904,9 +904,19 @@ func CloseCompare(a, b, margin float64) int {
 	return 42
 }
 
+func SmallestIntegerFinder(numbers []int) (res int) {
+	res = numbers[0]
+	for i := 0; i < len(numbers); i++ {
+		if numbers[i] < res {
+			res = numbers[i]
+		}
+	}
+	return
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(CloseCompare(8.1, 5.0, 3.0), 1)
+	fmt.Println(SmallestIntegerFinder([]int{34, 15, 88, 2, -4}), -4)
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
@@ -973,5 +983,6 @@ func main() {
 		fmt.Println(Digitize(35231), "[1,3,2,5,3]")
 		fmt.Println(MergeArrays([]int{1, 3, 3, 3, 3, 5, 7, 9, 11, 12}, []int{8, 6, 1, 2, 3, 4, 5, 10, 12}))
 		fmt.Println(GetPlanetName(3), "Earth")
+		fmt.Println(CloseCompare(8.1, 5.0, 3.0), 1)
 	*/
 }
