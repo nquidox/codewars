@@ -891,9 +891,22 @@ func GetPlanetName(ID int) string {
 	return ""
 }
 
+func CloseCompare(a, b, margin float64) int {
+	if math.Abs(a-b) <= margin {
+		return 0
+	} else {
+		if a < b {
+			return -1
+		} else if a > b {
+			return 1
+		}
+	}
+	return 42
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(GetPlanetName(3), "Earth")
+	fmt.Println(CloseCompare(8.1, 5.0, 3.0), 1)
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
@@ -959,5 +972,6 @@ func main() {
 		fmt.Println(HowManyDalmatians(80), "Woah that's a lot of dogs!")
 		fmt.Println(Digitize(35231), "[1,3,2,5,3]")
 		fmt.Println(MergeArrays([]int{1, 3, 3, 3, 3, 5, 7, 9, 11, 12}, []int{8, 6, 1, 2, 3, 4, 5, 10, 12}))
+		fmt.Println(GetPlanetName(3), "Earth")
 	*/
 }
