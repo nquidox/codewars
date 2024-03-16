@@ -933,9 +933,17 @@ func SquareSum(numbers []int) (res int) {
 	return
 }
 
+func IsDivisible(n, x, y int) bool {
+	return n%x == 0 && n%y == 0
+}
+
+func GetVolumeOfCuboid(length, width, height float64) float64 {
+	return length * width * height
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(SquareSum([]int{0, 3, 4, 5}), 50)
+	fmt.Println(GetVolumeOfCuboid(1.0, 2.0, 2.0), 4.0)
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
@@ -1005,5 +1013,7 @@ func main() {
 		fmt.Println(CloseCompare(8.1, 5.0, 3.0), 1)
 		fmt.Println(SmallestIntegerFinder([]int{34, 15, 88, 2, -4}), -4)
 		fmt.Println(FakeBin("45385593107843568"), "01011110001100111")
+		fmt.Println(SquareSum([]int{0, 3, 4, 5}), 50)
+		fmt.Println(IsDivisible(12, 3, 6), true)
 	*/
 }
