@@ -949,9 +949,16 @@ func RemoveChar(word string) string {
 	return word[1 : len(word)-1]
 }
 
+func GreetJ(name string) string {
+	if name == "Johnny" {
+		return fmt.Sprint("Hello, my love!")
+	}
+	return fmt.Sprintf("Hello, %v!", name)
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(RemoveChar("word"), "or")
+	fmt.Println(Greet("Alfred"), "Hello, Alfred!")
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
@@ -1025,5 +1032,6 @@ func main() {
 		fmt.Println(IsDivisible(12, 3, 6), true)
 		fmt.Println(GetVolumeOfCuboid(1.0, 2.0, 2.0), 4.0)
 		fmt.Println(DoubleInteger(2), 4)
+		fmt.Println(RemoveChar("word"), "or")
 	*/
 }
