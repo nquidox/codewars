@@ -963,9 +963,20 @@ func ShortLongShort(a, b string) string {
 	return b + a + b
 }
 
+func MakeUpperCase(str string) (res string) {
+	for _, j := range str {
+		if j > 96 && j < 123 {
+			res += fmt.Sprintf("%c", j-32)
+		} else {
+			res += fmt.Sprintf("%c", j)
+		}
+	}
+	return
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(ShortLongShort("aaa", "bbbb"), "aaabbbbaaa")
+	fmt.Println(MakeUpperCase("hello"), "HELLO")
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
@@ -1041,5 +1052,6 @@ func main() {
 		fmt.Println(DoubleInteger(2), 4)
 		fmt.Println(RemoveChar("word"), "or")
 		fmt.Println(GreetJ("Alfred"), "Hello, Alfred!")
+		fmt.Println(ShortLongShort("aaa", "bbbb"), "aaabbbbaaa")
 	*/
 }
