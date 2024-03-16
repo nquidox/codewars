@@ -914,9 +914,21 @@ func SmallestIntegerFinder(numbers []int) (res int) {
 	return
 }
 
+func FakeBin(x string) (res string) {
+	for _, j := range x {
+		switch {
+		case j < 53:
+			res += "0"
+		case j >= 53:
+			res += "1"
+		}
+	}
+	return
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(SmallestIntegerFinder([]int{34, 15, 88, 2, -4}), -4)
+	fmt.Println(FakeBin("45385593107843568"), "01011110001100111")
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
@@ -984,5 +996,6 @@ func main() {
 		fmt.Println(MergeArrays([]int{1, 3, 3, 3, 3, 5, 7, 9, 11, 12}, []int{8, 6, 1, 2, 3, 4, 5, 10, 12}))
 		fmt.Println(GetPlanetName(3), "Earth")
 		fmt.Println(CloseCompare(8.1, 5.0, 3.0), 1)
+		fmt.Println(SmallestIntegerFinder([]int{34, 15, 88, 2, -4}), -4)
 	*/
 }
