@@ -926,9 +926,16 @@ func FakeBin(x string) (res string) {
 	return
 }
 
+func SquareSum(numbers []int) (res int) {
+	for _, j := range numbers {
+		res += j * j
+	}
+	return
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(FakeBin("45385593107843568"), "01011110001100111")
+	fmt.Println(SquareSum([]int{0, 3, 4, 5}), 50)
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
@@ -997,5 +1004,6 @@ func main() {
 		fmt.Println(GetPlanetName(3), "Earth")
 		fmt.Println(CloseCompare(8.1, 5.0, 3.0), 1)
 		fmt.Println(SmallestIntegerFinder([]int{34, 15, 88, 2, -4}), -4)
+		fmt.Println(FakeBin("45385593107843568"), "01011110001100111")
 	*/
 }
