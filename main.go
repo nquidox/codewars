@@ -956,9 +956,16 @@ func GreetJ(name string) string {
 	return fmt.Sprintf("Hello, %v!", name)
 }
 
+func ShortLongShort(a, b string) string {
+	if len(a) < len(b) {
+		return a + b + a
+	}
+	return b + a + b
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(Greet("Alfred"), "Hello, Alfred!")
+	fmt.Println(ShortLongShort("aaa", "bbbb"), "aaabbbbaaa")
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
@@ -1033,5 +1040,6 @@ func main() {
 		fmt.Println(GetVolumeOfCuboid(1.0, 2.0, 2.0), 4.0)
 		fmt.Println(DoubleInteger(2), 4)
 		fmt.Println(RemoveChar("word"), "or")
+		fmt.Println(GreetJ("Alfred"), "Hello, Alfred!")
 	*/
 }
