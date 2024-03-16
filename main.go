@@ -945,9 +945,13 @@ func DoubleInteger(i int) int {
 	return i * 2
 }
 
+func RemoveChar(word string) string {
+	return word[1 : len(word)-1]
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(DoubleInteger(2), 4)
+	fmt.Println(RemoveChar("word"), "or")
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
@@ -1020,5 +1024,6 @@ func main() {
 		fmt.Println(SquareSum([]int{0, 3, 4, 5}), 50)
 		fmt.Println(IsDivisible(12, 3, 6), true)
 		fmt.Println(GetVolumeOfCuboid(1.0, 2.0, 2.0), 4.0)
+		fmt.Println(DoubleInteger(2), 4)
 	*/
 }
