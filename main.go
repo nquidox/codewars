@@ -986,9 +986,14 @@ func SquareOrSquareRoot(arr []int) (res []int) {
 	return
 }
 
+func StringToArray(str string) []string {
+	return strings.Split(str, " ")
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(SquareOrSquareRoot([]int{4, 3, 9, 7, 2, 1}), "[2 9 3 49 4 1]")
+	fmt.Println(StringToArray("I love arrays they are my favorite"),
+		"[I love arrays they are my favorite]")
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
@@ -1066,5 +1071,6 @@ func main() {
 		fmt.Println(GreetJ("Alfred"), "Hello, Alfred!")
 		fmt.Println(ShortLongShort("aaa", "bbbb"), "aaabbbbaaa")
 		fmt.Println(MakeUpperCase("hello"), "HELLO")
+		fmt.Println(SquareOrSquareRoot([]int{4, 3, 9, 7, 2, 1}), "[2 9 3 49 4 1]")
 	*/
 }
