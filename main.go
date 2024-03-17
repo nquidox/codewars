@@ -974,9 +974,21 @@ func MakeUpperCase(str string) (res string) {
 	return
 }
 
+func SquareOrSquareRoot(arr []int) (res []int) {
+	for _, j := range arr {
+		m, n := math.Modf(math.Sqrt(float64(j)))
+		if n != 0 {
+			res = append(res, j*j)
+		} else {
+			res = append(res, int(m))
+		}
+	}
+	return
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(MakeUpperCase("hello"), "HELLO")
+	fmt.Println(SquareOrSquareRoot([]int{4, 3, 9, 7, 2, 1}), "[2 9 3 49 4 1]")
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
@@ -1053,5 +1065,6 @@ func main() {
 		fmt.Println(RemoveChar("word"), "or")
 		fmt.Println(GreetJ("Alfred"), "Hello, Alfred!")
 		fmt.Println(ShortLongShort("aaa", "bbbb"), "aaabbbbaaa")
+		fmt.Println(MakeUpperCase("hello"), "HELLO")
 	*/
 }
