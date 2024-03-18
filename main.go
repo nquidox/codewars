@@ -1010,6 +1010,10 @@ func BoolToWord(word bool) string {
 	return "No"
 }
 
+func Opposite(value int) int {
+	return value * -1
+}
+
 func main() {
 	fmt.Println("Codewars")
 	fmt.Println(multipleOfIndex([]int{22, -6, 32, 82, 9, 25}), "-6, 32, 25")
