@@ -1025,8 +1025,17 @@ func Litres(time float64) int {
 	return int(time * 0.5)
 }
 
+func TwiceAsOld(dadYearsOld, sonYearsOld int) int {
+	r := sonYearsOld*2 - dadYearsOld
+	if r < 0 {
+		return -r
+	}
+	return r
+}
+
 func main() {
 	fmt.Println("Codewars")
+	fmt.Println(TwiceAsOld(55, 30), 5)
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
