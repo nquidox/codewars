@@ -999,6 +999,10 @@ func multipleOfIndex(ints []int) (res []int) {
 	return
 }
 
+func Multiply(a, b int) int {
+	return a * b
+}
+
 func main() {
 	fmt.Println("Codewars")
 	fmt.Println(multipleOfIndex([]int{22, -6, 32, 82, 9, 25}), "-6, 32, 25")
