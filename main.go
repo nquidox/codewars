@@ -1014,6 +1014,13 @@ func Opposite(value int) int {
 	return value * -1
 }
 
+func ReverseSeq(n int) (res []int) {
+	for i := n; i > 0; i-- {
+		res = append(res, i)
+	}
+	return
+}
+
 func main() {
 	fmt.Println("Codewars")
 	fmt.Println(multipleOfIndex([]int{22, -6, 32, 82, 9, 25}), "-6, 32, 25")
