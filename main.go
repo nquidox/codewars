@@ -1041,9 +1041,14 @@ func DNAtoRNA(dna string) string {
 	return strings.ReplaceAll(dna, "T", "U")
 }
 
+func AbbrevName(name string) string {
+	n := strings.Fields(name)
+	return strings.ToUpper(string(n[0][0]) + "." + string(n[1][0]))
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(DNAtoRNA("GCAT"), "GCAU")
+	fmt.Println(AbbrevName("David Mendieta"), "D.M")
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
@@ -1126,5 +1131,6 @@ func main() {
 		"[I love arrays they are my favorite]")
 		fmt.Println(multipleOfIndex([]int{22, -6, 32, 82, 9, 25}), "-6, 32, 25")
 		fmt.Println(TwiceAsOld(55, 30), 5)
+		fmt.Println(DNAtoRNA("GCAT"), "GCAU")
 	*/
 }
