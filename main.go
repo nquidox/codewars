@@ -1033,6 +1033,10 @@ func TwiceAsOld(dadYearsOld, sonYearsOld int) int {
 	return r
 }
 
+func Xor(a, b bool) bool {
+	return (a || b) && !(a && b)
+}
+
 func main() {
 	fmt.Println("Codewars")
 	fmt.Println(TwiceAsOld(55, 30), 5)
