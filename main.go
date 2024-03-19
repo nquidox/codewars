@@ -1046,9 +1046,16 @@ func AbbrevName(name string) string {
 	return strings.ToUpper(string(n[0][0]) + "." + string(n[1][0]))
 }
 
+func OddCount(n int) int {
+	if n%2 == 0 {
+		return (n - 1) / 2
+	}
+	return n / 2
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(AbbrevName("David Mendieta"), "D.M")
+	fmt.Println(OddCount(15023), 7511)
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
@@ -1132,5 +1139,6 @@ func main() {
 		fmt.Println(multipleOfIndex([]int{22, -6, 32, 82, 9, 25}), "-6, 32, 25")
 		fmt.Println(TwiceAsOld(55, 30), 5)
 		fmt.Println(DNAtoRNA("GCAT"), "GCAU")
+		fmt.Println(AbbrevName("David Mendieta"), "D.M")
 	*/
 }
