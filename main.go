@@ -1037,9 +1037,13 @@ func Xor(a, b bool) bool {
 	return (a || b) && !(a && b)
 }
 
+func DNAtoRNA(dna string) string {
+	return strings.ReplaceAll(dna, "T", "U")
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(TwiceAsOld(55, 30), 5)
+	fmt.Println(DNAtoRNA("GCAT"), "GCAU")
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
@@ -1121,5 +1125,6 @@ func main() {
 		fmt.Println(StringToArray("I love arrays they are my favorite"),
 		"[I love arrays they are my favorite]")
 		fmt.Println(multipleOfIndex([]int{22, -6, 32, 82, 9, 25}), "-6, 32, 25")
+		fmt.Println(TwiceAsOld(55, 30), 5)
 	*/
 }
