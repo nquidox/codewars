@@ -1057,6 +1057,10 @@ func QuarterOf(month int) int {
 	return int(math.Ceil(float64(month) / 3))
 }
 
+func LoveFunc(flower1, flower2 int) bool {
+	return (flower1+flower2)%2 != 0
+}
+
 func main() {
 	fmt.Println("Codewars")
 	fmt.Println(QuarterOf(3), 1)
