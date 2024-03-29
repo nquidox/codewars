@@ -1053,9 +1053,13 @@ func OddCount(n int) int {
 	return n / 2
 }
 
+func QuarterOf(month int) int {
+	return int(math.Ceil(float64(month) / 3))
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(OddCount(15023), 7511)
+	fmt.Println(QuarterOf(3), 1)
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
@@ -1140,5 +1144,6 @@ func main() {
 		fmt.Println(TwiceAsOld(55, 30), 5)
 		fmt.Println(DNAtoRNA("GCAT"), "GCAU")
 		fmt.Println(AbbrevName("David Mendieta"), "D.M")
+		fmt.Println(OddCount(15023), 7511)
 	*/
 }
