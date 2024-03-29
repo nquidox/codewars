@@ -1061,9 +1061,13 @@ func LoveFunc(flower1, flower2 int) bool {
 	return (flower1+flower2)%2 != 0
 }
 
+func century(year int) int {
+	return ((year - 1) / 100) + 1
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(QuarterOf(3), 1)
+	fmt.Println(century(1990), 20)
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
@@ -1149,5 +1153,6 @@ func main() {
 		fmt.Println(DNAtoRNA("GCAT"), "GCAU")
 		fmt.Println(AbbrevName("David Mendieta"), "D.M")
 		fmt.Println(OddCount(15023), 7511)
+		fmt.Println(QuarterOf(3), 1)
 	*/
 }
