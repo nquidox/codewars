@@ -1073,9 +1073,13 @@ func ReverseWords(str string) (res string) {
 	return strings.Trim(res, " ")
 }
 
+func NthEven(n int) int {
+	return (n - 1) * 2
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(ReverseWords("yoda doesn't speak like this") == "this like speak doesn't yoda")
+	fmt.Println(NthEven(3), 4)
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
@@ -1163,5 +1167,6 @@ func main() {
 		fmt.Println(OddCount(15023), 7511)
 		fmt.Println(QuarterOf(3), 1)
 		fmt.Println(century(1990), 20)
+		fmt.Println(ReverseWords("yoda doesn't speak like this") == "this like speak doesn't yoda")
 	*/
 }
