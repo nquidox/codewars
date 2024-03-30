@@ -1077,6 +1077,10 @@ func NthEven(n int) int {
 	return (n - 1) * 2
 }
 
+func OtherAngle(a int, b int) int {
+	return 180 - (a + b)
+}
+
 func main() {
 	fmt.Println("Codewars")
 	fmt.Println(NthEven(3), 4)
