@@ -1081,9 +1081,20 @@ func OtherAngle(a int, b int) int {
 	return 180 - (a + b)
 }
 
+func countSheep(num int) (res string) {
+	if num >= 1 {
+		for i := 1; i <= num; i++ {
+			res += fmt.Sprintf("%d sheep...", i)
+		}
+	} else {
+		res = ""
+	}
+	return
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(NthEven(3), 4)
+	fmt.Println(countSheep(3))
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
@@ -1172,5 +1183,6 @@ func main() {
 		fmt.Println(QuarterOf(3), 1)
 		fmt.Println(century(1990), 20)
 		fmt.Println(ReverseWords("yoda doesn't speak like this") == "this like speak doesn't yoda")
+		fmt.Println(NthEven(3), 4)
 	*/
 }
