@@ -1096,9 +1096,13 @@ func Past(h, m, s int) int {
 	return ((h * 3600) + (m * 60) + s) * 1000
 }
 
+func NoSpace(word string) string {
+	return strings.ReplaceAll(word, " ", "")
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(Past(1, 1, 1), 3661000)
+	fmt.Println(NoSpace("8 8 Bi fk8h B 8 BB8B B B  B888 c hl8 BhB fd"), "88Bifk8hB8BB8BBBB888chl8BhBfd")
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
@@ -1189,5 +1193,6 @@ func main() {
 		fmt.Println(ReverseWords("yoda doesn't speak like this") == "this like speak doesn't yoda")
 		fmt.Println(NthEven(3), 4)
 		fmt.Println(countSheep(3))
+		fmt.Println(Past(1, 1, 1), 3661000)
 	*/
 }
