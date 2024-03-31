@@ -1092,9 +1092,13 @@ func countSheep(num int) (res string) {
 	return
 }
 
+func Past(h, m, s int) int {
+	return ((h * 3600) + (m * 60) + s) * 1000
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(countSheep(3))
+	fmt.Println(Past(1, 1, 1), 3661000)
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
@@ -1184,5 +1188,6 @@ func main() {
 		fmt.Println(century(1990), 20)
 		fmt.Println(ReverseWords("yoda doesn't speak like this") == "this like speak doesn't yoda")
 		fmt.Println(NthEven(3), 4)
+		fmt.Println(countSheep(3))
 	*/
 }
