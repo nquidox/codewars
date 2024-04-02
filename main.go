@@ -1332,9 +1332,17 @@ func BonusTime(salary int, bonus bool) (res string) {
 	return "\u00A3" + strconv.Itoa(salary)
 }
 
+func MultiTable(number int) (res string) {
+	for i := 1; i <= 10; i++ {
+		m := i * number
+		res += fmt.Sprintf("%d * %d = %d\n", i, number, m)
+	}
+	return strings.TrimRight(res, "\n")
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(BonusTime(100, false), "100\u00A3")
+	fmt.Println(MultiTable(5))
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
@@ -1428,5 +1436,6 @@ func main() {
 		fmt.Println(Past(1, 1, 1), 3661000)
 		fmt.Println(NoSpace("8 8 Bi fk8h B 8 BB8B B B  B888 c hl8 BhB fd"), "88Bifk8hB8BB8BBBB888chl8BhBfd")
 		fmt.Println(SubtractSum(789278917), "apple")
+		fmt.Println(BonusTime(100, false), "100\u00A3")
 	*/
 }
