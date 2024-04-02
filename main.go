@@ -1325,9 +1325,16 @@ func SubtractSum(n int) string {
 	return "apple"
 }
 
+func BonusTime(salary int, bonus bool) (res string) {
+	if bonus {
+		salary *= 10
+	}
+	return "\u00A3" + strconv.Itoa(salary)
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(SubtractSum(789278917), "apple")
+	fmt.Println(BonusTime(100, false), "100\u00A3")
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
@@ -1420,5 +1427,6 @@ func main() {
 		fmt.Println(countSheep(3))
 		fmt.Println(Past(1, 1, 1), 3661000)
 		fmt.Println(NoSpace("8 8 Bi fk8h B 8 BB8B B B  B888 c hl8 BhB fd"), "88Bifk8hB8BB8BBBB888chl8BhBfd")
+		fmt.Println(SubtractSum(789278917), "apple")
 	*/
 }
