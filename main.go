@@ -1340,6 +1340,13 @@ func MultiTable(number int) (res string) {
 	return strings.TrimRight(res, "\n")
 }
 
+func Namevar() string {
+	var a string = "code"
+	var b string = "wa.rs"
+	var name string = a + b
+	return name
+}
+
 func main() {
 	fmt.Println("Codewars")
 	fmt.Println(MultiTable(5))
