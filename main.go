@@ -1347,9 +1347,18 @@ func Namevar() string {
 	return name
 }
 
+func Derive(coefficient, exponent int) (res string) {
+	if exponent > 2 {
+		res = strconv.Itoa(coefficient*exponent) + "x^" + strconv.Itoa(exponent-1)
+	} else {
+		res = strconv.Itoa(coefficient * exponent)
+	}
+	return
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(MultiTable(5))
+	fmt.Println(Derive(5, 9), "45x^8")
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
@@ -1444,5 +1453,6 @@ func main() {
 		fmt.Println(NoSpace("8 8 Bi fk8h B 8 BB8B B B  B888 c hl8 BhB fd"), "88Bifk8hB8BB8BBBB888chl8BhBfd")
 		fmt.Println(SubtractSum(789278917), "apple")
 		fmt.Println(BonusTime(100, false), "100\u00A3")
+		fmt.Println(MultiTable(5))
 	*/
 }
