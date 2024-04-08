@@ -1356,9 +1356,20 @@ func Derive(coefficient, exponent int) (res string) {
 	return
 }
 
+func CalculateYears(years int) (result [3]int) {
+	switch years {
+	case 1:
+		return [3]int{years, 15, 15}
+	case 2:
+		return [3]int{years, 15 + 9, 15 + 9}
+	default:
+		return [3]int{years, 15 + 9 + ((years - 2) * 4), 15 + 9 + ((years - 2) * 5)}
+	}
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(Derive(5, 9), "45x^8")
+	fmt.Println(CalculateYears(10), [3]int{10, 56, 64})
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
@@ -1454,5 +1465,6 @@ func main() {
 		fmt.Println(SubtractSum(789278917), "apple")
 		fmt.Println(BonusTime(100, false), "100\u00A3")
 		fmt.Println(MultiTable(5))
+		fmt.Println(Derive(5, 9), "45x^8")
 	*/
 }
