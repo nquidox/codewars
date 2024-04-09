@@ -1367,9 +1367,20 @@ func CalculateYears(years int) (result [3]int) {
 	}
 }
 
+func IsPalindrome(str string) bool {
+	str = strings.ToLower(str)
+	var rev string
+
+	for _, j := range str {
+		rev = string(j) + rev
+	}
+
+	return str == rev
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(CalculateYears(10), [3]int{10, 56, 64})
+	fmt.Println(IsPalindrome("Abba"), true)
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
@@ -1435,7 +1446,7 @@ func main() {
 		fmt.Println(HowManyDalmatians(80), "Woah that's a lot of dogs!")
 		fmt.Println(Digitize(35231), "[1,3,2,5,3]")
 		fmt.Println(MergeArrays([]int{1, 3, 3, 3, 3, 5, 7, 9, 11, 12}, []int{8, 6, 1, 2, 3, 4, 5, 10, 12}))
-		fmt.Println(GetPlanetName(3), "Earth")
+		fmt.Println(GetPlanetName(3)7, "Earth")
 		fmt.Println(CloseCompare(8.1, 5.0, 3.0), 1)
 		fmt.Println(SmallestIntegerFinder([]int{34, 15, 88, 2, -4}), -4)
 		fmt.Println(FakeBin("45385593107843568"), "01011110001100111")
@@ -1466,5 +1477,6 @@ func main() {
 		fmt.Println(BonusTime(100, false), "100\u00A3")
 		fmt.Println(MultiTable(5))
 		fmt.Println(Derive(5, 9), "45x^8")
+		fmt.Println(CalculateYears(10), [3]int{10, 56, 64})
 	*/
 }
