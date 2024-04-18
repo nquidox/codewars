@@ -1385,6 +1385,13 @@ func Summation(n int) (sum int) {
 	return
 }
 
+func combat(health, damage float64) float64 {
+	if health - damage < 0 {
+		return 0
+	}
+	return health - damage
+}
+
 func main() {
 	fmt.Println("Codewars")
 	fmt.Println(Summation(213), 22791)
