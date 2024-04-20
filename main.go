@@ -1396,6 +1396,10 @@ func Move(position int, roll int) int {
 	return position + (roll * 2)
 }
 
+func CheckForFactor(base int, factor int) bool {
+	return base%factor == 0
+}
+
 func main() {
 	fmt.Println("Codewars")
 	fmt.Println(Summation(213), 22791)
