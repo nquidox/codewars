@@ -1400,6 +1400,10 @@ func CheckForFactor(base int, factor int) bool {
 	return base%factor == 0
 }
 
+func Goals(laLigaGoals, copaDelReyGoals, championsLeagueGoals int) int {
+	return laLigaGoals + copaDelReyGoals + championsLeagueGoals
+}
+
 func main() {
 	fmt.Println("Codewars")
 	fmt.Println(Summation(213), 22791)
