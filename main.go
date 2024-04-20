@@ -1386,10 +1386,14 @@ func Summation(n int) (sum int) {
 }
 
 func combat(health, damage float64) float64 {
-	if health - damage < 0 {
+	if health-damage < 0 {
 		return 0
 	}
 	return health - damage
+}
+
+func Move(position int, roll int) int {
+	return position + (roll * 2)
 }
 
 func main() {
