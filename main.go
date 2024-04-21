@@ -1404,6 +1404,23 @@ func Goals(laLigaGoals, copaDelReyGoals, championsLeagueGoals int) int {
 	return laLigaGoals + copaDelReyGoals + championsLeagueGoals
 }
 
+func GetGrade(a, b, c int) rune {
+	score := (a + b + c) / 3
+	switch {
+	case score >= 90:
+		return 'A'
+	case score >= 80:
+		return 'B'
+	case score >= 70:
+		return 'C'
+	case score >= 60:
+		return 'D'
+	case score < 60:
+		return 'F'
+	}
+	return 'S'
+}
+
 func main() {
 	fmt.Println("Codewars")
 	fmt.Println(Summation(213), 22791)
