@@ -1421,9 +1421,14 @@ func GetGrade(a, b, c int) rune {
 	return 'S'
 }
 
+func BinToDec(bin string) int {
+	dec, _ := strconv.ParseInt(bin, 2, 32)
+	return int(dec)
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(Summation(213), 22791)
+	fmt.Println(BinToDec("1001001"), 73)
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
@@ -1522,5 +1527,6 @@ func main() {
 		fmt.Println(Derive(5, 9), "45x^8")
 		fmt.Println(CalculateYears(10), [3]int{10, 56, 64})
 		fmt.Println(IsPalindrome("Abba"), true)
+		fmt.Println(Summation(213), 22791)
 	*/
 }
