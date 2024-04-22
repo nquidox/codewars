@@ -1426,9 +1426,23 @@ func BinToDec(bin string) int {
 	return int(dec)
 }
 
+func SortVowels(s string) (res string) {
+	for _, j := range s {
+		switch string(j) {
+		case "a", "i", "u", "e", "o", "A", "I", "U", "E", "O":
+			res += "|" + string(j) + "\n"
+		case "":
+			res = ""
+		default:
+			res += string(j) + "|" + "\n"
+		}
+	}
+	return strings.TrimSuffix(res, "\n")
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(BinToDec("1001001"), 73)
+	fmt.Println(SortVowels("Codewars"), "C|\\n|o\\nd|\\n|e\\nw|\\n|a\\nr|\\ns|")
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
@@ -1528,5 +1542,6 @@ func main() {
 		fmt.Println(CalculateYears(10), [3]int{10, 56, 64})
 		fmt.Println(IsPalindrome("Abba"), true)
 		fmt.Println(Summation(213), 22791)
+		fmt.Println(BinToDec("1001001"), 73)
 	*/
 }
