@@ -1440,9 +1440,22 @@ func SortVowels(s string) (res string) {
 	return strings.TrimSuffix(res, "\n")
 }
 
+func SimpleStringDivision(st string, k int) int {
+	step := len(st) - k
+	maxNum := 0
+
+	for i := 0; i+step <= len(st); i++ {
+		num, _ := strconv.Atoi(st[i : i+step])
+		if num >= maxNum {
+			maxNum = num
+		}
+	}
+	return maxNum
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(SortVowels("Codewars"), "C|\\n|o\\nd|\\n|e\\nw|\\n|a\\nr|\\ns|")
+	fmt.Println(SimpleStringDivision("1234", 1), 234)
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
@@ -1543,5 +1556,6 @@ func main() {
 		fmt.Println(IsPalindrome("Abba"), true)
 		fmt.Println(Summation(213), 22791)
 		fmt.Println(BinToDec("1001001"), 73)
+		fmt.Println(SortVowels("Codewars"), "C|\\n|o\\nd|\\n|e\\nw|\\n|a\\nr|\\ns|")
 	*/
 }
