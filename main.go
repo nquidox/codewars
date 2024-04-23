@@ -1453,9 +1453,24 @@ func SimpleStringDivision(st string, k int) int {
 	return maxNum
 }
 
+func ReduceFraction(fraction [2]int) [2]int {
+	a, b := fraction[0], fraction[1]
+
+	for a != 0 && b != 0 {
+		if a > b {
+			a = a % b
+		} else {
+			b = b % a
+		}
+	}
+	d := a + b
+
+	return [2]int{fraction[0] / d, fraction[1] / d}
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(SimpleStringDivision("1234", 1), 234)
+	fmt.Println(ReduceFraction([2]int{80, 120}), "2, 3")
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
@@ -1557,5 +1572,6 @@ func main() {
 		fmt.Println(Summation(213), 22791)
 		fmt.Println(BinToDec("1001001"), 73)
 		fmt.Println(SortVowels("Codewars"), "C|\\n|o\\nd|\\n|e\\nw|\\n|a\\nr|\\ns|")
+		fmt.Println(SimpleStringDivision("1234", 1), 234)
 	*/
 }
