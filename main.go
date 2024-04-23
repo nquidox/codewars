@@ -1480,9 +1480,20 @@ func MobileKeyboard(str string) (sum int) {
 	return
 }
 
+func Encode(str string, key int) (res []int) {
+	k := strconv.Itoa(key)
+	for len(k) < len(str) {
+		k += k
+	}
+	for i := range str {
+		res = append(res, int(str[i]-96+k[i]-48))
+	}
+	return
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(MobileKeyboard("codewars"), 26)
+	fmt.Println(Encode("scout", 19391), "20, 12, 18, 30, 21")
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
@@ -1586,5 +1597,6 @@ func main() {
 		fmt.Println(SortVowels("Codewars"), "C|\\n|o\\nd|\\n|e\\nw|\\n|a\\nr|\\ns|")
 		fmt.Println(SimpleStringDivision("1234", 1), 234)
 		fmt.Println(ReduceFraction([2]int{80, 120}), "2, 3")
+		fmt.Println(MobileKeyboard("codewars"), 26)
 	*/
 }
