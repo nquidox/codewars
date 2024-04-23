@@ -1491,9 +1491,25 @@ func Encode(str string, key int) (res []int) {
 	return
 }
 
+func DblLinear(n int) int {
+	u := make([]int, n+1)
+	u[0] = 1
+	e2, e3 := 0, 0
+	for i := 1; i <= n; i++ {
+		u[i] = int(math.Min(float64(2*u[e2]+1), float64(3*u[e3]+1)))
+		if u[i] == 2*u[e2]+1 {
+			e2++
+		}
+		if u[i] == 3*u[e3]+1 {
+			e3++
+		}
+	}
+	return u[n]
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(Encode("scout", 19391), "20, 12, 18, 30, 21")
+	fmt.Println(DblLinear(10), 22)
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
@@ -1598,5 +1614,6 @@ func main() {
 		fmt.Println(SimpleStringDivision("1234", 1), 234)
 		fmt.Println(ReduceFraction([2]int{80, 120}), "2, 3")
 		fmt.Println(MobileKeyboard("codewars"), 26)
+		fmt.Println(Encode("scout", 19391), "20, 12, 18, 30, 21")
 	*/
 }
