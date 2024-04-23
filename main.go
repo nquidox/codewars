@@ -1468,9 +1468,21 @@ func ReduceFraction(fraction [2]int) [2]int {
 	return [2]int{fraction[0] / d, fraction[1] / d}
 }
 
+func MobileKeyboard(str string) (sum int) {
+	clicks := map[string]int{
+		"1": 1, "2": 1, "3": 1, "4": 1, "5": 1, "6": 1, "7": 1, "8": 1, "9": 1, "0": 1,
+		"a": 2, "b": 3, "c": 4, "d": 2, "e": 3, "f": 4, "g": 2, "h": 3, "i": 4, "j": 2,
+		"k": 3, "l": 4, "m": 2, "n": 3, "o": 4, "p": 2, "q": 3, "r": 4, "s": 5, "t": 2,
+		"u": 3, "v": 4, "w": 2, "x": 3, "y": 4, "z": 5, "*": 1, "#": 1}
+	for _, j := range str {
+		sum += clicks[string(j)]
+	}
+	return
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(ReduceFraction([2]int{80, 120}), "2, 3")
+	fmt.Println(MobileKeyboard("codewars"), 26)
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
@@ -1573,5 +1585,6 @@ func main() {
 		fmt.Println(BinToDec("1001001"), 73)
 		fmt.Println(SortVowels("Codewars"), "C|\\n|o\\nd|\\n|e\\nw|\\n|a\\nr|\\ns|")
 		fmt.Println(SimpleStringDivision("1234", 1), 234)
+		fmt.Println(ReduceFraction([2]int{80, 120}), "2, 3")
 	*/
 }
