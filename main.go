@@ -1507,9 +1507,21 @@ func DblLinear(n int) int {
 	return u[n]
 }
 
+func SortMyString(s string) string {
+	s1, s2 := "", ""
+	for i := range s {
+		if i%2 == 0 {
+			s1 += string(s[i])
+		} else {
+			s2 += string(s[i])
+		}
+	}
+	return s1 + " " + s2
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(DblLinear(10), 22)
+	fmt.Println(SortMyString("CodeWars"), "CdWr oeas")
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
@@ -1615,5 +1627,6 @@ func main() {
 		fmt.Println(ReduceFraction([2]int{80, 120}), "2, 3")
 		fmt.Println(MobileKeyboard("codewars"), 26)
 		fmt.Println(Encode("scout", 19391), "20, 12, 18, 30, 21")
+		fmt.Println(DblLinear(10), 22)
 	*/
 }
