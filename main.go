@@ -1519,9 +1519,25 @@ func SortMyString(s string) string {
 	return s1 + " " + s2
 }
 
+func AddLetters(letters []rune) rune {
+	if len(letters) < 1 {
+		return 'z'
+	}
+
+	var sum rune = 0
+	for _, j := range letters {
+		sum += j - 96
+
+		if sum > 26 {
+			sum -= 26
+		}
+	}
+	return sum + 96
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(SortMyString("CodeWars"), "CdWr oeas")
+	fmt.Println(AddLetters([]rune{'v', 'b', 'f', 'b', 'h', 't', 'd'}), 108)
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
@@ -1628,5 +1644,6 @@ func main() {
 		fmt.Println(MobileKeyboard("codewars"), 26)
 		fmt.Println(Encode("scout", 19391), "20, 12, 18, 30, 21")
 		fmt.Println(DblLinear(10), 22)
+		fmt.Println(SortMyString("CodeWars"), "CdWr oeas")
 	*/
 }
