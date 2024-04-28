@@ -1535,9 +1535,28 @@ func AddLetters(letters []rune) rune {
 	return sum + 96
 }
 
+func Gimme(array [3]int) int {
+	minN, maxN := array[0], array[0]
+	for _, j := range array {
+		if j <= minN {
+			minN = j
+		}
+		if j >= maxN {
+			maxN = j
+		}
+	}
+
+	for i := range array {
+		if array[i] > minN && array[i] < maxN {
+			return i
+		}
+	}
+	return 0
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(AddLetters([]rune{'v', 'b', 'f', 'b', 'h', 't', 'd'}), 108)
+	fmt.Println(Gimme([3]int{5, 10, 14}), 1)
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
@@ -1645,5 +1664,6 @@ func main() {
 		fmt.Println(Encode("scout", 19391), "20, 12, 18, 30, 21")
 		fmt.Println(DblLinear(10), 22)
 		fmt.Println(SortMyString("CodeWars"), "CdWr oeas")
+		fmt.Println(AddLetters([]rune{'v', 'b', 'f', 'b', 'h', 't', 'd'}), 108)
 	*/
 }
