@@ -1554,9 +1554,23 @@ func Gimme(array [3]int) int {
 	return 0
 }
 
+func inviteMoreWomen(L []int) bool {
+	sum := 0
+	for _, j := range L {
+		sum += j
+	}
+
+	switch {
+	case sum > 0:
+		return true
+	default:
+		return false
+	}
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(Gimme([3]int{5, 10, 14}), 1)
+	fmt.Println(inviteMoreWomen([]int{1, -1, 1}), true)
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
@@ -1665,5 +1679,6 @@ func main() {
 		fmt.Println(DblLinear(10), 22)
 		fmt.Println(SortMyString("CodeWars"), "CdWr oeas")
 		fmt.Println(AddLetters([]rune{'v', 'b', 'f', 'b', 'h', 't', 'd'}), 108)
+		fmt.Println(Gimme([3]int{5, 10, 14}), 1)
 	*/
 }
