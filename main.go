@@ -1568,9 +1568,20 @@ func inviteMoreWomen(L []int) bool {
 	}
 }
 
+func SeriesSum(n int) string {
+	if n != 0 {
+		sum := 1.0
+		for i := 1; i < n; i++ {
+			sum += 1.0 / (3.0*float64(i) + 1.0)
+		}
+		return strconv.FormatFloat(sum, 'f', 2, 64)
+	}
+	return "0.00"
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(inviteMoreWomen([]int{1, -1, 1}), true)
+	fmt.Println(SeriesSum(4), "1.49")
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
@@ -1680,5 +1691,6 @@ func main() {
 		fmt.Println(SortMyString("CodeWars"), "CdWr oeas")
 		fmt.Println(AddLetters([]rune{'v', 'b', 'f', 'b', 'h', 't', 'd'}), 108)
 		fmt.Println(Gimme([3]int{5, 10, 14}), 1)
+		fmt.Println(inviteMoreWomen([]int{1, -1, 1}), true)
 	*/
 }
