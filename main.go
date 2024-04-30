@@ -1579,9 +1579,26 @@ func SeriesSum(n int) string {
 	return "0.00"
 }
 
+func SimpleStringCharacters(s string) []int {
+	res := []int{0, 0, 0, 0}
+	for _, j := range s {
+		switch {
+		case j >= 65 && j <= 90:
+			res[0]++
+		case j >= 97 && j <= 122:
+			res[1]++
+		case j >= 48 && j <= 57:
+			res[2]++
+		default:
+			res[3]++
+		}
+	}
+	return res
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(SeriesSum(4), "1.49")
+	fmt.Println(SimpleStringCharacters("bgA5<1d-tOwUZTS8yQ"), []int{7, 6, 3, 2})
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
@@ -1692,5 +1709,6 @@ func main() {
 		fmt.Println(AddLetters([]rune{'v', 'b', 'f', 'b', 'h', 't', 'd'}), 108)
 		fmt.Println(Gimme([3]int{5, 10, 14}), 1)
 		fmt.Println(inviteMoreWomen([]int{1, -1, 1}), true)
+		fmt.Println(SeriesSum(4), "1.49")
 	*/
 }
