@@ -1610,9 +1610,23 @@ func Vaporcode(s string) (res string) {
 	return res[:len(res)-2]
 }
 
+func NameValue(my_list []string) (res []int) {
+	sum := 0
+	for i, j := range my_list {
+		for _, k := range j {
+			if k >= 96 && k <= 122 {
+				sum += int(k - 96)
+			}
+		}
+		res = append(res, sum*(i+1))
+		sum = 0
+	}
+	return res
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(Vaporcode("Why isnt my code working"), "W  H  Y  I  S  N  T  M  Y  C  O  D  E  W  O  R  K  I  N  G")
+	fmt.Println(NameValue([]string{"abc", "abc", "abc", "abc"}), []int{6, 12, 18, 24})
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
@@ -1725,5 +1739,6 @@ func main() {
 		fmt.Println(inviteMoreWomen([]int{1, -1, 1}), true)
 		fmt.Println(SeriesSum(4), "1.49")
 		fmt.Println(SimpleStringCharacters("bgA5<1d-tOwUZTS8yQ"), []int{7, 6, 3, 2})
+		fmt.Println(Vaporcode("Why isnt my code working"), "W  H  Y  I  S  N  T  M  Y  C  O  D  E  W  O  R  K  I  N  G")
 	*/
 }
