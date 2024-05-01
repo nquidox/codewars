@@ -1624,9 +1624,37 @@ func NameValue(my_list []string) (res []int) {
 	return res
 }
 
+func RoundToNext5(n int) int {
+	switch {
+	case n > 0:
+		switch n % 5 {
+		case 1:
+			n += 4
+		case 2:
+			n += 3
+		case 3:
+			n += 2
+		case 4:
+			n += 1
+		}
+	case n < 0:
+		switch n % 5 {
+		case -1:
+			n += 1
+		case -2:
+			n += 2
+		case -3:
+			n += 3
+		case -4:
+			n += 4
+		}
+	}
+	return n
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(NameValue([]string{"abc", "abc", "abc", "abc"}), []int{6, 12, 18, 24})
+	fmt.Println(RoundToNext5(-21), 25)
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
@@ -1740,5 +1768,6 @@ func main() {
 		fmt.Println(SeriesSum(4), "1.49")
 		fmt.Println(SimpleStringCharacters("bgA5<1d-tOwUZTS8yQ"), []int{7, 6, 3, 2})
 		fmt.Println(Vaporcode("Why isnt my code working"), "W  H  Y  I  S  N  T  M  Y  C  O  D  E  W  O  R  K  I  N  G")
+		fmt.Println(NameValue([]string{"abc", "abc", "abc", "abc"}), []int{6, 12, 18, 24})
 	*/
 }
