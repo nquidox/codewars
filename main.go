@@ -1596,9 +1596,23 @@ func SimpleStringCharacters(s string) []int {
 	return res
 }
 
+func Vaporcode(s string) (res string) {
+	for i := range s {
+		switch {
+		case s[i] >= 'a' && s[i] <= 'z':
+			res += string(s[i]-32) + "  "
+		case s[i] == ' ':
+			continue
+		default:
+			res += string(s[i]) + "  "
+		}
+	}
+	return res[:len(res)-2]
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(SimpleStringCharacters("bgA5<1d-tOwUZTS8yQ"), []int{7, 6, 3, 2})
+	fmt.Println(Vaporcode("Why isnt my code working"), "W  H  Y  I  S  N  T  M  Y  C  O  D  E  W  O  R  K  I  N  G")
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
@@ -1710,5 +1724,6 @@ func main() {
 		fmt.Println(Gimme([3]int{5, 10, 14}), 1)
 		fmt.Println(inviteMoreWomen([]int{1, -1, 1}), true)
 		fmt.Println(SeriesSum(4), "1.49")
+		fmt.Println(SimpleStringCharacters("bgA5<1d-tOwUZTS8yQ"), []int{7, 6, 3, 2})
 	*/
 }
