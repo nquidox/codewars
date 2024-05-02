@@ -1652,9 +1652,18 @@ func RoundToNext5(n int) int {
 	return n
 }
 
+func GetMiddle(s string) (res string) {
+	if len(s)%2 == 0 {
+		res = s[len(s)/2-1 : len(s)/2+1]
+	} else {
+		res = string(s[len(s)/2])
+	}
+	return
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(RoundToNext5(-21), 25)
+	fmt.Println(GetMiddle("test"), "es")
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
@@ -1769,5 +1778,6 @@ func main() {
 		fmt.Println(SimpleStringCharacters("bgA5<1d-tOwUZTS8yQ"), []int{7, 6, 3, 2})
 		fmt.Println(Vaporcode("Why isnt my code working"), "W  H  Y  I  S  N  T  M  Y  C  O  D  E  W  O  R  K  I  N  G")
 		fmt.Println(NameValue([]string{"abc", "abc", "abc", "abc"}), []int{6, 12, 18, 24})
+		fmt.Println(RoundToNext5(-21), 25)
 	*/
 }
