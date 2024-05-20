@@ -1661,9 +1661,21 @@ func GetMiddle(s string) (res string) {
 	return
 }
 
+func GetSum(a, b int) (sum int) {
+	if a > b {
+		a, b = b, a
+	}
+	for i := a; i <= b; i++ {
+		sum += i
+	}
+	return
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(GetMiddle("test"), "es")
+	fmt.Println(GetSum(321, 123), "44178")
+
+	//fmt.Println(GetMiddle("test"), "es")
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
 		fmt.Println(Multiple3And5(10))
