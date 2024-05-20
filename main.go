@@ -1671,10 +1671,26 @@ func GetSum(a, b int) (sum int) {
 	return
 }
 
+func DNAStrand(dna string) (res string) {
+	for _, j := range dna {
+		switch j {
+		case 'A':
+			res += "T"
+		case 'T':
+			res += "A"
+		case 'G':
+			res += "C"
+		case 'C':
+			res += "G"
+		}
+	}
+	return
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(GetSum(321, 123), "44178")
-
+	fmt.Println(DNAStrand("ATTGC"), "TAACG")
+	//fmt.Println(GetSum(321, 123), "44178")
 	//fmt.Println(GetMiddle("test"), "es")
 	/*
 		fmt.Println(ToCamelCase("to_camel-case"))
