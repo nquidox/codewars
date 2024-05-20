@@ -1687,9 +1687,29 @@ func DNAStrand(dna string) (res string) {
 	return
 }
 
+func SumOfIntegersInString(strng string) (n int) {
+	var res string
+
+	for _, j := range strng {
+		if j < 48 || j > 57 {
+			res += " "
+		} else {
+			res += string(j)
+		}
+	}
+
+	for _, j := range strings.Fields(res) {
+		t, _ := strconv.Atoi(j)
+		n += t
+	}
+
+	return
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(DNAStrand("ATTGC"), "TAACG")
+	fmt.Println(SumOfIntegersInString("The30quick20brown10f0x1203jumps914ov3r1349the102l4zy dog"), 3635)
+	//fmt.Println(DNAStrand("ATTGC"), "TAACG")
 	//fmt.Println(GetSum(321, 123), "44178")
 	//fmt.Println(GetMiddle("test"), "es")
 	/*
