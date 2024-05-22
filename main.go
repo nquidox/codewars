@@ -1724,9 +1724,14 @@ func Add(n int) func(int) int {
 	}
 }
 
+func Angle(n int) int {
+	return (n - 2) * 180
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(Add(1)(3), 4)
+	fmt.Println(Angle(3), 180)
+	//fmt.Println(Add(1)(3), 4)
 	//fmt.Println(Calc("F7$&QE?M"), 18)
 	//fmt.Println(SumOfIntegersInString("The30quick20brown10f0x1203jumps914ov3r1349the102l4zy dog"), 3635)
 	//fmt.Println(DNAStrand("ATTGC"), "TAACG")
