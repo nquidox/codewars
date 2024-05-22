@@ -1706,9 +1706,22 @@ func SumOfIntegersInString(strng string) (n int) {
 	return
 }
 
+func Calc(s string) (res int) {
+	for _, j := range s {
+		if j%10 == 7 {
+			res++
+		}
+		if j > 69 && j < 80 {
+			res++
+		}
+	}
+	return res * 6
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(SumOfIntegersInString("The30quick20brown10f0x1203jumps914ov3r1349the102l4zy dog"), 3635)
+	fmt.Println(Calc("F7$&QE?M"), 18)
+	//fmt.Println(SumOfIntegersInString("The30quick20brown10f0x1203jumps914ov3r1349the102l4zy dog"), 3635)
 	//fmt.Println(DNAStrand("ATTGC"), "TAACG")
 	//fmt.Println(GetSum(321, 123), "44178")
 	//fmt.Println(GetMiddle("test"), "es")
