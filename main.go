@@ -1738,6 +1738,20 @@ func SortNumbers(numbers []int) []int {
 	return numbers
 }
 
+func Arithmetic(a int, b int, operator string) int {
+	switch operator {
+	case "add":
+		return a + b
+	case "subtract":
+		return a - b
+	case "multiply":
+		return a * b
+	case "divide":
+		return a / b
+	}
+	return 0
+}
+
 func main() {
 	fmt.Println("Codewars")
 	fmt.Println(SortNumbers([]int{1, 2, 10, 50, 5}), "[1 2 5 10 50]")
