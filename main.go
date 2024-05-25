@@ -1759,9 +1759,22 @@ func BreakChocolate(n, m int) int {
 	return 0
 }
 
+func RemoveDuplicateWords(str string) string {
+	words := make(map[string]bool)
+	list := []string{}
+	for _, w := range strings.Fields(str) {
+		if _, value := words[w]; !value {
+			words[w] = true
+			list = append(list, w)
+		}
+	}
+	return strings.Join(list, " ")
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(BreakChocolate(5, 5), 24)
+	fmt.Println(RemoveDuplicateWords("alpha beta beta gamma gamma gamma delta alpha beta beta gamma gamma gamma delta"), "alpha beta gamma delta")
+	//fmt.Println(BreakChocolate(5, 5), 24)
 	//fmt.Println(SortNumbers([]int{1, 2, 10, 50, 5}), "[1 2 5 10 50]")
 	//fmt.Println(TwoOldestAges([]int{39, 53, 83, 51, 59, 61, 95, 23, 99, 49}), "[95 99]")
 	//fmt.Println(Angle(3), 180)
