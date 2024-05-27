@@ -1780,9 +1780,17 @@ func DontGiveMeFive(start int, end int) (res int) {
 	return
 }
 
+func CountRedBeads(n int) int {
+	if n > 2 {
+		return (n - 1) * 2
+	}
+	return 0
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(DontGiveMeFive(-55, 12), 56)
+	fmt.Println(CountRedBeads(5), 8)
+	//fmt.Println(DontGiveMeFive(-55, 12), 56)
 	//fmt.Println(RemoveDuplicateWords("alpha beta beta gamma gamma gamma delta alpha beta beta gamma gamma gamma delta"), "alpha beta gamma delta")
 	//fmt.Println(BreakChocolate(5, 5), 24)
 	//fmt.Println(SortNumbers([]int{1, 2, 10, 50, 5}), "[1 2 5 10 50]")
