@@ -1787,9 +1787,32 @@ func CountRedBeads(n int) int {
 	return 0
 }
 
+func Strong(n int) string {
+	var sum uint64
+	nums := strings.Split(strconv.Itoa(n), "")
+	for _, j := range nums {
+		num, _ := strconv.Atoi(j)
+		sum += Factorial(uint64(num))
+	}
+	if sum == uint64(n) {
+		return "STRONG!!!!"
+	} else {
+		return "Not Strong !!"
+	}
+}
+
+func Factorial(n uint64) (res uint64) {
+	if n > 0 {
+		res = n * Factorial(n-1)
+		return res
+	}
+	return 1
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(CountRedBeads(5), 8)
+	fmt.Println(Strong(145), "STRONG!!!!")
+	//fmt.Println(CountRedBeads(5), 8)
 	//fmt.Println(DontGiveMeFive(-55, 12), 56)
 	//fmt.Println(RemoveDuplicateWords("alpha beta beta gamma gamma gamma delta alpha beta beta gamma gamma gamma delta"), "alpha beta gamma delta")
 	//fmt.Println(BreakChocolate(5, 5), 24)
