@@ -1809,9 +1809,20 @@ func Factorial(n uint64) (res uint64) {
 	return 1
 }
 
+func RowSumOddNumbers(n int) (sum int) {
+	start := n*(n-1) + 1
+	for i := 0; n > 0; i += 2 {
+		sum += start + i
+		n -= 1
+	}
+	return
+	// best solution: return n*n*n
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(Strong(145), "STRONG!!!!")
+	fmt.Println(RowSumOddNumbers(4), 64)
+	//fmt.Println(Strong(145), "STRONG!!!!")
 	//fmt.Println(CountRedBeads(5), 8)
 	//fmt.Println(DontGiveMeFive(-55, 12), 56)
 	//fmt.Println(RemoveDuplicateWords("alpha beta beta gamma gamma gamma delta alpha beta beta gamma gamma gamma delta"), "alpha beta gamma delta")
