@@ -1819,9 +1819,23 @@ func RowSumOddNumbers(n int) (sum int) {
 	// best solution: return n*n*n
 }
 
+func TwoToOne(s1 string, s2 string) string {
+	letters := make(map[string]bool)
+	var unique []string
+	for _, i := range s1 + s2 {
+		if _, l := letters[string(i)]; !l {
+			letters[string(i)] = true
+			unique = append(unique, string(i))
+		}
+	}
+	sort.Strings(unique)
+	return strings.Join(unique, "")
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(RowSumOddNumbers(4), 64)
+	fmt.Println(TwoToOne("loopingisfunbutdangerous", "lessdangerousthancoding") == "abcdefghilnoprstu")
+	//fmt.Println(RowSumOddNumbers(4), 64)
 	//fmt.Println(Strong(145), "STRONG!!!!")
 	//fmt.Println(CountRedBeads(5), 8)
 	//fmt.Println(DontGiveMeFive(-55, 12), 56)
