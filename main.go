@@ -1844,9 +1844,19 @@ func Disemvowel(comment string) (res string) {
 	return
 }
 
+func EquableTriangle(a, b, c int) bool {
+	p := a + b + c
+	s := math.Sqrt(float64(p / 2 * (p/2 - a) * (p/2 - b) * (p/2 - c)))
+	if p == int(s) {
+		return true
+	}
+	return false
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(Disemvowel("This website is for losers LOL!") == "Ths wbst s fr lsrs LL!")
+	fmt.Println(EquableTriangle(5, 12, 13) == true)
+	//fmt.Println(Disemvowel("This website is for losers LOL!") == "Ths wbst s fr lsrs LL!")
 	//fmt.Println(TwoToOne("loopingisfunbutdangerous", "lessdangerousthancoding") == "abcdefghilnoprstu")
 	//fmt.Println(RowSumOddNumbers(4), 64)
 	//fmt.Println(Strong(145), "STRONG!!!!")
