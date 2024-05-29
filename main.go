@@ -1853,9 +1853,23 @@ func EquableTriangle(a, b, c int) bool {
 	return false
 }
 
+func ConsecutiveLetters(s string) bool {
+	sl := strings.Split(s, "")
+	sort.Strings(sl)
+	slj := strings.Join(sl, "")
+	res := true
+	for i := 0; i < len(s)-1; i++ {
+		if slj[i] != slj[i+1]-1 {
+			res = false
+		}
+	}
+	return res
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(EquableTriangle(5, 12, 13) == true)
+	fmt.Println(ConsecutiveLetters("dabc") == true)
+	//fmt.Println(EquableTriangle(5, 12, 13) == true)
 	//fmt.Println(Disemvowel("This website is for losers LOL!") == "Ths wbst s fr lsrs LL!")
 	//fmt.Println(TwoToOne("loopingisfunbutdangerous", "lessdangerousthancoding") == "abcdefghilnoprstu")
 	//fmt.Println(RowSumOddNumbers(4), 64)
