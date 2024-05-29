@@ -1832,9 +1832,22 @@ func TwoToOne(s1 string, s2 string) string {
 	return strings.Join(unique, "")
 }
 
+func Disemvowel(comment string) (res string) {
+	for _, j := range comment {
+		switch string(j) {
+		case "a", "i", "u", "e", "o", "A", "I", "U", "E", "O":
+			continue
+		default:
+			res += string(j)
+		}
+	}
+	return
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(TwoToOne("loopingisfunbutdangerous", "lessdangerousthancoding") == "abcdefghilnoprstu")
+	fmt.Println(Disemvowel("This website is for losers LOL!") == "Ths wbst s fr lsrs LL!")
+	//fmt.Println(TwoToOne("loopingisfunbutdangerous", "lessdangerousthancoding") == "abcdefghilnoprstu")
 	//fmt.Println(RowSumOddNumbers(4), 64)
 	//fmt.Println(Strong(145), "STRONG!!!!")
 	//fmt.Println(CountRedBeads(5), 8)
