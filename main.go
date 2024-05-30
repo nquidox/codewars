@@ -1866,9 +1866,24 @@ func ConsecutiveLetters(s string) bool {
 	return res
 }
 
+func Capitalize(st string) []string {
+	var s1, s2 string
+	for i := 0; i < len(st); i++ {
+		if i%2 != 0 {
+			s1 += string(st[i])
+			s2 += string(st[i] - 32)
+		} else {
+			s1 += string(st[i] - 32)
+			s2 += string(st[i])
+		}
+	}
+	return []string{s1, s2}
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(ConsecutiveLetters("dabc") == true)
+	fmt.Println(Capitalize("codewars"), "CoDeWaRs", "cOdEwArS")
+	//fmt.Println(ConsecutiveLetters("dabc") == true)
 	//fmt.Println(EquableTriangle(5, 12, 13) == true)
 	//fmt.Println(Disemvowel("This website is for losers LOL!") == "Ths wbst s fr lsrs LL!")
 	//fmt.Println(TwoToOne("loopingisfunbutdangerous", "lessdangerousthancoding") == "abcdefghilnoprstu")
