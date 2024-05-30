@@ -1880,9 +1880,18 @@ func Capitalize(st string) []string {
 	return []string{s1, s2}
 }
 
+func LargestPower(n uint64) int {
+	k := int(math.Log(float64(n)) / math.Log(3))
+	if uint64(math.Pow(3, float64(k))) >= n {
+		k--
+	}
+	return k
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(Capitalize("codewars"), "CoDeWaRs", "cOdEwArS")
+	fmt.Println(LargestPower(82))
+	//fmt.Println(Capitalize("codewars"), "CoDeWaRs", "cOdEwArS")
 	//fmt.Println(ConsecutiveLetters("dabc") == true)
 	//fmt.Println(EquableTriangle(5, 12, 13) == true)
 	//fmt.Println(Disemvowel("This website is for losers LOL!") == "Ths wbst s fr lsrs LL!")
