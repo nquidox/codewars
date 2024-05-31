@@ -1888,9 +1888,37 @@ func LargestPower(n uint64) int {
 	return k
 }
 
+func ScrabbleScore(st string) int {
+	if len(st) > 0 {
+		sum := 0
+		for _, j := range st {
+			switch string(j) {
+			case "a", "e", "i", "o", "u", "l", "n", "r", "s", "t",
+				"A", "E", "I", "O", "U", "L", "N", "R", "S", "T":
+				sum += 1
+			case "d", "g", "D", "G":
+				sum += 2
+			case "b", "c", "m", "p", "B", "C", "M", "P":
+				sum += 3
+			case "f", "h", "v", "w", "y", "F", "H", "V", "W", "Y":
+				sum += 4
+			case "k", "K":
+				sum += 5
+			case "j", "x", "J", "X":
+				sum += 8
+			case "q", "z", "Q", "Z":
+				sum += 10
+			}
+		}
+		return sum
+	}
+	return 0
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(LargestPower(82))
+	fmt.Println(ScrabbleScore("street") == 6)
+	//fmt.Println(LargestPower(82))
 	//fmt.Println(Capitalize("codewars"), "CoDeWaRs", "cOdEwArS")
 	//fmt.Println(ConsecutiveLetters("dabc") == true)
 	//fmt.Println(EquableTriangle(5, 12, 13) == true)
