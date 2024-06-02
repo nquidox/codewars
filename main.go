@@ -1915,9 +1915,24 @@ func ScrabbleScore(st string) int {
 	return 0
 }
 
+func SimpleStringReversalII(s string, a, b int) string {
+	runes := []rune(s)
+
+	if b >= len(runes) {
+		b = len(runes) - 1
+	}
+
+	for i, j := a, b; i < j; i, j = i+1, j-1 {
+		runes[i], runes[j] = runes[j], runes[i]
+	}
+
+	return string(runes)
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(ScrabbleScore("street") == 6)
+	fmt.Println(SimpleStringReversalII("codingIsFun", 2, 100) == "conuFsIgnid")
+	//fmt.Println(ScrabbleScore("street") == 6)
 	//fmt.Println(LargestPower(82))
 	//fmt.Println(Capitalize("codewars"), "CoDeWaRs", "cOdEwArS")
 	//fmt.Println(ConsecutiveLetters("dabc") == true)
