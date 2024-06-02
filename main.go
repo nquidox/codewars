@@ -1946,9 +1946,14 @@ func LongestVowelChain(s string) int {
 	return longest
 }
 
+func OverTheRoad(address int, n int) int {
+	return n*2 - address + 1
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(LongestVowelChain("codewarriors") == 2)
+	fmt.Println(OverTheRoad(1, 3) == 6)
+	//fmt.Println(LongestVowelChain("codewarriors") == 2)
 	//fmt.Println(SimpleStringReversalII("codingIsFun", 2, 100) == "conuFsIgnid")
 	//fmt.Println(ScrabbleScore("street") == 6)
 	//fmt.Println(LargestPower(82))
