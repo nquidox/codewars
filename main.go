@@ -1929,9 +1929,27 @@ func SimpleStringReversalII(s string, a, b int) string {
 	return string(runes)
 }
 
+func LongestVowelChain(s string) int {
+	counter := 0
+	longest := 0
+	for _, char := range s {
+		switch char {
+		case 'a', 'e', 'u', 'i', 'o':
+			counter++
+			if counter > longest {
+				longest = counter
+			}
+		default:
+			counter = 0
+		}
+	}
+	return longest
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(SimpleStringReversalII("codingIsFun", 2, 100) == "conuFsIgnid")
+	fmt.Println(LongestVowelChain("codewarriors") == 2)
+	//fmt.Println(SimpleStringReversalII("codingIsFun", 2, 100) == "conuFsIgnid")
 	//fmt.Println(ScrabbleScore("street") == 6)
 	//fmt.Println(LargestPower(82))
 	//fmt.Println(Capitalize("codewars"), "CoDeWaRs", "cOdEwArS")
