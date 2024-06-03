@@ -1950,9 +1950,14 @@ func OverTheRoad(address int, n int) int {
 	return n*2 - address + 1
 }
 
+func Digits(n uint64) int {
+	return len(strconv.FormatUint(n, 10))
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(OverTheRoad(1, 3) == 6)
+	fmt.Println(Digits(18446744073709551615) == 20)
+	//fmt.Println(OverTheRoad(1, 3) == 6)
 	//fmt.Println(LongestVowelChain("codewarriors") == 2)
 	//fmt.Println(SimpleStringReversalII("codingIsFun", 2, 100) == "conuFsIgnid")
 	//fmt.Println(ScrabbleScore("street") == 6)
