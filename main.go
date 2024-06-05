@@ -1954,9 +1954,26 @@ func Digits(n uint64) int {
 	return len(strconv.FormatUint(n, 10))
 }
 
+func GrowingPlant(upSpeed, downSpeed, desiredHeight int) int {
+	height := desiredHeight - upSpeed
+
+	if height <= 0 {
+		return 1
+	}
+	days := height / (upSpeed - downSpeed)
+
+	if height%(upSpeed-downSpeed) > 0 {
+		days++
+	}
+	return days + 1
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(Digits(18446744073709551615) == 20)
+	fmt.Println(GrowingPlant(100, 10, 910), 10)
+	fmt.Println(GrowingPlant(5, 2, 5), 1)
+	fmt.Println(GrowingPlant(5, 2, 6), 2)
+	//fmt.Println(Digits(18446744073709551615) == 20)
 	//fmt.Println(OverTheRoad(1, 3) == 6)
 	//fmt.Println(LongestVowelChain("codewarriors") == 2)
 	//fmt.Println(SimpleStringReversalII("codingIsFun", 2, 100) == "conuFsIgnid")
