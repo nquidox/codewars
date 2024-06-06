@@ -1986,9 +1986,20 @@ func MinimumPerimeter(area uint64) uint64 {
 	return 0
 }
 
+func PickGrains(grains <-chan string) (good int, bad int) {
+	for val := range grains {
+		if val == "good" {
+			good++
+		} else {
+			bad++
+		}
+	}
+	return
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(MinimumPerimeter(45) == 28)
+	//fmt.Println(MinimumPerimeter(45) == 28)
 	//fmt.Println(Divisions(100, 2) == 6)
 	//fmt.Println(GrowingPlant(100, 10, 910), 10)
 	//fmt.Println(Digits(18446744073709551615) == 20)
