@@ -1976,9 +1976,20 @@ func Divisions(n, divisor int) (counter int) {
 	return
 }
 
+func MinimumPerimeter(area uint64) uint64 {
+	for x := uint64(math.Sqrt(float64(area))); x > 0; x-- {
+		if area%x == 0 {
+			y := area / x
+			return 2 * (x + y)
+		}
+	}
+	return 0
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(Divisions(100, 2) == 6)
+	fmt.Println(MinimumPerimeter(45) == 28)
+	//fmt.Println(Divisions(100, 2) == 6)
 	//fmt.Println(GrowingPlant(100, 10, 910), 10)
 	//fmt.Println(Digits(18446744073709551615) == 20)
 	//fmt.Println(OverTheRoad(1, 3) == 6)
