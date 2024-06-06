@@ -1968,11 +1968,18 @@ func GrowingPlant(upSpeed, downSpeed, desiredHeight int) int {
 	return days + 1
 }
 
+func Divisions(n, divisor int) (counter int) {
+	for n >= divisor {
+		n /= divisor
+		counter++
+	}
+	return
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(GrowingPlant(100, 10, 910), 10)
-	fmt.Println(GrowingPlant(5, 2, 5), 1)
-	fmt.Println(GrowingPlant(5, 2, 6), 2)
+	fmt.Println(Divisions(100, 2) == 6)
+	//fmt.Println(GrowingPlant(100, 10, 910), 10)
 	//fmt.Println(Digits(18446744073709551615) == 20)
 	//fmt.Println(OverTheRoad(1, 3) == 6)
 	//fmt.Println(LongestVowelChain("codewarriors") == 2)
