@@ -1997,8 +1997,16 @@ func PickGrains(grains <-chan string) (good int, bad int) {
 	return
 }
 
+func bandNameGenerator(word string) string {
+	if word[0] == word[len(word)-1] {
+		return strings.Title(word) + word[1:]
+	}
+	return "The " + strings.Title(word)
+}
+
 func main() {
 	fmt.Println("Codewars")
+	fmt.Println(bandNameGenerator("knife"), "The Knife")
 	//fmt.Println(MinimumPerimeter(45) == 28)
 	//fmt.Println(Divisions(100, 2) == 6)
 	//fmt.Println(GrowingPlant(100, 10, 910), 10)
