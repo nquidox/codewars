@@ -2026,10 +2026,22 @@ func ReverseWords2(str string) (res string) {
 	return res[:len(res)-1]
 }
 
+func Incrementer(n []int) (res []int) {
+	for i := range n {
+		c := n[i] + i + 1
+		if c > 9 {
+			c %= 10
+		}
+		res = append(res, c)
+	}
+	return
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(ReverseWords2("double  spaced  words") == "elbuod  decaps  sdrow")
-	fmt.Println(ReverseWords2("a b c d") == "a b c d")
+	fmt.Println(Incrementer([]int{3, 6, 9, 8, 9}), []int{4, 8, 2, 2, 4})
+	//fmt.Println(ReverseWords2("double  spaced  words") == "elbuod  decaps  sdrow")
+	//fmt.Println(ReverseWords2("a b c d") == "a b c d")
 	//fmt.Println(bandNameGenerator("knife"), "The Knife")
 	//fmt.Println(MinimumPerimeter(45) == 28)
 	//fmt.Println(Divisions(100, 2) == 6)
