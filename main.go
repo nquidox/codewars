@@ -2004,9 +2004,33 @@ func bandNameGenerator(word string) string {
 	return "The " + strings.Title(word)
 }
 
+func ReverseWords2(str string) (res string) {
+	str += " "
+	tempStr := ""
+	for _, j := range str {
+		if j != ' ' {
+			tempStr += string(j)
+		} else {
+			l := len(tempStr)
+			if l > 1 {
+				for i := l - 1; i >= 0; i-- {
+					res += string(tempStr[i])
+				}
+			} else {
+				res += tempStr
+			}
+			tempStr = ""
+			res += " "
+		}
+	}
+	return res[:len(res)-1]
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(bandNameGenerator("knife"), "The Knife")
+	fmt.Println(ReverseWords2("double  spaced  words") == "elbuod  decaps  sdrow")
+	fmt.Println(ReverseWords2("a b c d") == "a b c d")
+	//fmt.Println(bandNameGenerator("knife"), "The Knife")
 	//fmt.Println(MinimumPerimeter(45) == 28)
 	//fmt.Println(Divisions(100, 2) == 6)
 	//fmt.Println(GrowingPlant(100, 10, 910), 10)
