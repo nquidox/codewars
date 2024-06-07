@@ -2037,9 +2037,23 @@ func Incrementer(n []int) (res []int) {
 	return
 }
 
+func ModifyMultiply(str string, loc, num int) string {
+	s := strings.Fields(str)
+	if num > 0 {
+		m := []string{}
+		for i := 0; i < num; i++ {
+			m = append(m, s[loc])
+		}
+		return strings.Join(m, "-")
+	}
+	return s[loc]
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(Incrementer([]int{3, 6, 9, 8, 9}), []int{4, 8, 2, 2, 4})
+	fmt.Println(ModifyMultiply("This is a string", 3, 5) == "string-string-string-string-string")
+	fmt.Println(ModifyMultiply("LOctufVMZFzLdYnd SdEQhtaSsjlgsqIhIJgQTZ", 0, 0) == "LOctufVMZFzLdYnd")
+	//fmt.Println(Incrementer([]int{3, 6, 9, 8, 9}), []int{4, 8, 2, 2, 4})
 	//fmt.Println(ReverseWords2("double  spaced  words") == "elbuod  decaps  sdrow")
 	//fmt.Println(ReverseWords2("a b c d") == "a b c d")
 	//fmt.Println(bandNameGenerator("knife"), "The Knife")
