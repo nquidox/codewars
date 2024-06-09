@@ -2078,10 +2078,15 @@ func EncodeCd(n uint8) string {
 	return res
 }
 
+func ClosestMultipleOf10(n uint32) uint32 {
+	return (n + 5) / 10 * 10
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(EncodeCd(5), "PLLPPPPPP")
-	fmt.Println(EncodeCd(16), "PPPPPLLLL")
+	fmt.Println(ClosestMultipleOf10(22), 20)
+	//fmt.Println(EncodeCd(5), "PLLPPPPPP")
+	//fmt.Println(EncodeCd(16), "PPPPPLLLL")
 	//fmt.Printf("%s\n%s\n", SortByLength([]string{"dog", "food", "a", "of"}), []string{"a", "of", "dog", "food"})
 	//fmt.Println(ModifyMultiply("This is a string", 3, 5) == "string-string-string-string-string")
 	//fmt.Println(ModifyMultiply("LOctufVMZFzLdYnd SdEQhtaSsjlgsqIhIJgQTZ", 0, 0) == "LOctufVMZFzLdYnd")
