@@ -2049,10 +2049,18 @@ func ModifyMultiply(str string, loc, num int) string {
 	return s[loc]
 }
 
+func SortByLength(arr []string) []string {
+	sort.Slice(arr, func(i, j int) bool {
+		return len(arr[i]) < len(arr[j])
+	})
+	return arr
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(ModifyMultiply("This is a string", 3, 5) == "string-string-string-string-string")
-	fmt.Println(ModifyMultiply("LOctufVMZFzLdYnd SdEQhtaSsjlgsqIhIJgQTZ", 0, 0) == "LOctufVMZFzLdYnd")
+	fmt.Printf("%s\n%s\n", SortByLength([]string{"dog", "food", "a", "of"}), []string{"a", "of", "dog", "food"})
+	//fmt.Println(ModifyMultiply("This is a string", 3, 5) == "string-string-string-string-string")
+	//fmt.Println(ModifyMultiply("LOctufVMZFzLdYnd SdEQhtaSsjlgsqIhIJgQTZ", 0, 0) == "LOctufVMZFzLdYnd")
 	//fmt.Println(Incrementer([]int{3, 6, 9, 8, 9}), []int{4, 8, 2, 2, 4})
 	//fmt.Println(ReverseWords2("double  spaced  words") == "elbuod  decaps  sdrow")
 	//fmt.Println(ReverseWords2("a b c d") == "a b c d")
