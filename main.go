@@ -2082,9 +2082,16 @@ func ClosestMultipleOf10(n uint32) uint32 {
 	return (n + 5) / 10 * 10
 }
 
+func Heron(a, b, c float64) (area float64) {
+	s := (a + b + c) / 2
+	h := math.Sqrt(s * (s - a) * (s - b) * (s - c))
+	return h
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(ClosestMultipleOf10(22), 20)
+	fmt.Println(Heron(3.0, 4.0, 5.0), 6.0)
+	//fmt.Println(ClosestMultipleOf10(22), 20)
 	//fmt.Println(EncodeCd(5), "PLLPPPPPP")
 	//fmt.Println(EncodeCd(16), "PPPPPLLLL")
 	//fmt.Printf("%s\n%s\n", SortByLength([]string{"dog", "food", "a", "of"}), []string{"a", "of", "dog", "food"})
