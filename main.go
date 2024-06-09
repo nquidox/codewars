@@ -2088,9 +2088,17 @@ func Heron(a, b, c float64) (area float64) {
 	return h
 }
 
+func ReverseList(lst []int) []int {
+	for i, j := 0, len(lst)-1; i < j; i, j = i+1, j-1 {
+		lst[i], lst[j] = lst[j], lst[i]
+	}
+	return lst
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(Heron(3.0, 4.0, 5.0), 6.0)
+	fmt.Printf("%d\n%d\n", ReverseList([]int{1, 2, 3, 4}), []int{4, 3, 2, 1})
+	//fmt.Println(Heron(3.0, 4.0, 5.0), 6.0)
 	//fmt.Println(ClosestMultipleOf10(22), 20)
 	//fmt.Println(EncodeCd(5), "PLLPPPPPP")
 	//fmt.Println(EncodeCd(16), "PPPPPLLLL")
