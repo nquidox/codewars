@@ -2109,10 +2109,28 @@ func NbYear(p0 int, percent float64, aug int, p int) int {
 	return i
 }
 
+func StantonMeasure(arr []int) int {
+	n := arr[0]
+	c1, c2 := 0, 0
+	for _, i := range arr {
+		if i == n {
+			c1++
+		}
+	}
+	for _, j := range arr {
+		if j == c1 {
+			c2++
+		}
+	}
+	return c2
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(NbYear(1500, 5, 100, 5000), 15)
-	fmt.Println(NbYear(1500000, 0, 10000, 2000000), 50)
+	fmt.Println(StantonMeasure([]int{1, 4, 3, 2, 1, 2, 3, 2}), 3)
+	fmt.Println(StantonMeasure([]int{1, 4, 3, 0, 1, 9, 3, 6}), 0)
+	//fmt.Println(NbYear(1500, 5, 100, 5000), 15)
+	//fmt.Println(NbYear(1500000, 0, 10000, 2000000), 50)
 	//fmt.Printf("%d\n%d\n", ReverseList([]int{1, 2, 3, 4}), []int{4, 3, 2, 1})
 	//fmt.Println(Heron(3.0, 4.0, 5.0), 6.0)
 	//fmt.Println(ClosestMultipleOf10(22), 20)
