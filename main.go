@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/hex"
 	"fmt"
 	"math"
 	"math/big"
@@ -2125,10 +2126,37 @@ func StantonMeasure(arr []int) int {
 	return c2
 }
 
+func Brightest(colors []string) string {
+	var brightest int
+	var b int
+	for i, color := range colors {
+		c, _ := hex.DecodeString(color[1:])
+		n := valueOfColor(c)
+		if n > brightest {
+			brightest = n
+			b = i
+		}
+	}
+	return colors[b]
+}
+
+func valueOfColor(color []byte) int {
+	m := color[0]
+	if color[1] > m {
+		m = color[1]
+	}
+	if color[2] > m {
+		m = color[2]
+	}
+	return int(m)
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(StantonMeasure([]int{1, 4, 3, 2, 1, 2, 3, 2}), 3)
-	fmt.Println(StantonMeasure([]int{1, 4, 3, 0, 1, 9, 3, 6}), 0)
+	fmt.Println(Brightest([]string{"#ABCDEF", "#123456"}), "#ABCDEF")
+	fmt.Println(Brightest([]string{"#FFFFFF", "#123456", "#000000"}), "#FFFFFF")
+	//fmt.Println(StantonMeasure([]int{1, 4, 3, 2, 1, 2, 3, 2}), 3)
+	//fmt.Println(StantonMeasure([]int{1, 4, 3, 0, 1, 9, 3, 6}), 0)
 	//fmt.Println(NbYear(1500, 5, 100, 5000), 15)
 	//fmt.Println(NbYear(1500000, 0, 10000, 2000000), 50)
 	//fmt.Printf("%d\n%d\n", ReverseList([]int{1, 2, 3, 4}), []int{4, 3, 2, 1})
