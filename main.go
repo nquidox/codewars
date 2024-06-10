@@ -2095,9 +2095,25 @@ func ReverseList(lst []int) []int {
 	return lst
 }
 
+func NbYear(p0 int, percent float64, aug int, p int) int {
+	res := p0
+	i := 0
+	if percent == 0 {
+		i--
+	}
+
+	for res <= p {
+		res = res + int(float64(res)*percent/100) + aug
+		i++
+	}
+	return i
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Printf("%d\n%d\n", ReverseList([]int{1, 2, 3, 4}), []int{4, 3, 2, 1})
+	fmt.Println(NbYear(1500, 5, 100, 5000), 15)
+	fmt.Println(NbYear(1500000, 0, 10000, 2000000), 50)
+	//fmt.Printf("%d\n%d\n", ReverseList([]int{1, 2, 3, 4}), []int{4, 3, 2, 1})
 	//fmt.Println(Heron(3.0, 4.0, 5.0), 6.0)
 	//fmt.Println(ClosestMultipleOf10(22), 20)
 	//fmt.Println(EncodeCd(5), "PLLPPPPPP")
