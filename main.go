@@ -2175,10 +2175,22 @@ func Dominator(a []int) int {
 	return -1
 }
 
+func Alternate(n int, firstValue string, secondValue string) (res []string) {
+	for i := 0; i < n; i++ {
+		if i%2 == 0 {
+			res = append(res, firstValue)
+		} else {
+			res = append(res, secondValue)
+		}
+	}
+	return
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(Dominator([]int{3, 4, 3, 2, 3, 1, 3, 3}), 3)
-	fmt.Println(Dominator([]int{1, 2, 3, 4, 5}), -1)
+	fmt.Println(Alternate(5, "true", "false"), []string{"true", "false", "true", "false", "true"})
+	//fmt.Println(Dominator([]int{3, 4, 3, 2, 3, 1, 3, 3}), 3)
+	//fmt.Println(Dominator([]int{1, 2, 3, 4, 5}), -1)
 	//fmt.Println(Brightest([]string{"#ABCDEF", "#123456"}), "#ABCDEF")
 	//fmt.Println(Brightest([]string{"#FFFFFF", "#123456", "#000000"}), "#FFFFFF")
 	//fmt.Println(StantonMeasure([]int{1, 4, 3, 2, 1, 2, 3, 2}), 3)
