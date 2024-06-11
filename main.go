@@ -2151,10 +2151,36 @@ func valueOfColor(color []byte) int {
 	return int(m)
 }
 
+func Dominator(a []int) int {
+	m := make(map[int]int)
+	for _, j := range a {
+		if _, val := m[j]; val {
+			m[j]++
+		} else {
+			m[j] = 1
+		}
+	}
+	n, k := 0, 0
+	for i, j := range m {
+		if j > n {
+			n = j
+			k = i
+		}
+	}
+
+	if n > len(a)/2 {
+		return k
+	}
+
+	return -1
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(Brightest([]string{"#ABCDEF", "#123456"}), "#ABCDEF")
-	fmt.Println(Brightest([]string{"#FFFFFF", "#123456", "#000000"}), "#FFFFFF")
+	fmt.Println(Dominator([]int{3, 4, 3, 2, 3, 1, 3, 3}), 3)
+	fmt.Println(Dominator([]int{1, 2, 3, 4, 5}), -1)
+	//fmt.Println(Brightest([]string{"#ABCDEF", "#123456"}), "#ABCDEF")
+	//fmt.Println(Brightest([]string{"#FFFFFF", "#123456", "#000000"}), "#FFFFFF")
 	//fmt.Println(StantonMeasure([]int{1, 4, 3, 2, 1, 2, 3, 2}), 3)
 	//fmt.Println(StantonMeasure([]int{1, 4, 3, 0, 1, 9, 3, 6}), 0)
 	//fmt.Println(NbYear(1500, 5, 100, 5000), 15)
