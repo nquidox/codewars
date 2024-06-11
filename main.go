@@ -2197,9 +2197,26 @@ func Capitalize2(st string, arr []int) (res string) {
 	return strings.Join(s, "")
 }
 
+func FixStringCase(str string) string {
+	l, u := 0, 0
+	for _, r := range str {
+		if r >= 'a' && r <= 'z' {
+			l++
+		} else {
+			u++
+		}
+	}
+
+	if l >= u {
+		return strings.ToLower(str)
+	}
+	return strings.ToUpper(str)
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(Capitalize2("abcdef", []int{1, 2, 5, 100}), "aBCdeF")
+	fmt.Println(FixStringCase("coDE"), "code")
+	//fmt.Println(Capitalize2("abcdef", []int{1, 2, 5, 100}), "aBCdeF")
 	//fmt.Println(Alternate(5, "true", "false"), []string{"true", "false", "true", "false", "true"})
 	//fmt.Println(Dominator([]int{3, 4, 3, 2, 3, 1, 3, 3}), 3)
 	//fmt.Println(Dominator([]int{1, 2, 3, 4, 5}), -1)
