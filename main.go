@@ -2186,9 +2186,21 @@ func Alternate(n int, firstValue string, secondValue string) (res []string) {
 	return
 }
 
+func Capitalize2(st string, arr []int) (res string) {
+	s := strings.Split(st, "")
+	for _, j := range arr {
+		if j > len(st)-1 {
+			break
+		}
+		s[j] = strings.ToUpper(s[j])
+	}
+	return strings.Join(s, "")
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(Alternate(5, "true", "false"), []string{"true", "false", "true", "false", "true"})
+	fmt.Println(Capitalize2("abcdef", []int{1, 2, 5, 100}), "aBCdeF")
+	//fmt.Println(Alternate(5, "true", "false"), []string{"true", "false", "true", "false", "true"})
 	//fmt.Println(Dominator([]int{3, 4, 3, 2, 3, 1, 3, 3}), 3)
 	//fmt.Println(Dominator([]int{1, 2, 3, 4, 5}), -1)
 	//fmt.Println(Brightest([]string{"#ABCDEF", "#123456"}), "#ABCDEF")
