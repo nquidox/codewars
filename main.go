@@ -2223,11 +2223,34 @@ func FindNextPower(val, pow int) int {
 	return r1
 }
 
+func BabySharkLyrics() string {
+	w, l, h, d, n, s := []string{"Baby", "Mommy", "Daddy", "Grandma", "Grandpa"}, "", "Let's go hunt", ","+strings.Repeat(" doo", 6), "\n", " shark"
+	func() {
+		for _, v := range w {
+			l += strings.Repeat(v+s+d+n, 3)
+			l += v + s + "!" + n
+		}
+	}()
+	return l + strings.Repeat(h+d+n, 3) + h + "!" + n + "Run away,…\n"
+}
+
+//func BabySharkLyrics2() string {
+//	l, a, b, c, d, e, f, g, h, s := "","Baby", "Mommy", "Daddy", "Grandma",
+//		"Grandpa", "Let's go hunt", ","+strings.Repeat(" doo", 6), "\n", " shark"
+//	return strings.Repeat(a+s+g+h, 3) + a + s + "!"+h +
+//		strings.Repeat(b+s+g+h, 3) + b + s + "!" + h +
+//		strings.Repeat(c+s+g+h, 3) + c + s + "!" + h +
+//		strings.Repeat(d+s+g+h, 3) + d + s + "!" + h +
+//		strings.Repeat(e+s+g+h, 3) + e + s + "!" + h +
+//		strings.Repeat(f+g+h, 3) + f + "!" + h + "Run away,…\n"
+//}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(FindNextPower(12385, 3), 13824)
-	fmt.Println(FindNextPower(1245678, 5), 1419857)
-	fmt.Println(FindNextPower(11390625, 6), 16777216)
+	fmt.Println(BabySharkLyrics())
+	//fmt.Println(FindNextPower(12385, 3), 13824)
+	//fmt.Println(FindNextPower(1245678, 5), 1419857)
+	//fmt.Println(FindNextPower(11390625, 6), 16777216)
 	//fmt.Println(FixStringCase("coDE"), "code")
 	//fmt.Println(Capitalize2("abcdef", []int{1, 2, 5, 100}), "aBCdeF")
 	//fmt.Println(Alternate(5, "true", "false"), []string{"true", "false", "true", "false", "true"})
