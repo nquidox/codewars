@@ -2213,9 +2213,22 @@ func FixStringCase(str string) string {
 	return strings.ToUpper(str)
 }
 
+func FindNextPower(val, pow int) int {
+	x, y := float64(val), float64(pow)
+	r1 := int(math.Pow(math.Floor(math.Pow(x, 1.0/y))+1.0, y))
+	r2 := int(math.Pow(math.Ceil(math.Pow(x, 1.0/y))+1.0, y))
+	if r1 <= val {
+		return r2
+	}
+	return r1
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(FixStringCase("coDE"), "code")
+	fmt.Println(FindNextPower(12385, 3), 13824)
+	fmt.Println(FindNextPower(1245678, 5), 1419857)
+	fmt.Println(FindNextPower(11390625, 6), 16777216)
+	//fmt.Println(FixStringCase("coDE"), "code")
 	//fmt.Println(Capitalize2("abcdef", []int{1, 2, 5, 100}), "aBCdeF")
 	//fmt.Println(Alternate(5, "true", "false"), []string{"true", "false", "true", "false", "true"})
 	//fmt.Println(Dominator([]int{3, 4, 3, 2, 3, 1, 3, 3}), 3)
