@@ -2234,20 +2234,32 @@ func BabySharkLyrics() string {
 	return l + strings.Repeat(h+d+n, 3) + h + "!" + n + "Run away,…\n"
 }
 
-//func BabySharkLyrics2() string {
-//	l, a, b, c, d, e, f, g, h, s := "","Baby", "Mommy", "Daddy", "Grandma",
-//		"Grandpa", "Let's go hunt", ","+strings.Repeat(" doo", 6), "\n", " shark"
-//	return strings.Repeat(a+s+g+h, 3) + a + s + "!"+h +
-//		strings.Repeat(b+s+g+h, 3) + b + s + "!" + h +
-//		strings.Repeat(c+s+g+h, 3) + c + s + "!" + h +
-//		strings.Repeat(d+s+g+h, 3) + d + s + "!" + h +
-//		strings.Repeat(e+s+g+h, 3) + e + s + "!" + h +
-//		strings.Repeat(f+g+h, 3) + f + "!" + h + "Run away,…\n"
-//}
+func NextPrime(n int) int {
+	if n == 0 {
+		return 2
+	}
+	n++
+	for !NumIsPrime(n) {
+		n++
+	}
+	return n
+}
+
+func NumIsPrime(n int) bool {
+	for i := 2; i*i <= n; i++ {
+		if n%i == 0 {
+			return false
+		}
+	}
+	return true
+}
 
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(BabySharkLyrics())
+	fmt.Println(NextPrime(0), 1)
+	fmt.Println(NextPrime(5), 7)
+	fmt.Println(NextPrime(911), 919)
+	//fmt.Println(BabySharkLyrics())
 	//fmt.Println(FindNextPower(12385, 3), 13824)
 	//fmt.Println(FindNextPower(1245678, 5), 1419857)
 	//fmt.Println(FindNextPower(11390625, 6), 16777216)
