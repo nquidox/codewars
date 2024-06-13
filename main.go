@@ -1,6 +1,7 @@
 package main
 
 import (
+	"crypto/md5"
 	"encoding/hex"
 	"fmt"
 	"math"
@@ -2254,11 +2255,17 @@ func NumIsPrime(n int) bool {
 	return true
 }
 
+func PassHash(str string) string {
+	s := md5.Sum([]byte(str))
+	return hex.EncodeToString(s[:])
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(NextPrime(0), 1)
-	fmt.Println(NextPrime(5), 7)
-	fmt.Println(NextPrime(911), 919)
+	fmt.Println(PassHash("password") == "5f4dcc3b5aa765d61d8327deb882cf99")
+	//fmt.Println(NextPrime(0), 1)
+	//fmt.Println(NextPrime(5), 7)
+	//fmt.Println(NextPrime(911), 919)
 	//fmt.Println(BabySharkLyrics())
 	//fmt.Println(FindNextPower(12385, 3), 13824)
 	//fmt.Println(FindNextPower(1245678, 5), 1419857)
