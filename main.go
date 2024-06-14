@@ -2280,11 +2280,20 @@ func XMasTree(height int) []string {
 	return tree
 }
 
+type NBAPlayer struct {
+	Team string
+	Ppg  float64
+}
+
+func SumPpg(playerOne, playerTwo NBAPlayer) float64 {
+	return playerOne.Ppg + playerTwo.Ppg
+}
+
 func main() {
 	fmt.Println("Codewars")
-	for _, j := range XMasTree(5) {
-		fmt.Println(j)
-	}
+	//for _, j := range XMasTree(5) {
+	//	fmt.Println(j)
+	//}
 	//fmt.Println(WrapPresent(1, 3, 1), 32)
 	//fmt.Println(PassHash("password") == "5f4dcc3b5aa765d61d8327deb882cf99")
 	//fmt.Println(NextPrime(0), 1)
