@@ -2289,8 +2289,21 @@ func SumPpg(playerOne, playerTwo NBAPlayer) float64 {
 	return playerOne.Ppg + playerTwo.Ppg
 }
 
+func Mirror(data []int) []int {
+	res, data2 := make([]int, len(data)), make([]int, len(data))
+	// Your solution should not mutate the input
+	copy(data2, data) // Okay, okay
+	sort.Ints(data2)
+	copy(res, data2)
+	for i := len(data2) - 2; i >= 0; i-- {
+		res = append(res, data2[i])
+	}
+	return res
+}
+
 func main() {
 	fmt.Println("Codewars")
+	fmt.Println(Mirror([]int{-5, 10, 8, 10, 2, -3, 10}), []int{-5, -3, 2, 8, 10, 10, 10, 10, 10, 8, 2, -3, -5})
 	//for _, j := range XMasTree(5) {
 	//	fmt.Println(j)
 	//}
