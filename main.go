@@ -2260,9 +2260,16 @@ func PassHash(str string) string {
 	return hex.EncodeToString(s[:])
 }
 
+func WrapPresent(height, width, length int) int {
+	sizes := []int{height, width, length}
+	sort.Ints(sizes)
+	return sizes[0]*4 + sizes[1]*2 + sizes[2]*2 + 20
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(PassHash("password") == "5f4dcc3b5aa765d61d8327deb882cf99")
+	fmt.Println(WrapPresent(1, 3, 1), 32)
+	//fmt.Println(PassHash("password") == "5f4dcc3b5aa765d61d8327deb882cf99")
 	//fmt.Println(NextPrime(0), 1)
 	//fmt.Println(NextPrime(5), 7)
 	//fmt.Println(NextPrime(911), 919)
