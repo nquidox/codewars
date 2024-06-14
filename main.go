@@ -2266,9 +2266,26 @@ func WrapPresent(height, width, length int) int {
 	return sizes[0]*4 + sizes[1]*2 + sizes[2]*2 + 20
 }
 
+func XMasTree(height int) []string {
+	tree := make([]string, height+2)
+	halfWidth := height - 1
+	h := 1
+	for i := 0; i < height; i++ {
+		tree[i] = strings.Repeat("_", halfWidth) + strings.Repeat("#", h) + strings.Repeat("_", halfWidth)
+		h += 2
+		halfWidth--
+
+	}
+	tree[len(tree)-1], tree[len(tree)-2] = tree[0], tree[0]
+	return tree
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(WrapPresent(1, 3, 1), 32)
+	for _, j := range XMasTree(5) {
+		fmt.Println(j)
+	}
+	//fmt.Println(WrapPresent(1, 3, 1), 32)
 	//fmt.Println(PassHash("password") == "5f4dcc3b5aa765d61d8327deb882cf99")
 	//fmt.Println(NextPrime(0), 1)
 	//fmt.Println(NextPrime(5), 7)
