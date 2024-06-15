@@ -2314,9 +2314,25 @@ func AlphabetSymmetry(slice []string) (res []int) {
 	return
 }
 
+func Dative(word string) string {
+	runes := []rune(word)
+	for i := len(runes) - 1; i >= 0; i-- {
+		l := string(runes[i])
+		switch l {
+		case "a", "á", "o", "ó", "u", "ú":
+			return word + "nak"
+
+		}
+	}
+	return word + "nek"
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(AlphabetSymmetry([]string{"abode", "ABc", "xyzD"}), []int{4, 3, 1})
+	fmt.Println(Dative("ablak"), "ablaknak")
+	fmt.Println(Dative("tükör"), "tükörnek")
+	fmt.Println(Dative("virág"), "virágnak")
+	//fmt.Println(AlphabetSymmetry([]string{"abode", "ABc", "xyzD"}), []int{4, 3, 1})
 	//fmt.Println(Mirror([]int{-5, 10, 8, 10, 2, -3, 10}), []int{-5, -3, 2, 8, 10, 10, 10, 10, 10, 8, 2, -3, -5})
 	//for _, j := range XMasTree(5) {
 	//	fmt.Println(j)
