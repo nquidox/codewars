@@ -2301,9 +2301,23 @@ func Mirror(data []int) []int {
 	return res
 }
 
+func AlphabetSymmetry(slice []string) (res []int) {
+	for _, word := range slice {
+		c := 0
+		for i := 0; i < len(word); i++ {
+			if int(word[i]) == i+97 || int(word[i]) == i+65 {
+				c++
+			}
+		}
+		res = append(res, c)
+	}
+	return
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(Mirror([]int{-5, 10, 8, 10, 2, -3, 10}), []int{-5, -3, 2, 8, 10, 10, 10, 10, 10, 8, 2, -3, -5})
+	fmt.Println(AlphabetSymmetry([]string{"abode", "ABc", "xyzD"}), []int{4, 3, 1})
+	//fmt.Println(Mirror([]int{-5, 10, 8, 10, 2, -3, 10}), []int{-5, -3, 2, 8, 10, 10, 10, 10, 10, 8, 2, -3, -5})
 	//for _, j := range XMasTree(5) {
 	//	fmt.Println(j)
 	//}
