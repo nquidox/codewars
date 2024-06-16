@@ -2327,11 +2327,54 @@ func Dative(word string) string {
 	return word + "nek"
 }
 
+func Deemojify(emote_string string) (res string) {
+	var nums []string
+	words := strings.Split(emote_string, "  ")
+	for _, word := range words {
+		emojis := strings.Split(word, " ")
+		letter := ""
+		for _, emoji := range emojis {
+			switch emoji {
+			case ":)":
+				letter += "0"
+			case ":D":
+				letter += "1"
+			case ">(":
+				letter += "2"
+			case ">:C":
+				letter += "3"
+			case ":/":
+				letter += "4"
+			case ":|":
+				letter += "5"
+			case ":O":
+				letter += "6"
+			case ";)":
+				letter += "7"
+			case "^.^":
+				letter += "8"
+			case ":(":
+				letter += "9"
+			}
+		}
+		nums = append(nums, letter)
+	}
+
+	for num := range nums {
+		n, _ := strconv.Atoi(nums[num])
+		res += string(rune(n))
+
+	}
+	return
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(Dative("ablak"), "ablaknak")
-	fmt.Println(Dative("tükör"), "tükörnek")
-	fmt.Println(Dative("virág"), "virágnak")
+	fmt.Println(Deemojify(":D :) :/  :D :) :|"), "hi")
+	fmt.Println(Deemojify(";) >(  :D :) :D  :D :) ^.^  :D :) ^.^  :D :D :D  >:C >(  :D :D :(  :D :D :D  :D :D :/  :D :) ^.^  :D :) :)  >:C >:C"), "Hello world!")
+	//fmt.Println(Dative("ablak"), "ablaknak")
+	//fmt.Println(Dative("tükör"), "tükörnek")
+	//fmt.Println(Dative("virág"), "virágnak")
 	//fmt.Println(AlphabetSymmetry([]string{"abode", "ABc", "xyzD"}), []int{4, 3, 1})
 	//fmt.Println(Mirror([]int{-5, 10, 8, 10, 2, -3, 10}), []int{-5, -3, 2, 8, 10, 10, 10, 10, 10, 8, 2, -3, -5})
 	//for _, j := range XMasTree(5) {
