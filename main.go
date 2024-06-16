@@ -2379,9 +2379,38 @@ func RangeBitCount(a, b int) (res int) {
 	return
 }
 
+func Is_valid_ip(ip string) bool {
+	m := strings.Split(ip, ".")
+	if len(m) != 4 {
+		return false
+	}
+	for _, sec := range m {
+		if len(sec) > 3 {
+			return false
+		}
+
+		if strings.HasPrefix(sec, "0") && len(sec) > 1 {
+			return false
+		}
+
+		n, err := strconv.Atoi(sec)
+		if err != nil {
+			return false
+		}
+
+		if n < 0 || n > 255 {
+			return false
+		}
+	}
+	return true
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(RangeBitCount(2, 7), 11)
+	fmt.Println(Is_valid_ip("abc.def.ghi.jkl"), false)
+	fmt.Println(Is_valid_ip("127.1.1.0"), true)
+	fmt.Println(Is_valid_ip("123.045.067.089"), false)
+	//fmt.Println(RangeBitCount(2, 7), 11)
 	//fmt.Println(Deemojify(":D :) :/  :D :) :|"), "hi")
 	//fmt.Println(Deemojify(";) >(  :D :) :D  :D :) ^.^  :D :) ^.^  :D :D :D  >:C >(  :D :D :(  :D :D :D  :D :D :/  :D :) ^.^  :D :) :)  >:C >:C"), "Hello world!")
 	//fmt.Println(Dative("ablak"), "ablaknak")
