@@ -2368,10 +2368,22 @@ func Deemojify(emote_string string) (res string) {
 	return
 }
 
+func RangeBitCount(a, b int) (res int) {
+	for i := a; i <= b; i++ {
+		n := fmt.Sprintf("%b", i)
+		for _, j := range n {
+			d, _ := strconv.Atoi(string(j))
+			res += d
+		}
+	}
+	return
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(Deemojify(":D :) :/  :D :) :|"), "hi")
-	fmt.Println(Deemojify(";) >(  :D :) :D  :D :) ^.^  :D :) ^.^  :D :D :D  >:C >(  :D :D :(  :D :D :D  :D :D :/  :D :) ^.^  :D :) :)  >:C >:C"), "Hello world!")
+	fmt.Println(RangeBitCount(2, 7), 11)
+	//fmt.Println(Deemojify(":D :) :/  :D :) :|"), "hi")
+	//fmt.Println(Deemojify(";) >(  :D :) :D  :D :) ^.^  :D :) ^.^  :D :D :D  >:C >(  :D :D :(  :D :D :D  :D :D :/  :D :) ^.^  :D :) :)  >:C >:C"), "Hello world!")
 	//fmt.Println(Dative("ablak"), "ablaknak")
 	//fmt.Println(Dative("tükör"), "tükörnek")
 	//fmt.Println(Dative("virág"), "virágnak")
