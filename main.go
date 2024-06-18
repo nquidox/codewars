@@ -2412,10 +2412,18 @@ func HoopCount(n int) string {
 	return "Great, now move on to tricks"
 }
 
+func Contamination(text, char string) (res string) {
+	for i := 0; i < len(text); i++ {
+		res += char
+	}
+	return
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(HoopCount(3) == "Keep at it until you get it")
-	fmt.Println(HoopCount(11) == "Great, now move on to tricks")
+	fmt.Println(Contamination("abc", "z"), "zzz")
+	//fmt.Println(HoopCount(3) == "Keep at it until you get it")
+	//fmt.Println(HoopCount(11) == "Great, now move on to tricks")
 	//fmt.Println(Is_valid_ip("abc.def.ghi.jkl"), false)
 	//fmt.Println(Is_valid_ip("127.1.1.0"), true)
 	//fmt.Println(Is_valid_ip("123.045.067.089"), false)
