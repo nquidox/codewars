@@ -2423,9 +2423,24 @@ func Quadratic(x1, x2 int) (res [3]int) {
 	return [3]int{1, -(x1 + x2), x1 * x2}
 }
 
+func ToAlternatingCase(str string) string {
+	var result strings.Builder
+	for _, r := range str {
+		if unicode.IsLower(r) {
+			result.WriteRune(unicode.ToUpper(r))
+		} else if unicode.IsUpper(r) {
+			result.WriteRune(unicode.ToLower(r))
+		} else {
+			result.WriteRune(r)
+		}
+	}
+	return result.String()
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(Quadratic(1, 2) == [3]int{1, -3, 2})
+	fmt.Println(ToAlternatingCase("HeLLo WoRLD") == "hEllO wOrld")
+	//fmt.Println(Quadratic(1, 2) == [3]int{1, -3, 2})
 	//fmt.Println(Contamination("abc", "z"), "zzz")
 	//fmt.Println(HoopCount(3) == "Keep at it until you get it")
 	//fmt.Println(HoopCount(11) == "Great, now move on to tricks")
