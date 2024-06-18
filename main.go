@@ -2405,11 +2405,20 @@ func Is_valid_ip(ip string) bool {
 	return true
 }
 
+func HoopCount(n int) string {
+	if n < 10 {
+		return "Keep at it until you get it"
+	}
+	return "Great, now move on to tricks"
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(Is_valid_ip("abc.def.ghi.jkl"), false)
-	fmt.Println(Is_valid_ip("127.1.1.0"), true)
-	fmt.Println(Is_valid_ip("123.045.067.089"), false)
+	fmt.Println(HoopCount(3) == "Keep at it until you get it")
+	fmt.Println(HoopCount(11) == "Great, now move on to tricks")
+	//fmt.Println(Is_valid_ip("abc.def.ghi.jkl"), false)
+	//fmt.Println(Is_valid_ip("127.1.1.0"), true)
+	//fmt.Println(Is_valid_ip("123.045.067.089"), false)
 	//fmt.Println(RangeBitCount(2, 7), 11)
 	//fmt.Println(Deemojify(":D :) :/  :D :) :|"), "hi")
 	//fmt.Println(Deemojify(";) >(  :D :) :D  :D :) ^.^  :D :) ^.^  :D :D :D  >:C >(  :D :D :(  :D :D :D  :D :D :/  :D :) ^.^  :D :) :)  >:C >:C"), "Hello world!")
