@@ -2419,9 +2419,14 @@ func Contamination(text, char string) (res string) {
 	return
 }
 
+func Quadratic(x1, x2 int) (res [3]int) {
+	return [3]int{1, -(x1 + x2), x1 * x2}
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(Contamination("abc", "z"), "zzz")
+	fmt.Println(Quadratic(1, 2) == [3]int{1, -3, 2})
+	//fmt.Println(Contamination("abc", "z"), "zzz")
 	//fmt.Println(HoopCount(3) == "Keep at it until you get it")
 	//fmt.Println(HoopCount(11) == "Great, now move on to tricks")
 	//fmt.Println(Is_valid_ip("abc.def.ghi.jkl"), false)
