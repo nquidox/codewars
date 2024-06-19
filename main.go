@@ -2442,9 +2442,18 @@ func NearestSq(n int) int {
 	return int(r * r)
 }
 
+func TwoSort(arr []string) (res string) {
+	sort.Strings(arr)
+	for i := 0; i < len(arr[0])-1; i++ {
+		res += string(arr[0][i]) + "***"
+	}
+	return res + string(arr[0][len(arr[0])-1])
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(NearestSq(10), 9)
+	fmt.Println(TwoSort([]string{"turns", "out", "random", "test", "cases", "are", "easier", "than", "writing", "out", "basic", "ones"}), "a***r***e")
+	//fmt.Println(NearestSq(10), 9)
 	//fmt.Println(ToAlternatingCase("HeLLo WoRLD") == "hEllO wOrld")
 	//fmt.Println(Quadratic(1, 2) == [3]int{1, -3, 2})
 	//fmt.Println(Contamination("abc", "z"), "zzz")
