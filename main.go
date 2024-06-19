@@ -2437,9 +2437,15 @@ func ToAlternatingCase(str string) string {
 	return result.String()
 }
 
+func NearestSq(n int) int {
+	r := math.Round(math.Sqrt(float64(n)))
+	return int(r * r)
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(ToAlternatingCase("HeLLo WoRLD") == "hEllO wOrld")
+	fmt.Println(NearestSq(10), 9)
+	//fmt.Println(ToAlternatingCase("HeLLo WoRLD") == "hEllO wOrld")
 	//fmt.Println(Quadratic(1, 2) == [3]int{1, -3, 2})
 	//fmt.Println(Contamination("abc", "z"), "zzz")
 	//fmt.Println(HoopCount(3) == "Keep at it until you get it")
