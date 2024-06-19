@@ -2450,9 +2450,16 @@ func TwoSort(arr []string) (res string) {
 	return res + string(arr[0][len(arr[0])-1])
 }
 
+func ExpressionMatter(a int, b int, c int) int {
+	values := []int{a * (b + c), a * b * c, a + b*c, (a + b) * c, a + b + c}
+	sort.Ints(values)
+	return values[len(values)-1]
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(TwoSort([]string{"turns", "out", "random", "test", "cases", "are", "easier", "than", "writing", "out", "basic", "ones"}), "a***r***e")
+	fmt.Println(ExpressionMatter(3, 5, 7), 105)
+	//fmt.Println(TwoSort([]string{"turns", "out", "random", "test", "cases", "are", "easier", "than", "writing", "out", "basic", "ones"}), "a***r***e")
 	//fmt.Println(NearestSq(10), 9)
 	//fmt.Println(ToAlternatingCase("HeLLo WoRLD") == "hEllO wOrld")
 	//fmt.Println(Quadratic(1, 2) == [3]int{1, -3, 2})
