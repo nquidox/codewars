@@ -2456,9 +2456,18 @@ func ExpressionMatter(a int, b int, c int) int {
 	return values[len(values)-1]
 }
 
+func CircleOfNumbers(n int, firstNumber int) int {
+	op := n/2 + firstNumber
+	if op >= n {
+		return op - n
+	}
+	return op
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(ExpressionMatter(3, 5, 7), 105)
+	fmt.Println(CircleOfNumbers(10, 7), 2)
+	//fmt.Println(ExpressionMatter(3, 5, 7), 105)
 	//fmt.Println(TwoSort([]string{"turns", "out", "random", "test", "cases", "are", "easier", "than", "writing", "out", "basic", "ones"}), "a***r***e")
 	//fmt.Println(NearestSq(10), 9)
 	//fmt.Println(ToAlternatingCase("HeLLo WoRLD") == "hEllO wOrld")
