@@ -2464,9 +2464,20 @@ func CircleOfNumbers(n int, firstNumber int) int {
 	return op
 }
 
+func Accum(s string) (res string) {
+	res += strings.ToUpper(string(s[0])) + "-"
+	for i := 1; i < len(s); i++ {
+		res += strings.ToUpper(string(s[i]))
+		res += strings.Repeat(strings.ToLower(string(s[i])), i)
+		res += "-"
+	}
+	return strings.TrimSuffix(res, "-")
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(CircleOfNumbers(10, 7), 2)
+	fmt.Println(Accum("ZpglnRxqenU"), "Z-Pp-Ggg-Llll-Nnnnn-Rrrrrr-Xxxxxxx-Qqqqqqqq-Eeeeeeeee-Nnnnnnnnnn-Uuuuuuuuuuu")
+	//fmt.Println(CircleOfNumbers(10, 7), 2)
 	//fmt.Println(ExpressionMatter(3, 5, 7), 105)
 	//fmt.Println(TwoSort([]string{"turns", "out", "random", "test", "cases", "are", "easier", "than", "writing", "out", "basic", "ones"}), "a***r***e")
 	//fmt.Println(NearestSq(10), 9)
