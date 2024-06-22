@@ -2510,9 +2510,17 @@ func TwoSum(numbers []int, target int) [2]int {
 	return [2]int{}
 }
 
+const PI = 3.141592653589793
+
+func AreaOfPolygonInsideCircle(circleRadius float64, numberOfSides int) float64 {
+	s := (float64(numberOfSides) * circleRadius * circleRadius * math.Sin(2*PI/float64(numberOfSides))) / 2
+	return math.Round(s*1000) / 1000
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(TwoSum([]int{1234, 5678, 9012}, 14690), "[1 2]")
+	fmt.Println(AreaOfPolygonInsideCircle(3, 3), 11.691)
+	//fmt.Println(TwoSum([]int{1234, 5678, 9012}, 14690), "[1 2]")
 	//fmt.Println(High("what time are we climbing up the volcano"), "volcano")
 	//fmt.Println(High("man i need a taxi up to ubud"), "taxi")
 	//fmt.Println(Accum("ZpglnRxqenU"), "Z-Pp-Ggg-Llll-Nnnnn-Rrrrrr-Xxxxxxx-Qqqqqqqq-Eeeeeeeee-Nnnnnnnnnn-Uuuuuuuuuuu")
