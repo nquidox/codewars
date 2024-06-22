@@ -2497,10 +2497,24 @@ func High(s string) string {
 	return words[index]
 }
 
+func TwoSum(numbers []int, target int) [2]int {
+	values := make(map[int]int)
+	for i := range numbers {
+		_, exists := values[numbers[i]]
+		if exists {
+			return [2]int{values[numbers[i]], i}
+		} else {
+			values[target-numbers[i]] = i
+		}
+	}
+	return [2]int{}
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(High("what time are we climbing up the volcano"), "volcano")
-	fmt.Println(High("man i need a taxi up to ubud"), "taxi")
+	fmt.Println(TwoSum([]int{1234, 5678, 9012}, 14690), "[1 2]")
+	//fmt.Println(High("what time are we climbing up the volcano"), "volcano")
+	//fmt.Println(High("man i need a taxi up to ubud"), "taxi")
 	//fmt.Println(Accum("ZpglnRxqenU"), "Z-Pp-Ggg-Llll-Nnnnn-Rrrrrr-Xxxxxxx-Qqqqqqqq-Eeeeeeeee-Nnnnnnnnnn-Uuuuuuuuuuu")
 	//fmt.Println(CircleOfNumbers(10, 7), 2)
 	//fmt.Println(ExpressionMatter(3, 5, 7), 105)
