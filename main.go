@@ -2474,9 +2474,34 @@ func Accum(s string) (res string) {
 	return strings.TrimSuffix(res, "-")
 }
 
+func High(s string) string {
+	words := strings.Split(s, " ")
+	var scores []int
+
+	for _, word := range words {
+		score := 0
+		for _, letter := range word {
+			score += int(letter) - 96
+		}
+		scores = append(scores, score)
+	}
+
+	firstMax, index := 0, 0
+	for i := range scores {
+		if scores[i] > firstMax {
+			firstMax = scores[i]
+			index = i
+		}
+	}
+
+	return words[index]
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(Accum("ZpglnRxqenU"), "Z-Pp-Ggg-Llll-Nnnnn-Rrrrrr-Xxxxxxx-Qqqqqqqq-Eeeeeeeee-Nnnnnnnnnn-Uuuuuuuuuuu")
+	fmt.Println(High("what time are we climbing up the volcano"), "volcano")
+	fmt.Println(High("man i need a taxi up to ubud"), "taxi")
+	//fmt.Println(Accum("ZpglnRxqenU"), "Z-Pp-Ggg-Llll-Nnnnn-Rrrrrr-Xxxxxxx-Qqqqqqqq-Eeeeeeeee-Nnnnnnnnnn-Uuuuuuuuuuu")
 	//fmt.Println(CircleOfNumbers(10, 7), 2)
 	//fmt.Println(ExpressionMatter(3, 5, 7), 105)
 	//fmt.Println(TwoSort([]string{"turns", "out", "random", "test", "cases", "are", "easier", "than", "writing", "out", "basic", "ones"}), "a***r***e")
