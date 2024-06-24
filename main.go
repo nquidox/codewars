@@ -2536,10 +2536,51 @@ func RGB(r, g, b int) (res string) {
 	return res
 }
 
+func LastDigit(n1, n2 string) int {
+	if n1 == "0" && n2 == "0" {
+		return 1
+	}
+	bigN1 := new(big.Int)
+	bigN2 := new(big.Int)
+	bigN1.SetString(n1, 10)
+	bigN2.SetString(n2, 10)
+	lastDigitN1 := new(big.Int).Mod(bigN1, big.NewInt(10)).Int64()
+
+	cycles := map[int][]int{
+		0: {0},
+		1: {1},
+		2: {2, 4, 8, 6},
+		3: {3, 9, 7, 1},
+		4: {4, 6},
+		5: {5},
+		6: {6},
+		7: {7, 9, 3, 1},
+		8: {8, 4, 2, 6},
+		9: {9, 1},
+	}
+
+	cycle := cycles[int(lastDigitN1)]
+	cycleLength := len(cycle)
+
+	if bigN2.Cmp(big.NewInt(0)) == 0 {
+		return 1
+	}
+
+	bigCycleLength := big.NewInt(int64(cycleLength))
+	exp := new(big.Int).Mod(bigN2, bigCycleLength).Int64() - 1
+
+	if exp == -1 {
+		exp = int64(cycleLength - 1)
+	}
+
+	return cycle[exp]
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(RGB(-20, 275, 125), "00FF7D")
-	fmt.Println(RGB(0, 0, 0), "000000")
+	fmt.Println(LastDigit("9", "7"), 9)
+	//fmt.Println(RGB(-20, 275, 125), "00FF7D")
+	//fmt.Println(RGB(0, 0, 0), "000000")
 	//fmt.Println(AreaOfPolygonInsideCircle(3, 3), 11.691)
 	//fmt.Println(TwoSum([]int{1234, 5678, 9012}, 14690), "[1 2]")
 	//fmt.Println(High("what time are we climbing up the volcano"), "volcano")
