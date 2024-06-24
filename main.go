@@ -2517,9 +2517,30 @@ func AreaOfPolygonInsideCircle(circleRadius float64, numberOfSides int) float64 
 	return math.Round(s*1000) / 1000
 }
 
+func RGB(r, g, b int) (res string) {
+	colors := []int{r, g, b}
+	for c := range colors {
+		switch {
+		case colors[c] < 0:
+			colors[c] = 0
+		case colors[c] > 255:
+			colors[c] = 255
+		}
+		h := fmt.Sprintf("%X", colors[c])
+		if len(h) == 1 {
+			res += "0" + h
+		} else {
+			res += h
+		}
+	}
+	return res
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(AreaOfPolygonInsideCircle(3, 3), 11.691)
+	fmt.Println(RGB(-20, 275, 125), "00FF7D")
+	fmt.Println(RGB(0, 0, 0), "000000")
+	//fmt.Println(AreaOfPolygonInsideCircle(3, 3), 11.691)
 	//fmt.Println(TwoSum([]int{1234, 5678, 9012}, 14690), "[1 2]")
 	//fmt.Println(High("what time are we climbing up the volcano"), "volcano")
 	//fmt.Println(High("man i need a taxi up to ubud"), "taxi")
