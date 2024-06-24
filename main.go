@@ -2576,9 +2576,24 @@ func LastDigit(n1, n2 string) int {
 	return cycle[exp]
 }
 
+func Uniq(a []string) (res []string) {
+	if len(a) == 0 {
+		return nil
+	}
+
+	res = append(res, a[0])
+	for i := 1; i < len(a); i++ {
+		if a[i] != a[i-1] {
+			res = append(res, a[i])
+		}
+	}
+	return
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(LastDigit("9", "7"), 9)
+	fmt.Println(Uniq([]string{"a", "a", "b", "b", "c", "a", "b", "c", "c"}), []string{"a", "b", "c", "a", "b", "c"})
+	//fmt.Println(LastDigit("9", "7"), 9)
 	//fmt.Println(RGB(-20, 275, 125), "00FF7D")
 	//fmt.Println(RGB(0, 0, 0), "000000")
 	//fmt.Println(AreaOfPolygonInsideCircle(3, 3), 11.691)
