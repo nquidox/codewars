@@ -2590,9 +2590,13 @@ func Uniq(a []string) (res []string) {
 	return
 }
 
+func seatsInTheater(nCols int, nRows int, col int, row int) int {
+	return (nCols - col + 1) * (nRows - row)
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(Uniq([]string{"a", "a", "b", "b", "c", "a", "b", "c", "c"}), []string{"a", "b", "c", "a", "b", "c"})
+	//fmt.Println(Uniq([]string{"a", "a", "b", "b", "c", "a", "b", "c", "c"}), []string{"a", "b", "c", "a", "b", "c"})
 	//fmt.Println(LastDigit("9", "7"), 9)
 	//fmt.Println(RGB(-20, 275, 125), "00FF7D")
 	//fmt.Println(RGB(0, 0, 0), "000000")
