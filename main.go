@@ -2594,6 +2594,10 @@ func seatsInTheater(nCols int, nRows int, col int, row int) int {
 	return (nCols - col + 1) * (nRows - row)
 }
 
+func SetAlarm(employed, vacation bool) bool {
+	return employed && !vacation
+}
+
 func main() {
 	fmt.Println("Codewars")
 	//fmt.Println(Uniq([]string{"a", "a", "b", "b", "c", "a", "b", "c", "c"}), []string{"a", "b", "c", "a", "b", "c"})
