@@ -2598,8 +2598,32 @@ func SetAlarm(employed, vacation bool) bool {
 	return employed && !vacation
 }
 
+func QueueTime(customers []int, n int) int {
+	tills := make([]int, n)
+
+	for _, minutes := range customers {
+		mv, mi := tills[0], 0
+		for i, j := range tills {
+			if j <= mv {
+				mv = j
+				mi = i
+			}
+		}
+		tills[mi] += minutes
+	}
+
+	mx := tills[0]
+	for _, el := range tills {
+		if el > mx {
+			mx = el
+		}
+	}
+	return mx
+}
+
 func main() {
 	fmt.Println("Codewars")
+	fmt.Println(QueueTime([]int{2, 2, 3, 3, 4, 4}, 2), 9)
 	//fmt.Println(Uniq([]string{"a", "a", "b", "b", "c", "a", "b", "c", "c"}), []string{"a", "b", "c", "a", "b", "c"})
 	//fmt.Println(LastDigit("9", "7"), 9)
 	//fmt.Println(RGB(-20, 275, 125), "00FF7D")
