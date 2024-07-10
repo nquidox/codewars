@@ -2634,9 +2634,57 @@ func FindUniq(arr []float32) float32 {
 	return arr[len(arr)-1]
 }
 
+func ToNato(words string) (res string) {
+	natoAlphabet := map[string]string{
+		"A": "Alfa",
+		"B": "Bravo",
+		"C": "Charlie",
+		"D": "Delta",
+		"E": "Echo",
+		"F": "Foxtrot",
+		"G": "Golf",
+		"H": "Hotel",
+		"I": "India",
+		"J": "Juliett",
+		"K": "Kilo",
+		"L": "Lima",
+		"M": "Mike",
+		"N": "November",
+		"O": "Oscar",
+		"P": "Papa",
+		"Q": "Quebec",
+		"R": "Romeo",
+		"S": "Sierra",
+		"T": "Tango",
+		"U": "Uniform",
+		"V": "Victor",
+		"W": "Whiskey",
+		"X": "Xray",
+		"Y": "Yankee",
+		"Z": "Zulu",
+		".": ".",
+		",": ",",
+		":": ":",
+		";": ";",
+		"!": "!",
+		"?": "?",
+	}
+
+	wrds := strings.Split(words, " ")
+
+	for _, word := range wrds {
+		for _, letter := range word {
+			res += natoAlphabet[strings.ToUpper(string(letter))] + " "
+		}
+	}
+	res = strings.TrimSuffix(res, " ")
+	return
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(FindUniq([]float32{0, 0, 0.55, 0, 0}), 0.55)
+	fmt.Println(ToNato("If you can read") == "India Foxtrot Yankee Oscar Uniform Charlie Alfa November Romeo Echo Alfa Delta")
+	//fmt.Println(FindUniq([]float32{0, 0, 0.55, 0, 0}), 0.55)
 	//fmt.Println(QueueTime([]int{2, 2, 3, 3, 4, 4}, 2), 9)
 	//fmt.Println(Uniq([]string{"a", "a", "b", "b", "c", "a", "b", "c", "c"}), []string{"a", "b", "c", "a", "b", "c"})
 	//fmt.Println(LastDigit("9", "7"), 9)
