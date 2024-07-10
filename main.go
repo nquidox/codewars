@@ -2681,9 +2681,23 @@ func ToNato(words string) (res string) {
 	return
 }
 
+func PrimeFactors(n int) (res []int) {
+	for i := 2; i*i <= n; i++ {
+		for n%i == 0 {
+			res = append(res, i)
+			n /= i
+		}
+	}
+	if n > 1 {
+		res = append(res, n)
+	}
+	return res
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(ToNato("If you can read") == "India Foxtrot Yankee Oscar Uniform Charlie Alfa November Romeo Echo Alfa Delta")
+	fmt.Println(PrimeFactors(12), []int{2, 2, 3})
+	//fmt.Println(ToNato("If you can read") == "India Foxtrot Yankee Oscar Uniform Charlie Alfa November Romeo Echo Alfa Delta")
 	//fmt.Println(FindUniq([]float32{0, 0, 0.55, 0, 0}), 0.55)
 	//fmt.Println(QueueTime([]int{2, 2, 3, 3, 4, 4}, 2), 9)
 	//fmt.Println(Uniq([]string{"a", "a", "b", "b", "c", "a", "b", "c", "c"}), []string{"a", "b", "c", "a", "b", "c"})
