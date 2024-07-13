@@ -2709,9 +2709,32 @@ func Smaller(arr []int) []int {
 	return res
 }
 
+func LengthOfSequence(arr []int, key int) int {
+	start, stop, counter := -1, -1, 0
+	for i, j := range arr {
+		if j == key {
+			counter++
+		}
+
+		if j == key && start == -1 {
+			start = i
+		} else if j == key && start != -1 {
+			stop = i
+		}
+	}
+
+	if counter != 2 {
+		return 0
+	}
+
+	return len(arr[start : stop+1])
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(Smaller([]int{5, 4, 7, 9, 2, 4, 4, 5, 6}), []int{4, 1, 5, 5, 0, 0, 0, 0, 0})
+	fmt.Println(LengthOfSequence([]int{0, -3, 7, 4, 0, 3, 7, 9}, 7), 5)
+	fmt.Println(LengthOfSequence([]int{7, 1, 7, 1, 7}, 7), 0)
+	//fmt.Println(Smaller([]int{5, 4, 7, 9, 2, 4, 4, 5, 6}), []int{4, 1, 5, 5, 0, 0, 0, 0, 0})
 	//fmt.Println(PrimeFactors(12), []int{2, 2, 3})
 	//fmt.Println(ToNato("If you can read") == "India Foxtrot Yankee Oscar Uniform Charlie Alfa November Romeo Echo Alfa Delta")
 	//fmt.Println(FindUniq([]float32{0, 0, 0.55, 0, 0}), 0.55)
