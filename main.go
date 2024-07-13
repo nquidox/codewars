@@ -2694,9 +2694,25 @@ func PrimeFactors(n int) (res []int) {
 	return res
 }
 
+func Smaller(arr []int) []int {
+	res := make([]int, len(arr))
+
+	for i, j := range arr {
+		counter := 0
+		for _, k := range arr[i+1:] {
+			if k < j {
+				counter++
+			}
+		}
+		res[i] = counter
+	}
+	return res
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(PrimeFactors(12), []int{2, 2, 3})
+	fmt.Println(Smaller([]int{5, 4, 7, 9, 2, 4, 4, 5, 6}), []int{4, 1, 5, 5, 0, 0, 0, 0, 0})
+	//fmt.Println(PrimeFactors(12), []int{2, 2, 3})
 	//fmt.Println(ToNato("If you can read") == "India Foxtrot Yankee Oscar Uniform Charlie Alfa November Romeo Echo Alfa Delta")
 	//fmt.Println(FindUniq([]float32{0, 0, 0.55, 0, 0}), 0.55)
 	//fmt.Println(QueueTime([]int{2, 2, 3, 3, 4, 4}, 2), 9)
