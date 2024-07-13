@@ -2730,10 +2730,29 @@ func LengthOfSequence(arr []int, key int) int {
 	return len(arr[start : stop+1])
 }
 
+func LeastLarger(a []int, i int) int {
+	res := 0
+	r := int(^uint(0) >> 1)
+
+	for idx, j := range a {
+		if j > a[i] && j-a[i] < r {
+			r = j - a[i]
+			res = idx
+		}
+	}
+
+	if r == -1 {
+		return -1
+	}
+
+	return res
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(LengthOfSequence([]int{0, -3, 7, 4, 0, 3, 7, 9}, 7), 5)
-	fmt.Println(LengthOfSequence([]int{7, 1, 7, 1, 7}, 7), 0)
+	fmt.Println(LeastLarger([]int{4, 1, 3, 5, 6}, 0), 3)
+	//fmt.Println(LengthOfSequence([]int{0, -3, 7, 4, 0, 3, 7, 9}, 7), 5)
+	//fmt.Println(LengthOfSequence([]int{7, 1, 7, 1, 7}, 7), 0)
 	//fmt.Println(Smaller([]int{5, 4, 7, 9, 2, 4, 4, 5, 6}), []int{4, 1, 5, 5, 0, 0, 0, 0, 0})
 	//fmt.Println(PrimeFactors(12), []int{2, 2, 3})
 	//fmt.Println(ToNato("If you can read") == "India Foxtrot Yankee Oscar Uniform Charlie Alfa November Romeo Echo Alfa Delta")
