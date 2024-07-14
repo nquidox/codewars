@@ -2769,9 +2769,18 @@ func Decode(code []int, key int) string {
 	return res
 }
 
+func SpinningRings(innerMax, outerMax int) int {
+	res := 1
+	for innerMax-(res-1)%(innerMax+1) != res%(outerMax+1) {
+		res++
+	}
+	return res
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(Decode([]int{14, 10, 22, 29, 6, 27, 19, 18, 6, 12, 8}, 1939), "masterpiece")
+	fmt.Println(SpinningRings(2, 3), 5)
+	//fmt.Println(Decode([]int{14, 10, 22, 29, 6, 27, 19, 18, 6, 12, 8}, 1939), "masterpiece")
 	//fmt.Println(ToJadenCase("most trees are blue"), "Most Trees Are Blue")
 	//fmt.Println(LeastLarger([]int{4, 1, 3, 5, 6}, 0), 3)
 	//fmt.Println(LengthOfSequence([]int{0, -3, 7, 4, 0, 3, 7, 9}, 7), 5)
