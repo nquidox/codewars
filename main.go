@@ -2777,9 +2777,24 @@ func SpinningRings(innerMax, outerMax int) int {
 	return res
 }
 
+func Histogram(results [6]int) (res string) {
+	for i := 5; i >= 0; i-- {
+		subs := strconv.Itoa(i+1) + "|"
+		if results[i] != 0 {
+			subs += strings.Repeat("#", results[i]) + " " + strconv.Itoa(results[i]) + "\n"
+		} else {
+			subs += "\n"
+		}
+		res += subs
+	}
+	return
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(SpinningRings(2, 3), 5)
+	fmt.Println(Histogram([6]int{7, 3, 10, 1, 0, 5}))
+	fmt.Println("6|##### 5\n5|\n4|# 1\n3|########## 10\n2|### 3\n1|####### 7\n")
+	//fmt.Println(SpinningRings(2, 3), 5)
 	//fmt.Println(Decode([]int{14, 10, 22, 29, 6, 27, 19, 18, 6, 12, 8}, 1939), "masterpiece")
 	//fmt.Println(ToJadenCase("most trees are blue"), "Most Trees Are Blue")
 	//fmt.Println(LeastLarger([]int{4, 1, 3, 5, 6}, 0), 3)
