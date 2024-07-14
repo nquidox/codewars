@@ -2752,9 +2752,27 @@ func ToJadenCase(str string) string {
 	return strings.Title(str)
 }
 
+func Decode(code []int, key int) string {
+	res := ""
+	keys := strings.Split(strconv.Itoa(key), "")
+	k := 0
+
+	for _, j := range code {
+		n, _ := strconv.Atoi(keys[k])
+		res += string(rune(j - n + 96))
+		k++
+		if k > len(keys)-1 {
+			k = 0
+		}
+	}
+
+	return res
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(ToJadenCase("most trees are blue"), "Most Trees Are Blue")
+	fmt.Println(Decode([]int{14, 10, 22, 29, 6, 27, 19, 18, 6, 12, 8}, 1939), "masterpiece")
+	//fmt.Println(ToJadenCase("most trees are blue"), "Most Trees Are Blue")
 	//fmt.Println(LeastLarger([]int{4, 1, 3, 5, 6}, 0), 3)
 	//fmt.Println(LengthOfSequence([]int{0, -3, 7, 4, 0, 3, 7, 9}, 7), 5)
 	//fmt.Println(LengthOfSequence([]int{7, 1, 7, 1, 7}, 7), 0)
