@@ -2790,10 +2790,30 @@ func Histogram(results [6]int) (res string) {
 	return
 }
 
+func Recursion101(a, b int) []int {
+	fmt.Println(a, b)
+	if a == 0 || b == 0 {
+		return []int{a, b}
+	}
+
+	if a >= 2*b {
+		a = a - 2*b
+		return Recursion101(a, b)
+	}
+
+	if b >= 2*a {
+		b = b - 2*a
+		return Recursion101(a, b)
+	}
+
+	return []int{a, b}
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(Histogram([6]int{7, 3, 10, 1, 0, 5}))
-	fmt.Println("6|##### 5\n5|\n4|# 1\n3|########## 10\n2|### 3\n1|####### 7\n")
+	fmt.Println(Recursion101(8796203, 7556), []int{1019, 1442})
+	//fmt.Println(Histogram([6]int{7, 3, 10, 1, 0, 5}))
+	//fmt.Println("6|##### 5\n5|\n4|# 1\n3|########## 10\n2|### 3\n1|####### 7\n")
 	//fmt.Println(SpinningRings(2, 3), 5)
 	//fmt.Println(Decode([]int{14, 10, 22, 29, 6, 27, 19, 18, 6, 12, 8}, 1939), "masterpiece")
 	//fmt.Println(ToJadenCase("most trees are blue"), "Most Trees Are Blue")
