@@ -2809,9 +2809,21 @@ func Recursion101(a, b int) []int {
 	return []int{a, b}
 }
 
+func fibStrings(n int) string {
+	if n == 0 {
+		return "0"
+	}
+	if n == 1 {
+		return "01"
+	} else {
+		return fibStrings(n-1) + fibStrings(n-2)
+	}
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(Recursion101(8796203, 7556), []int{1019, 1442})
+	fmt.Println(fibStrings(5), "0100101001001")
+	//fmt.Println(Recursion101(8796203, 7556), []int{1019, 1442})
 	//fmt.Println(Histogram([6]int{7, 3, 10, 1, 0, 5}))
 	//fmt.Println("6|##### 5\n5|\n4|# 1\n3|########## 10\n2|### 3\n1|####### 7\n")
 	//fmt.Println(SpinningRings(2, 3), 5)
