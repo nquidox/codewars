@@ -2820,9 +2820,28 @@ func fibStrings(n int) string {
 	}
 }
 
+func alphanumeric(str string) bool {
+	if len(str) < 1 {
+		return false
+	}
+
+	for _, j := range str {
+		if !unicode.IsLetter(j) && !unicode.IsNumber(j) {
+			return false
+		}
+	}
+
+	return true
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(fibStrings(5), "0100101001001")
+	fmt.Println(alphanumeric("ciao\n$$_"), false)
+	fmt.Println(alphanumeric("hello world_"), false)
+	fmt.Println(alphanumeric("     "), false)
+	fmt.Println(alphanumeric(".*?"), false)
+	fmt.Println(alphanumeric("a"), true)
+	//fmt.Println(fibStrings(5), "0100101001001")
 	//fmt.Println(Recursion101(8796203, 7556), []int{1019, 1442})
 	//fmt.Println(Histogram([6]int{7, 3, 10, 1, 0, 5}))
 	//fmt.Println("6|##### 5\n5|\n4|# 1\n3|########## 10\n2|### 3\n1|####### 7\n")
