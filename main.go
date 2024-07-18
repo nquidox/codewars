@@ -2834,13 +2834,31 @@ func alphanumeric(str string) bool {
 	return true
 }
 
+func ToCsvText(array [][]int) string {
+	if len(array) == 0 {
+		return ""
+	}
+	var res string
+	for _, i := range array {
+		var row string
+		for _, j := range i {
+			col := strconv.Itoa(j)
+			row += col + ","
+		}
+		res += row[:len(row)-1] + "\n"
+	}
+	return res[:len(res)-1]
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(alphanumeric("ciao\n$$_"), false)
-	fmt.Println(alphanumeric("hello world_"), false)
-	fmt.Println(alphanumeric("     "), false)
-	fmt.Println(alphanumeric(".*?"), false)
-	fmt.Println(alphanumeric("a"), true)
+	fmt.Println(
+		ToCsvText([][]int{
+			{0, 1, 2, 3, 45},
+			{10, 11, 12, 13, 14},
+			{20, 21, 22, 23, 24},
+			{30, 31, 32, 33, 34}}), "0,1,2,3,45\n10,11,12,13,14\n20,21,22,23,24\n30,31,32,33,34")
+	//fmt.Println(alphanumeric("ciao\n$$_"), false)
 	//fmt.Println(fibStrings(5), "0100101001001")
 	//fmt.Println(Recursion101(8796203, 7556), []int{1019, 1442})
 	//fmt.Println(Histogram([6]int{7, 3, 10, 1, 0, 5}))
