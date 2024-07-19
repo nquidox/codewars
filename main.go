@@ -2850,14 +2850,27 @@ func ToCsvText(array [][]int) string {
 	return res[:len(res)-1]
 }
 
+func EachCons(arr []int, n int) (res [][]int) {
+	for i := 0; i < len(arr)-n+1; i++ {
+		t := make([]int, n)
+		for j := 0; j < n; j++ {
+			t[j] = arr[i+j]
+		}
+		res = append(res, t)
+	}
+	return
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(
-		ToCsvText([][]int{
-			{0, 1, 2, 3, 45},
-			{10, 11, 12, 13, 14},
-			{20, 21, 22, 23, 24},
-			{30, 31, 32, 33, 34}}), "0,1,2,3,45\n10,11,12,13,14\n20,21,22,23,24\n30,31,32,33,34")
+	fmt.Println(EachCons([]int{3, 5, 8, 13}, 2), [][]int{{3, 5}, {5, 8}, {8, 13}})
+	fmt.Println(EachCons([]int{3, 5, 8, 13}, 1), [][]int{{3}, {5}, {8}, {13}})
+	//fmt.Println(
+	//	ToCsvText([][]int{
+	//		{0, 1, 2, 3, 45},
+	//		{10, 11, 12, 13, 14},
+	//		{20, 21, 22, 23, 24},
+	//		{30, 31, 32, 33, 34}}), "0,1,2,3,45\n10,11,12,13,14\n20,21,22,23,24\n30,31,32,33,34")
 	//fmt.Println(alphanumeric("ciao\n$$_"), false)
 	//fmt.Println(fibStrings(5), "0100101001001")
 	//fmt.Println(Recursion101(8796203, 7556), []int{1019, 1442})
