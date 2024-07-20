@@ -2861,10 +2861,45 @@ func EachCons(arr []int, n int) (res [][]int) {
 	return
 }
 
+// Use the preloaded Tuple struct as return type
+type Tuple struct {
+	Char  rune
+	Count int
+}
+
+func OrderedCount(text string) []Tuple {
+	if len(text) == 0 {
+		return []Tuple{}
+	}
+
+	var res []Tuple
+	m := make(map[int32]int)
+	ord := ""
+	for _, char := range text {
+		if _, ok := m[char]; ok {
+			m[char]++
+		} else {
+			m[char] = 1
+			ord += string(char)
+		}
+	}
+
+	for _, j := range ord {
+		res = append(res, Tuple{j, m[j]})
+	}
+
+	return res
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(EachCons([]int{3, 5, 8, 13}, 2), [][]int{{3, 5}, {5, 8}, {8, 13}})
-	fmt.Println(EachCons([]int{3, 5, 8, 13}, 1), [][]int{{3}, {5}, {8}, {13}})
+	fmt.Println(OrderedCount("Code Wars"))
+	fmt.Println([]Tuple{Tuple{'C', 1}, Tuple{'o', 1}, Tuple{'d', 1}, Tuple{'e', 1}, Tuple{' ', 1}, Tuple{'W', 1}, Tuple{'a', 1}, Tuple{'r', 1}, Tuple{'s', 1}})
+	fmt.Println(OrderedCount("abracadabra"))
+	fmt.Println([]Tuple{Tuple{'a', 5}, Tuple{'b', 2}, Tuple{'r', 2}, Tuple{'c', 1}, Tuple{'d', 1}})
+
+	//fmt.Println(EachCons([]int{3, 5, 8, 13}, 2), [][]int{{3, 5}, {5, 8}, {8, 13}})
+	//fmt.Println(EachCons([]int{3, 5, 8, 13}, 1), [][]int{{3}, {5}, {8}, {13}})
 	//fmt.Println(
 	//	ToCsvText([][]int{
 	//		{0, 1, 2, 3, 45},
