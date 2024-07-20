@@ -2891,13 +2891,22 @@ func OrderedCount(text string) []Tuple {
 	return res
 }
 
+func MaxMultiple(d, b int) int {
+	for i := b; i > 0; i-- {
+		if i%d == 0 {
+			return i
+		}
+	}
+	return 0
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(OrderedCount("Code Wars"))
-	fmt.Println([]Tuple{Tuple{'C', 1}, Tuple{'o', 1}, Tuple{'d', 1}, Tuple{'e', 1}, Tuple{' ', 1}, Tuple{'W', 1}, Tuple{'a', 1}, Tuple{'r', 1}, Tuple{'s', 1}})
-	fmt.Println(OrderedCount("abracadabra"))
-	fmt.Println([]Tuple{Tuple{'a', 5}, Tuple{'b', 2}, Tuple{'r', 2}, Tuple{'c', 1}, Tuple{'d', 1}})
-
+	fmt.Println(MaxMultiple(37, 200), 185)
+	//fmt.Println(OrderedCount("Code Wars"))
+	//fmt.Println([]Tuple{Tuple{'C', 1}, Tuple{'o', 1}, Tuple{'d', 1}, Tuple{'e', 1}, Tuple{' ', 1}, Tuple{'W', 1}, Tuple{'a', 1}, Tuple{'r', 1}, Tuple{'s', 1}})
+	//fmt.Println(OrderedCount("abracadabra"))
+	//fmt.Println([]Tuple{Tuple{'a', 5}, Tuple{'b', 2}, Tuple{'r', 2}, Tuple{'c', 1}, Tuple{'d', 1}})
 	//fmt.Println(EachCons([]int{3, 5, 8, 13}, 2), [][]int{{3, 5}, {5, 8}, {8, 13}})
 	//fmt.Println(EachCons([]int{3, 5, 8, 13}, 1), [][]int{{3}, {5}, {8}, {13}})
 	//fmt.Println(
