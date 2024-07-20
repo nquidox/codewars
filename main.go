@@ -2900,9 +2900,18 @@ func MaxMultiple(d, b int) int {
 	return 0
 }
 
+func Number(busStops [][2]int) int {
+	num := 0
+	for _, stop := range busStops {
+		num += stop[0] - stop[1]
+	}
+	return num
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(MaxMultiple(37, 200), 185)
+	fmt.Println(Number([][2]int{{3, 0}, {9, 1}, {4, 10}, {12, 2}, {6, 1}, {7, 10}}), 17)
+	//fmt.Println(MaxMultiple(37, 200), 185)
 	//fmt.Println(OrderedCount("Code Wars"))
 	//fmt.Println([]Tuple{Tuple{'C', 1}, Tuple{'o', 1}, Tuple{'d', 1}, Tuple{'e', 1}, Tuple{' ', 1}, Tuple{'W', 1}, Tuple{'a', 1}, Tuple{'r', 1}, Tuple{'s', 1}})
 	//fmt.Println(OrderedCount("abracadabra"))
