@@ -2922,9 +2922,14 @@ func GuessHatColor(a, b, c, d string) int {
 	return 2
 }
 
+func AlexMistakes(numberOfKatas, timeLimit int) int {
+	return int(math.Log2(float64((timeLimit-numberOfKatas*6)/5 + 1)))
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(GuessHatColor("white", "black", "white", "black"), 2)
+	fmt.Println(AlexMistakes(11, 120), 3)
+	//fmt.Println(GuessHatColor("white", "black", "white", "black"), 2)
 	//fmt.Println(NbDig(550, 5), 213)
 	//fmt.Println(Number([][2]int{{3, 0}, {9, 1}, {4, 10}, {12, 2}, {6, 1}, {7, 10}}), 17)
 	//fmt.Println(MaxMultiple(37, 200), 185)
