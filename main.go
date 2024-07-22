@@ -2915,10 +2915,17 @@ func NbDig(n int, d int) (c int) {
 	return
 }
 
+func GuessHatColor(a, b, c, d string) int {
+	if b == c {
+		return 1
+	}
+	return 2
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(NbDig(550, 5), 213)
-
+	fmt.Println(GuessHatColor("white", "black", "white", "black"), 2)
+	//fmt.Println(NbDig(550, 5), 213)
 	//fmt.Println(Number([][2]int{{3, 0}, {9, 1}, {4, 10}, {12, 2}, {6, 1}, {7, 10}}), 17)
 	//fmt.Println(MaxMultiple(37, 200), 185)
 	//fmt.Println(OrderedCount("Code Wars"))
