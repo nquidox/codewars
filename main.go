@@ -2908,9 +2908,18 @@ func Number(busStops [][2]int) int {
 	return num
 }
 
+func NbDig(n int, d int) (c int) {
+	for i := 0; i <= n; i++ {
+		c += strings.Count(strconv.Itoa(i*i), strconv.Itoa(d))
+	}
+	return
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(Number([][2]int{{3, 0}, {9, 1}, {4, 10}, {12, 2}, {6, 1}, {7, 10}}), 17)
+	fmt.Println(NbDig(550, 5), 213)
+
+	//fmt.Println(Number([][2]int{{3, 0}, {9, 1}, {4, 10}, {12, 2}, {6, 1}, {7, 10}}), 17)
 	//fmt.Println(MaxMultiple(37, 200), 185)
 	//fmt.Println(OrderedCount("Code Wars"))
 	//fmt.Println([]Tuple{Tuple{'C', 1}, Tuple{'o', 1}, Tuple{'d', 1}, Tuple{'e', 1}, Tuple{' ', 1}, Tuple{'W', 1}, Tuple{'a', 1}, Tuple{'r', 1}, Tuple{'s', 1}})
