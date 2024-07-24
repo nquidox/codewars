@@ -2926,9 +2926,20 @@ func AlexMistakes(numberOfKatas, timeLimit int) int {
 	return int(math.Log2(float64((timeLimit-numberOfKatas*6)/5 + 1)))
 }
 
+func ToCamelCase2(s string) string {
+	s = strings.ReplaceAll(s, "-", "_")
+	words := strings.Split(s, "_")
+	res := words[0]
+	for _, word := range words[1:] {
+		res += strings.Title(word)
+	}
+	return strings.TrimSuffix(res, "_")
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(AlexMistakes(11, 120), 3)
+	fmt.Println(ToCamelCase2("The_Stealth_Warrior"), "TheStealthWarrior")
+	//fmt.Println(AlexMistakes(11, 120), 3)
 	//fmt.Println(GuessHatColor("white", "black", "white", "black"), 2)
 	//fmt.Println(NbDig(550, 5), 213)
 	//fmt.Println(Number([][2]int{{3, 0}, {9, 1}, {4, 10}, {12, 2}, {6, 1}, {7, 10}}), 17)
