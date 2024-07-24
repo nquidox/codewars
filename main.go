@@ -2936,9 +2936,36 @@ func ToCamelCase2(s string) string {
 	return strings.TrimSuffix(res, "_")
 }
 
+func BowlingPins(slice []int) string {
+	m := make(map[int]string)
+	m[1] = "I"
+	m[2] = "I"
+	m[3] = "I"
+	m[4] = "I"
+	m[5] = "I"
+	m[6] = "I"
+	m[7] = "I"
+	m[8] = "I"
+	m[9] = "I"
+	m[10] = "I"
+
+	for _, j := range slice {
+		if _, ok := m[j]; ok {
+			m[j] = " "
+		}
+	}
+
+	return m[7] + " " + m[8] + " " + m[9] + " " + m[10] + "\n" +
+		" " + m[4] + " " + m[5] + " " + m[6] + " " + "\n" +
+		"  " + m[2] + " " + m[3] + "  " + "\n" +
+		"   " + m[1] + "   "
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(ToCamelCase2("The_Stealth_Warrior"), "TheStealthWarrior")
+	fmt.Println(BowlingPins([]int{3, 5, 9}))
+	fmt.Println("I I   I\n I   I \n  I    \n   I   ")
+	//fmt.Println(ToCamelCase2("The_Stealth_Warrior"), "TheStealthWarrior")
 	//fmt.Println(AlexMistakes(11, 120), 3)
 	//fmt.Println(GuessHatColor("white", "black", "white", "black"), 2)
 	//fmt.Println(NbDig(550, 5), 213)
