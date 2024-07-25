@@ -2989,12 +2989,28 @@ func FizzBuzzCuckooClock(time string) string {
 	}
 }
 
+func Persistence(n int) (counter int) {
+	num := strconv.Itoa(n)
+	for len(num) != 1 {
+		nums := strings.Split(num, "")
+		res := 1
+		for _, d := range nums {
+			cd, _ := strconv.Atoi(d)
+			res *= cd
+		}
+		num = strconv.Itoa(res)
+		counter++
+	}
+	return counter
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(FizzBuzzCuckooClock("11:15"), "| Fizz Buzz")
-	fmt.Println(FizzBuzzCuckooClock("03:03"), "| Fizz")
-	fmt.Println(FizzBuzzCuckooClock("14:30"), "| Cuckoo")
-	fmt.Println(FizzBuzzCuckooClock("00:00"), "| Cuckoo 12")
+	fmt.Println(Persistence(999), 4)
+	//fmt.Println(FizzBuzzCuckooClock("11:15"), "| Fizz Buzz")
+	//fmt.Println(FizzBuzzCuckooClock("03:03"), "| Fizz")
+	//fmt.Println(FizzBuzzCuckooClock("14:30"), "| Cuckoo")
+	//fmt.Println(FizzBuzzCuckooClock("00:00"), "| Cuckoo 12")
 	//fmt.Println(BowlingPins([]int{3, 5, 9}))
 	//fmt.Println("I I   I\n I   I \n  I    \n   I   ")
 	//fmt.Println(ToCamelCase2("The_Stealth_Warrior"), "TheStealthWarrior")
