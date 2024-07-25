@@ -3041,9 +3041,30 @@ func Unlock(str string) (res string) {
 	return
 }
 
+func ShortestArrang(n int) []int {
+	if n < 3 {
+		return []int{-1}
+	}
+
+	for i := 1; i*(i+1)/2 <= n; i++ {
+		sum := i * (i + 1) / 2
+		if (n-sum)%(i+1) == 0 {
+			start := (n - sum) / (i + 1)
+			result := make([]int, i+1)
+			for j := 0; j <= i; j++ {
+				result[j] = start + i - j
+			}
+			return result
+		}
+	}
+
+	return []int{-1}
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(Unlock("Nokia"), "66542")
+	fmt.Println(ShortestArrang(14), []int{5, 4, 3, 2})
+	//fmt.Println(Unlock("Nokia"), "66542")
 	//fmt.Println(Persistence(999), 4)
 	//fmt.Println(FizzBuzzCuckooClock("11:15"), "| Fizz Buzz")
 	//fmt.Println(FizzBuzzCuckooClock("03:03"), "| Fizz")
