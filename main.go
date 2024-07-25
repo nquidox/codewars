@@ -3004,9 +3004,47 @@ func Persistence(n int) (counter int) {
 	return counter
 }
 
+func Unlock(str string) (res string) {
+	m := make(map[string]string)
+	m["a"] = "2"
+	m["b"] = "2"
+	m["c"] = "2"
+	m["d"] = "3"
+	m["e"] = "3"
+	m["f"] = "3"
+	m["g"] = "4"
+	m["h"] = "4"
+	m["i"] = "4"
+	m["j"] = "5"
+	m["k"] = "5"
+	m["l"] = "5"
+	m["m"] = "6"
+	m["n"] = "6"
+	m["o"] = "6"
+	m["p"] = "7"
+	m["q"] = "7"
+	m["r"] = "7"
+	m["s"] = "7"
+	m["t"] = "8"
+	m["u"] = "8"
+	m["v"] = "8"
+	m["w"] = "9"
+	m["x"] = "9"
+	m["y"] = "9"
+	m["z"] = "9"
+
+	for _, l := range str {
+		c := strings.ToLower(string(l))
+		res += m[string(c)]
+	}
+
+	return
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(Persistence(999), 4)
+	fmt.Println(Unlock("Nokia"), "66542")
+	//fmt.Println(Persistence(999), 4)
 	//fmt.Println(FizzBuzzCuckooClock("11:15"), "| Fizz Buzz")
 	//fmt.Println(FizzBuzzCuckooClock("03:03"), "| Fizz")
 	//fmt.Println(FizzBuzzCuckooClock("14:30"), "| Cuckoo")
