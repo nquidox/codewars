@@ -3061,9 +3061,30 @@ func ShortestArrang(n int) []int {
 	return []int{-1}
 }
 
+func MakeValley(arr []int) []int {
+	arr2 := make([]int, len(arr))
+	sort.Slice(arr, func(i, j int) bool {
+		return arr[i] > arr[j]
+	})
+
+	c1, c2 := 0, len(arr)-1
+	for k, v := range arr {
+		if (k % 2) == 0 {
+			arr2[c1] = v
+			c1++
+		} else {
+			arr2[c2] = v
+			c2--
+		}
+	}
+	return arr2
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(ShortestArrang(14), []int{5, 4, 3, 2})
+	fmt.Println(MakeValley([]int{17, 17, 15, 14, 8, 7, 7, 5, 4, 4, 1}))
+	fmt.Println([]int{17, 15, 8, 7, 4, 1, 4, 5, 7, 14, 17})
+	//fmt.Println(ShortestArrang(14), []int{5, 4, 3, 2})
 	//fmt.Println(Unlock("Nokia"), "66542")
 	//fmt.Println(Persistence(999), 4)
 	//fmt.Println(FizzBuzzCuckooClock("11:15"), "| Fizz Buzz")
