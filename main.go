@@ -3109,10 +3109,20 @@ func RacePodium(blocks int) [3]int {
 	return [3]int{p2, p1, p3}
 }
 
+func StringPrefixAndSuffix(s string) int {
+	for i := len(s) / 2; i > 0; i-- {
+		if s[:i] == s[len(s)-i:] {
+			return i
+		}
+	}
+	return 0
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(RacePodium(11), [3]int{4, 5, 2})
-	fmt.Println(RacePodium(10), [3]int{4, 5, 1})
+	fmt.Println(StringPrefixAndSuffix("abcabc"), 3)
+	//fmt.Println(RacePodium(11), [3]int{4, 5, 2})
+	//fmt.Println(RacePodium(10), [3]int{4, 5, 1})
 	//fmt.Println(MakeValley([]int{17, 17, 15, 14, 8, 7, 7, 5, 4, 4, 1}))
 	//fmt.Println([]int{17, 15, 8, 7, 4, 1, 4, 5, 7, 14, 17})
 	//fmt.Println(ShortestArrang(14), []int{5, 4, 3, 2})
