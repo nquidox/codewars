@@ -3080,10 +3080,41 @@ func MakeValley(arr []int) []int {
 	return arr2
 }
 
+func RacePodium(blocks int) [3]int {
+	var p1, p2, p3 int
+	nf := float64(int(blocks / 3))
+	d := int(math.Round((float64(blocks)/3 - nf) * 3))
+	n := int(nf)
+
+	switch {
+	case d == 1:
+		p1 = n + d + 1
+		p2 = n + 1
+		p3 = n - 2
+	case d > 1:
+		p1 = n + d
+		p2 = n + 1
+		p3 = n - 1
+	default:
+		p1 = n + 1
+		p2 = n
+		p3 = n - 1
+	}
+
+	if p3 == 0 {
+		p2 = p2 - 1
+		p3 = 1
+	}
+
+	return [3]int{p2, p1, p3}
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(MakeValley([]int{17, 17, 15, 14, 8, 7, 7, 5, 4, 4, 1}))
-	fmt.Println([]int{17, 15, 8, 7, 4, 1, 4, 5, 7, 14, 17})
+	fmt.Println(RacePodium(11), [3]int{4, 5, 2})
+	fmt.Println(RacePodium(10), [3]int{4, 5, 1})
+	//fmt.Println(MakeValley([]int{17, 17, 15, 14, 8, 7, 7, 5, 4, 4, 1}))
+	//fmt.Println([]int{17, 15, 8, 7, 4, 1, 4, 5, 7, 14, 17})
 	//fmt.Println(ShortestArrang(14), []int{5, 4, 3, 2})
 	//fmt.Println(Unlock("Nokia"), "66542")
 	//fmt.Println(Persistence(999), 4)
