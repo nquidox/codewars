@@ -3118,9 +3118,37 @@ func StringPrefixAndSuffix(s string) int {
 	return 0
 }
 
+func Scale(s string, k, n int) (res string) {
+	var w string
+
+	for i := range s {
+		if s[i] != 10 {
+			for j := k; j > 0; j-- {
+				w += string(s[i])
+			}
+		}
+
+		if (s[i] == 10) || len(s)-1 == i {
+			var w2 string
+
+			for j := n; j > 0; j-- {
+				w2 += w + string(byte(10))
+			}
+			if len(s)-1 == i {
+				w2 = w2[:len(w2)-1]
+			}
+			res += w2
+			w = ""
+		}
+	}
+	return res
+}
+
 func main() {
 	fmt.Println("Codewars")
-	fmt.Println(StringPrefixAndSuffix("abcabc"), 3)
+	fmt.Println(Scale("Kj\nSH", 1, 2))
+	fmt.Println("Kj\nKj\nSH\nSH")
+	//fmt.Println(StringPrefixAndSuffix("abcabc"), 3)
 	//fmt.Println(RacePodium(11), [3]int{4, 5, 2})
 	//fmt.Println(RacePodium(10), [3]int{4, 5, 1})
 	//fmt.Println(MakeValley([]int{17, 17, 15, 14, 8, 7, 7, 5, 4, 4, 1}))
